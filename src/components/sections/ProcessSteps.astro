@@ -1,0 +1,126 @@
+---
+/**
+ * Como funciona — fase "apoio" da biblioteca B2.
+ *
+ * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup "Do diagnóstico
+ * ao compressor em operação", docs/BRIEFING.md): painel navy com o fim do título em
+ * amarelo, as etapas numa trilha com círculos amarelos numerados ligados por uma linha
+ * com setas, cada etapa num card contornado com ícone amarelo, e uma faixa final com o
+ * selo da equipe e o CTA. O contrato da seção é o mesmo da biblioteca — etapas, CTA
+ * `processo-cta`, painel navy, `tone`/`rhythm`.
+ *
+ * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
+ * Recompor a página exige reaplicá-la a partir do git.
+ */
+import Section from '@components/Section.astro'
+import Icon from '@components/Icon.astro'
+import type { SectionProps } from '@lib/layout'
+import { process } from '@data/sections/processo'
+
+type Props = SectionProps
+
+const { tone, rhythm } = Astro.props
+const steps = process.steps
+
+// O trecho em amarelo é o fim do título; o texto inteiro continua em `process.title`.
+const cut = process.title.lastIndexOf(process.highlight)
+const lead = cut >= 0 ? process.title.slice(0, cut).trimEnd() : process.title
+const highlight = cut >= 0 ? process.highlight : ''
+---
+
+<Section id="processo" tone={tone} rhythm={rhythm} container={false}>
+  {/* Painel mais largo que o container da página, como no mockup: mais baixo e mais comprido. */}
+  <div class="mx-auto w-full max-w-[1680px] px-6 lg:px-8">
+    <div class="process-panel relative overflow-hidden rounded-[28px] p-6 shadow-[0_24px_60px_-34px_rgba(0,24,48,0.8)] sm:p-8 lg:px-10 lg:py-9 2xl:px-14 2xl:py-10">
+      <div class="relative">
+        {/* Cabeçalho */}
+        <p class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.2em] text-[#8bcdff] uppercase sm:text-[14px]">
+          <span
+            aria-hidden="true"
+            class="h-[4px] w-10 shrink-0 rounded-full bg-brand-yellow"
+          ></span>
+          {process.eyebrow}
+        </p>
+        <h2 class="mt-3 font-display text-[2.25rem] leading-[1.05] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.3rem] 2xl:text-[3.6rem]">
+          {lead} {highlight && <span class="text-brand-yellow sm:block">{highlight}</span>}
+        </h2>
+        <p class="mt-3 max-w-5xl font-sans text-lg leading-relaxed text-neutral-light/80">
+          {process.text}
+        </p>
+
+        {/* Trilha de etapas */}
+        <ol
+          class="process-track relative mt-8 grid gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-[repeat(var(--process-steps),minmax(0,1fr))] 2xl:gap-x-5"
+          style={`--process-steps: ${steps.length}`}
+        >
+          <span
+            aria-hidden="true"
+            class="process-line pointer-events-none absolute inset-x-0 top-7 hidden h-[2px] lg:block"
+          ></span>
+          {steps.map((step, i) => (
+            <li class="relative flex flex-col items-center">
+              {i > 0 && (
+                <span
+                  aria-hidden="true"
+                  class="absolute top-[22px] -left-[13px] hidden size-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-brand-yellow lg:block 2xl:-left-[15px]"
+                />
+              )}
+              <span class="relative z-[2] flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-yellow font-display text-[20px] font-extrabold text-primary-dark-900">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div class="-mt-4 w-full flex-1 rounded-2xl border border-[#1f5fa8]/80 bg-white/[0.03] px-5 pt-9 pb-6 2xl:px-6">
+                <Icon name={step.icon} class="size-10 text-brand-yellow" />
+                <h3 class="mt-4 font-display text-[18px] leading-snug font-extrabold text-neutral-light 2xl:text-[20px]">
+                  {step.title}
+                </h3>
+                <p class="mt-2 font-sans text-[15px] leading-relaxed text-neutral-light/75">
+                  {step.description}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        {/* Selo da equipe e CTA */}
+        <div class="mt-7 flex flex-col gap-5 border-t border-[#1b5285] pt-5 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-5">
+            <Icon name="shield-check" class="size-11 shrink-0 text-brand-yellow" />
+            <span aria-hidden="true" class="h-11 w-px bg-white/20"></span>
+            <span class="font-display text-[17px] font-bold text-neutral-light sm:text-[18px]">
+              {process.microcopy}
+            </span>
+          </div>
+          <button
+            type="button"
+            data-cta="processo-cta"
+            class="btn-slave-whats inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-brand-yellow px-8 py-3.5 font-sans text-[18px] font-bold text-primary-dark-900 shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none"
+          >
+            {process.cta}
+            <Icon name="arrow-right" class="size-5 shrink-0 [stroke-width:2.4]" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  /* Fundo do mockup: navy com um brilho azul no canto superior direito e na base. */
+  .process-panel {
+    background:
+      radial-gradient(1000px 520px at 100% -10%, rgb(0 78 150 / 0.55) 0%, transparent 62%),
+      radial-gradient(900px 320px at 55% 115%, rgb(0 80 150 / 0.6) 0%, transparent 70%),
+      linear-gradient(160deg, #003770 0%, #012b59 45%, #002a5c 100%);
+  }
+
+  /* Linha da trilha, na altura do centro dos círculos, esmaecendo nas pontas. */
+  .process-line {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-brand-yellow) 7%,
+      var(--color-brand-yellow) 93%,
+      transparent 100%
+    );
+  }
+</style>

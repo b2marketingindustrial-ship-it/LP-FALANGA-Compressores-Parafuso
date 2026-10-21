@@ -1,0 +1,243 @@
+---
+/**
+ * Linhas de produto — fase "oferta" da biblioteca B2.
+ *
+ * VARIANTE LOCAL herdada da LP de manutenção da Falanga (mockup da seção de serviços,
+ * 21/10/2026, docs/BRIEFING.md): cabeçalho à esquerda com duas fotos à direita, cards
+ * numerados, uma faixa de nomes e uma faixa de CTA. Nesta LP de produto, cada card mostra
+ * o chip, a foto do equipamento e as três características, como no card da biblioteca.
+ * O contrato da seção é o mesmo da biblioteca — dados, CTAs `linhas-{id}`, um card
+ * escuro, `tone`/`rhythm` — mais o CTA `linhas-cotacao` da faixa final.
+ *
+ * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
+ * Recompor a página exige reaplicá-la a partir do git.
+ */
+import { Image } from 'astro:assets'
+import Section from '@components/Section.astro'
+import Icon from '@components/Icon.astro'
+import BrandCarousel from '@components/BrandCarousel.astro'
+import type { SectionProps } from '@lib/layout'
+import { cta } from '@data/content'
+import { productLines } from '@data/sections/linhas'
+
+type Props = SectionProps
+
+const { tone, rhythm } = Astro.props
+const lines = productLines.items
+const [photo1, photo2] = productLines.gallery
+---
+
+<Section id="linhas" tone={tone} rhythm={rhythm}>
+  <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12">
+    {/* Cabeçalho */}
+    <div class="max-w-2xl">
+      <p class="flex items-center gap-4 font-sans text-[13px] font-bold tracking-[0.14em] text-brand-blue uppercase sm:text-[14px]">
+        <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
+        {productLines.eyebrow}
+      </p>
+      <h2 class="mt-4 font-display text-[2.25rem] leading-[1.06] font-extrabold tracking-[-0.03em] text-primary-dark sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.4rem]">
+        {productLines.title}
+      </h2>
+      <p class="mt-5 max-w-xl font-sans text-lg leading-relaxed text-ink-soft xl:text-xl">
+        {productLines.text}
+      </p>
+      <p class="mt-5 flex items-center gap-2.5 font-sans text-[16px] font-medium text-ink">
+        <Icon name="map-pin" class="size-5 shrink-0 text-brand-blue" />
+        {productLines.area}
+      </p>
+    </div>
+
+    {/* Duas fotos, a primeira com o selo */}
+    <div class="grid grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-center gap-3 sm:gap-4">
+      <figure class="relative h-56 overflow-hidden rounded-2xl bg-neutral-gray-100 sm:h-72 xl:h-[340px]">
+        <Image
+          src={photo1.src}
+          alt={photo1.alt}
+          width={450}
+          format="webp"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+        <span class="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-neutral-light px-3 py-2 font-sans text-[12px] font-bold text-brand-blue shadow-[0_10px_24px_-14px_rgba(0,33,71,0.6)] sm:bottom-4 sm:left-4 sm:px-4 sm:py-2.5 sm:text-[14px]">
+          <Icon name={productLines.badge.icon} class="size-4 shrink-0 sm:size-5" />
+          {productLines.badge.label}
+        </span>
+      </figure>
+      <figure class="h-48 overflow-hidden rounded-2xl bg-neutral-gray-100 sm:h-64 xl:h-[320px]">
+        <Image
+          src={photo2.src}
+          alt={photo2.alt}
+          width={680}
+          format="webp"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+      </figure>
+    </div>
+  </div>
+
+  {/* Cards de produto, um escuro */}
+  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4 lg:gap-5">
+    {lines.map((line, i) => (
+      <article
+        class:list={[
+          'flex flex-col rounded-2xl border p-5 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 xl:p-6',
+          line.dark
+            ? 'border-transparent bg-[linear-gradient(160deg,#0550ab_0%,#0043a1_55%,#003a8f_100%)] shadow-[0_24px_48px_-28px_rgba(0,55,127,0.8)]'
+            : 'border-[#e3e8f1] bg-neutral-light shadow-[0_10px_30px_-24px_rgba(0,33,71,0.35)] hover:shadow-[0_24px_48px_-28px_rgba(0,33,71,0.4)]',
+        ]}
+      >
+        <div class="flex items-center justify-between">
+          <span
+            class:list={[
+              'rounded-full px-3 py-1 font-sans text-[11px] font-bold tracking-[0.12em] uppercase',
+              line.dark
+                ? 'bg-brand-yellow text-primary-dark-900'
+                : 'bg-brand-yellow-soft text-[#00256f]',
+            ]}
+          >
+            {line.tag}
+          </span>
+          <span
+            class:list={[
+              'font-display text-[17px] font-bold',
+              line.dark ? 'text-neutral-light/45' : 'text-[#c0c9df]',
+            ]}
+          >
+            {String(i + 1).padStart(2, '0')}
+          </span>
+        </div>
+
+        {/* Palco do produto: o fundo branco da foto some no multiply */}
+        <figure
+          class:list={[
+            'mt-4 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl p-3',
+            line.dark ? 'bg-neutral-light' : 'bg-[linear-gradient(180deg,#f5f7fa_0%,#ffffff_100%)]',
+          ]}
+        >
+          <Image
+            src={line.photo.src}
+            alt={line.photo.alt}
+            width={400}
+            format="webp"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-contain mix-blend-multiply"
+          />
+        </figure>
+
+        <h3
+          class:list={[
+            'mt-5 font-display text-[21px] leading-[1.2] font-extrabold tracking-[-0.015em] lg:text-[19px] xl:text-[20px] 2xl:text-[22px]',
+            line.dark ? 'text-neutral-light' : 'text-brand-blue',
+          ]}
+        >
+          {line.title}
+        </h3>
+        <p
+          class:list={[
+            'mt-2 font-sans text-[15px] leading-relaxed',
+            line.dark ? 'text-neutral-light/85' : 'text-ink-soft',
+          ]}
+        >
+          {line.description}
+        </p>
+
+        <ul class="mt-4 space-y-2" aria-label={`Características: ${line.title}`}>
+          {line.features.map((feature) => (
+            <li
+              class:list={[
+                'flex items-center gap-2.5 font-sans text-[14px] font-medium',
+                line.dark ? 'text-neutral-light/90' : 'text-ink',
+              ]}
+            >
+              <span
+                class:list={[
+                  'flex size-5 shrink-0 items-center justify-center rounded-full',
+                  line.dark
+                    ? 'bg-brand-yellow text-primary-dark-900'
+                    : 'bg-brand-yellow-soft text-[#00256f]',
+                ]}
+              >
+                <Icon name="check" class="size-3 [stroke-width:2.4]" />
+              </span>
+              {feature}
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-auto pt-6">
+          <button
+            type="button"
+            data-cta={`linhas-${line.id}`}
+            class:list={[
+              'btn-slave-whats inline-flex w-full max-w-[16.5rem] items-center justify-between gap-4 border-b-2 pb-2 font-sans text-[15px] font-bold transition-colors duration-200 motion-reduce:transition-none',
+              line.dark
+                ? 'border-white/45 text-neutral-light hover:border-brand-yellow'
+                : 'border-brand-blue/25 text-brand-blue hover:border-brand-blue',
+            ]}
+          >
+            {cta.card}
+            <Icon
+              name="arrow-right"
+              class:list={[
+                'size-5 shrink-0 [stroke-width:2.2]',
+                line.dark ? 'text-brand-yellow' : 'text-brand-blue',
+              ]}
+            />
+          </button>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  {/* Faixa de nomes por extenso: nesta LP, as linhas Schulz (logos só com autorização — entrada 7) */}
+  <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 lg:px-6">
+    <span class="flex items-center gap-4 font-display text-[17px] font-extrabold text-primary-dark">
+      <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
+      {productLines.brands.label}
+    </span>
+    <span aria-hidden="true" class="hidden h-6 w-px bg-ink/25 sm:block"></span>
+    <ul
+      class="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[16px] text-ink-soft"
+      aria-label={productLines.brands.label}
+    >
+      {productLines.brands.names.map((name, i) => (
+        <li class="flex items-center gap-3">
+          {i > 0 && (
+            <span aria-hidden="true" class="text-ink/40">
+              •
+            </span>
+          )}
+          {name}
+        </li>
+      ))}
+    </ul>
+  </div>
+  <BrandCarousel />
+
+  {/* Faixa de CTA */}
+  <div class="mt-6 flex flex-col gap-5 rounded-2xl bg-brand-mist px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+    <div class="flex items-center gap-5">
+      <span aria-hidden="true" class="h-12 w-1 shrink-0 rounded-full bg-brand-yellow"></span>
+      <div>
+        <p class="font-display text-[20px] leading-snug font-extrabold text-brand-blue sm:text-[22px]">
+          {productLines.closing.title}
+        </p>
+        <p class="mt-1 font-sans text-[15px] text-ink-soft sm:text-[16px]">
+          {productLines.closing.text}
+        </p>
+      </div>
+    </div>
+    <button
+      type="button"
+      data-cta="linhas-cotacao"
+      class="btn-slave-whats inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-brand-blue px-8 py-4 font-sans text-[17px] font-bold text-neutral-light shadow-[0_14px_30px_-16px_rgba(0,67,161,0.7)] transition-colors duration-200 hover:bg-brand-blue-dark motion-reduce:transition-none"
+    >
+      <Icon name="whatsapp" class="size-6 shrink-0" />
+      {productLines.closing.cta}
+    </button>
+  </div>
+</Section>

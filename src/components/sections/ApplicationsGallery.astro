@@ -1,0 +1,121 @@
+---
+/**
+ * Galeria de aplicações — fase "prova" da biblioteca B2.
+ *
+ * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup "Manutenção para
+ * todo o sistema de ar comprimido", docs/BRIEFING.md): cabeçalho centrado, 4 cards-botão
+ * com foto, número em quadrado amarelo e rodapé "Falar com especialista", e uma faixa
+ * azul de CTA fechando a seção. O contrato é o mesmo da biblioteca — 4 itens, o card
+ * inteiro é o CTA `aplicacoes-{id}`, `tone`/`rhythm` —, mais o CTA
+ * `aplicacoes-atendimento` da faixa e a descrição até 100 caracteres
+ * (scripts/lib/contract.mjs).
+ *
+ * A moldura é 16:10 com a foto ancorada no topo: as fotos 2–4, recortadas do mockup,
+ * têm o número dele embutido no rodapé, e essa faixa fica sempre fora da área visível.
+ *
+ * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
+ * Recompor a página exige reaplicá-la a partir do git.
+ */
+import { Image } from 'astro:assets'
+import Section from '@components/Section.astro'
+import Icon from '@components/Icon.astro'
+import type { SectionProps } from '@lib/layout'
+import { cta } from '@data/content'
+import { applications } from '@data/sections/aplicacoes'
+
+type Props = SectionProps
+
+const { tone, rhythm } = Astro.props
+---
+
+<Section id="aplicacoes" tone={tone} rhythm={rhythm}>
+  {/* Cabeçalho centrado */}
+  <div class="mx-auto max-w-4xl text-center">
+    <p class="inline-flex items-center gap-4 font-sans text-[13px] font-bold tracking-[0.28em] text-primary-dark uppercase sm:text-[14px]">
+      <span aria-hidden="true" class="h-[4px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
+      {applications.eyebrow}
+    </p>
+    <h2 class="mt-4 font-display text-[2.1rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-primary-dark sm:text-[2.75rem] lg:text-[3.1rem] xl:text-[3.4rem]">
+      {applications.title}
+    </h2>
+    <p class="mt-4 font-sans text-lg leading-relaxed text-ink-soft">{applications.text}</p>
+  </div>
+
+  {/* 4 cards: o card inteiro é o CTA */}
+  <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+    {applications.items.map((app, i) => (
+      <li>
+        <button
+          type="button"
+          data-cta={`aplicacoes-${app.id}`}
+          class="btn-slave-whats group flex h-full w-full flex-col overflow-hidden rounded-2xl bg-neutral-light text-left shadow-[0_18px_40px_-28px_rgba(0,33,71,0.45)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_28px_56px_-28px_rgba(0,33,71,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+        >
+          <span class="relative block aspect-[16/10] overflow-hidden bg-neutral-gray-100">
+            <Image
+              src={app.photo.src}
+              alt={app.photo.alt}
+              format="webp"
+              width={640}
+              loading="lazy"
+              decoding="async"
+              class:list={[
+                'h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100',
+                i === 0 ? 'object-[center_15%]' : 'object-top',
+              ]}
+            />
+            <span class="absolute bottom-3 left-3 flex size-11 items-center justify-center rounded-lg bg-brand-yellow font-display text-[17px] font-extrabold text-primary-dark-900">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+          </span>
+
+          <span class="flex flex-1 flex-col px-6 pt-5 pb-5">
+            <span class="font-display text-[22px] leading-tight font-extrabold tracking-[-0.015em] text-brand-blue-dark xl:text-[23px]">
+              {app.label}
+            </span>
+            <span class="mt-2 font-sans text-[15px] leading-relaxed text-ink-soft">
+              {app.description}
+            </span>
+            <span class="mt-auto flex items-center justify-between gap-3 border-t border-[#e3e8f1] pt-4">
+              <span class="font-sans text-[15px] font-bold text-brand-blue">{cta.card}</span>
+              <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#eaf2fb] text-brand-blue-dark transition-colors duration-200 group-hover:bg-brand-blue group-hover:text-neutral-light motion-reduce:transition-none">
+                <Icon name="arrow-right" class="size-4 [stroke-width:2.2]" />
+              </span>
+            </span>
+          </span>
+        </button>
+      </li>
+    ))}
+  </ul>
+
+  {/* Faixa de CTA */}
+  <div class="apps-closing mt-8 flex flex-col gap-5 overflow-hidden rounded-2xl px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+    <div class="flex items-center gap-5">
+      <span aria-hidden="true" class="h-12 w-1 shrink-0 rounded-full bg-brand-yellow"></span>
+      <div>
+        <p class="font-display text-[20px] leading-snug font-extrabold text-neutral-light sm:text-[24px]">
+          {applications.closing.title}
+        </p>
+        <p class="mt-1 font-sans text-[16px] font-semibold text-[#7fc0ff]">
+          {applications.closing.text}
+        </p>
+      </div>
+    </div>
+    <button
+      type="button"
+      data-cta="aplicacoes-atendimento"
+      class="btn-slave-whats inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-brand-yellow px-6 py-4 font-sans text-[17px] font-bold whitespace-nowrap text-primary-dark-900 shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none sm:px-8"
+    >
+      {applications.closing.cta}
+      <Icon name="arrow-right" class="size-5 shrink-0 [stroke-width:2.4]" />
+    </button>
+  </div>
+</Section>
+
+<style>
+  /* Faixa azul do mockup, com um brilho discreto à direita. */
+  .apps-closing {
+    background:
+      radial-gradient(700px 220px at 85% 50%, rgb(255 255 255 / 0.07) 0%, transparent 70%),
+      linear-gradient(100deg, #01418f 0%, #01458f 45%, #013b81 100%);
+  }
+</style>

@@ -1,0 +1,235 @@
+---
+/**
+ * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.2). Grid desktop: texto (1fr) · coluna VAZIA (270px) · shortcode (300px).
+ * A coluna 2 é a janela do banner; nunca coloque conteúdo nela.
+ * Abra a página com `?grid=1` para ver as colunas e o início da foto.
+ *
+ * Desvio pedido pelo cliente em 21/10/2026 (segundo mockup da abertura): o técnico e o
+ * compressor começam logo depois do texto, com a foto ancorada ao fim da coluna 1 até a
+ * borda da tela. O H1 com a palavra-chave é a linha de abertura, acima da manchete
+ * ("Mais eficiência." em branco, o resto em amarelo); os quatro pontos ficam em grade
+ * 2×2 com ícone amarelo; um único CTA, em pílula amarela, com a área atendida embaixo.
+ * O shortcode do chat fica num card branco que encosta na margem da tela. Grid e coluna
+ * de 300px do shortcode seguem os do padrão. Registrado em docs/BRIEFING.md.
+ */
+import { Picture } from 'astro:assets'
+import Icon from './Icon.astro'
+import { hero, cta } from '../data/content'
+
+const isDev = import.meta.env.DEV
+---
+
+<section class="hero relative overflow-hidden [container-type:inline-size]" data-hero>
+  {/* z1 — banner: faixa no rodapé da seção no mobile; no desktop, do fim da coluna de texto à borda da tela */}
+  <div class="hero-photo hero-fade absolute inset-x-0 bottom-0 z-[1] h-[300px] lg:inset-y-0 lg:h-auto">
+    <Picture
+      src={hero.banner.src}
+      alt={hero.banner.alt}
+      widths={[640, 1024, 1536, 1981]}
+      sizes="(min-width: 1024px) 1660px, 700px"
+      formats={['avif', 'webp']}
+      fallbackFormat="webp"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="h-full w-full object-cover object-left"
+      pictureAttributes={{ class: 'block h-full w-full' }}
+    />
+  </div>
+
+  {/* z5 — conteúdo */}
+  <div class="relative z-[5] mx-auto max-w-page px-6 pt-14 pb-[320px] lg:px-10 lg:py-24">
+    <div class="hero-grid grid items-center gap-y-12 lg:min-h-[560px] lg:gap-x-6">
+      {/* Coluna 1 — textos */}
+      <div class="max-w-xl lg:max-w-none">
+        {/* H1 com a palavra-chave da campanha, na forma de linha de abertura */}
+        <h1 class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.14em] text-neutral-light/90 uppercase sm:text-[15px]">
+          <span
+            aria-hidden="true"
+            class="h-[3px] w-12 shrink-0 rounded-full bg-brand-yellow"
+          ></span>
+          {hero.title}
+        </h1>
+
+        {/* Manchete visual: cada item é uma linha */}
+        <p class="mt-4 font-display text-[2.25rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[3rem] lg:text-[2.6rem] xl:text-[3.5rem] 2xl:text-[4rem]">
+          {hero.headline.map((line) => (
+            <span class="block">{line}</span>
+          ))}
+          {hero.highlight.map((line) => (
+            <span class="block text-brand-yellow">{line}</span>
+          ))}
+        </p>
+
+        <p class="mt-5 max-w-[32rem] font-sans text-lg leading-relaxed text-neutral-light/90 2xl:text-xl">
+          {hero.text}
+        </p>
+
+        {/* 4 pontos em grade 2×2: ícone amarelo e texto sempre em duas linhas */}
+        <ul class="mt-8 grid max-w-[30rem] grid-cols-2 gap-x-6 gap-y-6 sm:gap-x-10">
+          {hero.points.map((point) => (
+            <li class="flex items-center gap-3 sm:gap-4">
+              <Icon name={point.icon} class="size-9 shrink-0 text-brand-yellow sm:size-10" />
+              <span class="font-sans text-[14px] leading-snug font-semibold text-neutral-light sm:text-[16px]">
+                <span class="block whitespace-nowrap">{point.line1}</span>
+                <span class="block whitespace-nowrap">{point.line2}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          type="button"
+          data-cta="hero-primary"
+          class="btn-slave-whats mt-9 inline-flex items-center gap-3 rounded-full bg-brand-yellow px-9 py-4 font-sans text-[18px] font-bold text-primary-dark-900 shadow-[0_16px_32px_-16px_rgba(253,224,1,0.6)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none"
+        >
+          {cta.primary}
+          <Icon name="arrow-right" class="size-5 [stroke-width:2.4]" />
+        </button>
+
+        {/* Área atendida, separada por ponto */}
+        <p class="mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-sans text-[15px] font-medium text-neutral-light/90">
+          {hero.area.map((item, i) => (
+            <>
+              {i > 0 && (
+                <span aria-hidden="true" class="text-neutral-light/60">
+                  •
+                </span>
+              )}
+              <span>{item}</span>
+            </>
+          ))}
+        </p>
+      </div>
+
+      {/* Coluna 2 — VAZIA de propósito: janela do banner */}
+      <div class="hidden lg:block" aria-hidden="true"></div>
+
+      {/* Coluna 3 — shortcode do chat (300px), em card branco que encosta na margem da tela */}
+      <div class="hero-chat w-full lg:w-[300px]">
+        <div class="min-h-[430px] w-full overflow-hidden rounded-2xl bg-neutral-light p-4 shadow-[0_30px_60px_-28px_rgba(0,0,0,0.7)]">
+          <slot name="shortcode">
+            {isDev ? (
+              <div
+                class="flex min-h-[398px] w-full flex-col gap-3 text-left"
+                aria-label="Mock do chat (só em desenvolvimento)"
+              >
+                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-primary-dark uppercase">
+                  Mock · chat
+                </span>
+                <p class="font-display text-base font-bold text-ink">Inicie seu atendimento</p>
+                <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
+                <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
+                <div class="h-24 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
+                <div class="mt-auto h-11 rounded-full bg-brand-yellow" />
+              </div>
+            ) : (
+              <div class="flex min-h-[398px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-primary-dark/25 p-6 text-center">
+                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
+                  Espaço reservado
+                </span>
+                <p class="font-display text-lg font-bold text-ink">Shortcode — 300px</p>
+              </div>
+            )}
+          </slot>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Overlay de depuração: ?grid=1 */}
+  <div data-hero-grid hidden class="pointer-events-none absolute inset-0 z-[9]">
+    <div class="hero-photo absolute inset-0 hidden lg:block">
+      <div class="absolute inset-y-0 left-0 border-l-2 border-dashed border-brand-yellow">
+        <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] whitespace-nowrap text-brand-yellow">
+          início da foto
+        </span>
+      </div>
+    </div>
+    <div class="mx-auto h-full max-w-page px-6 lg:px-10">
+      <div class="hero-grid grid h-full lg:gap-x-6">
+        <div class="border-x border-dashed border-white/60">
+          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
+            col 1 · texto
+          </span>
+        </div>
+        <div class="hidden border-x border-dashed border-brand-yellow lg:block">
+          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-brand-yellow">
+            col 2 · 270px · vazia
+          </span>
+        </div>
+        <div class="hidden border-x border-dashed border-white/60 lg:block">
+          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
+            col 3 · 300px · shortcode
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Fundo do mockup: navy quase uniforme atrás do texto (#012751 medido no mockup). */
+  .hero {
+    background: linear-gradient(180deg, #01264e 0%, #012751 55%, #012856 100%);
+  }
+
+  /* Metade da largura da página (1320px / 2): ancora as colunas e a foto no mesmo eixo. */
+  .hero-photo,
+  .hero-grid {
+    --page-half: calc(var(--container-page) / 2);
+    --page-edge: max(0px, calc(50% - var(--page-half)));
+    /* Fim da coluna de texto: page-edge + min(100%, página) − 658px (padding 40 · 270 · 300 · 2 gaps de 24). */
+    --col-end: calc(var(--page-edge) + min(100%, var(--container-page)) - 658px);
+  }
+
+  /* Mobile: a faixa da foto no rodapé do hero nasce do fundo navy, sem borda reta. */
+  .hero-fade {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7rem);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 7rem);
+  }
+
+  @media (min-width: 1024px) {
+    /* Col 1 (1fr) | Col 2 janela do banner | Col 3 shortcode 300px */
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr) 270px 300px;
+    }
+
+    /* A foto começa 100px antes do fim da coluna 1 — o texto (máx. 32rem) acaba antes disso — */
+    /* e vai até a borda da tela. Com o hero de ao menos 752px, o compressor aberto e o técnico */
+    /* (primeiros ~30% do banner) caem logo depois do texto, e o técnico fica livre do card do */
+    /* chat a partir de ~1440px. */
+    .hero-photo {
+      left: calc(var(--col-end) - 100px);
+      right: 0;
+    }
+
+    /* A borda esquerda da foto some no fundo da seção: o banner foi recortado do mockup e */
+    /* começa no gabinete do compressor aberto. Esmaecido curto, para a frente dele aparecer. */
+    /* Máscara, e não véu por cima, para não haver cor a casar. */
+    .hero-fade {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        rgb(0 0 0 / 0.6) 50px,
+        #000 120px
+      );
+      mask-image: linear-gradient(to right, transparent 0, rgb(0 0 0 / 0.6) 50px, #000 120px);
+    }
+
+    /* O card do chat sai do container e encosta na margem da tela, sobre o fundo azul. */
+    /* cqw e não %: em translateX o % seria da largura do próprio card, não da seção. */
+    .hero-chat {
+      transform: translateX(max(0px, calc(50cqw - var(--container-page) / 2)));
+    }
+  }
+</style>
+
+<script>
+  // Overlay de depuração do grid: abra a página com ?grid=1
+  if (new URLSearchParams(location.search).get('grid') === '1') {
+    document.querySelectorAll<HTMLElement>('[data-hero-grid]').forEach((el) => {
+      el.hidden = false
+    })
+  }
+</script>

@@ -1,0 +1,50 @@
+---
+/**
+ * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.1), com o desvio pedido pelo cliente em
+ * 21/10/2026 (mockup da abertura): barra branca com a logo alinhada dentro dela, no
+ * lugar da barra navy com a placa pendurada, e CTA em pílula amarela com texto navy.
+ * O menu do mockup não entra: uma rota, uma página (regra 1). Registrado em
+ * docs/BRIEFING.md (Desvios do padrão).
+ * Muda só: logo (src/assets/LOGO.png), tagline (site.product) e rótulos (content.header, content.cta).
+ */
+import { Image } from 'astro:assets'
+import Icon from './Icon.astro'
+import logo from '../assets/LOGO.png'
+import { site } from '../data/site'
+import { header, cta } from '../data/content'
+---
+
+<header class="sticky top-0 z-50 border-b border-primary-dark/10 bg-neutral-light shadow-[0_6px_20px_-16px_rgba(0,33,71,0.5)]">
+  <div class="mx-auto flex max-w-page items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 lg:px-10">
+    {/* 1. Logo alinhada na barra */}
+    <a href="/" class="flex shrink-0 items-center">
+      <Image
+        src={logo}
+        alt={site.brand}
+        width={341}
+        height={82}
+        format="webp"
+        loading="eager"
+        fetchpriority="low"
+        decoding="async"
+        class="header-logo h-10 w-auto sm:h-14"
+      />
+    </a>
+
+    {/* 2. Tagline (some no mobile) — ocupa o lugar do menu do mockup */}
+    <span class="hidden flex-1 text-right font-display text-[13px] font-extrabold tracking-[0.14em] text-primary-dark uppercase lg:block">
+      {header.tagline}
+    </span>
+
+    {/* 3. CTA em pílula amarela, rótulo curto no mobile */}
+    <button
+      type="button"
+      data-cta="header-cta"
+      class="btn-slave-whats inline-flex shrink-0 items-center gap-2 rounded-full bg-brand-yellow px-4 py-2 font-sans text-[13px] font-bold text-primary-dark-900 shadow-[0_10px_24px_-14px_rgba(0,24,48,0.6)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none sm:px-7 sm:py-3.5 sm:text-[16px]"
+    >
+      <span class="sm:hidden">{cta.primaryShort}</span>
+      <span class="hidden sm:inline">{header.cta}</span>
+      <Icon name="arrow-right" class="size-4 [stroke-width:2.4] sm:size-5" />
+    </button>
+  </div>
+</header>
