@@ -1,6 +1,6 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-21T19:09:19.711Z",
+  "gerado": "2026-10-21T20:25:10.220Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Falanga Pneumática",
@@ -110,7 +110,7 @@
         "Menos custo",
         "na sua indústria."
       ],
-      "text": "Distribuidor Schulz com compressores de tecnologia de ponta e suporte técnico especializado para a sua indústria.",
+      "text": "Somos distribuidores Schulz: compressores com tecnologia de ponta e suporte técnico especializado para a sua indústria.",
       "area": [
         "Fortaleza e Recife",
         "Fornecimento para todo o Nordeste"
@@ -128,9 +128,9 @@
           "line2": "no Nordeste"
         },
         {
-          "icon": "worker",
-          "line1": "Suporte",
-          "line2": "especializado"
+          "icon": "gear",
+          "line1": "Linhas de",
+          "line2": "5 a 250 hp"
         },
         {
           "icon": "shield-check",
@@ -142,7 +142,7 @@
     "quote": {
       "eyebrow": "Solicite sua cotação",
       "title": "Fale com quem entende de compressores de parafuso.",
-      "text": "Nossa equipe indica o compressor Schulz certo para a sua demanda de ar. Preencha o formulário ou fale direto conosco pelo WhatsApp.",
+      "text": "Nossa equipe indica o compressor Schulz certo para a sua demanda, com as melhores condições para todo o Nordeste. Preencha o formulário ou fale direto conosco pelo WhatsApp.",
       "trust": [
         {
           "icon": "pin",
@@ -170,8 +170,8 @@
       "data": "linhas.ts",
       "conteudo": {
         "eyebrow": "Compressores Schulz",
-        "title": "Compressores de parafuso para a sua indústria.",
-        "text": "Equipamentos Schulz eficientes e duráveis, com fornecimento para todo o Nordeste nas melhores condições.",
+        "title": "Compressores de parafuso com tecnologia de ponta.",
+        "text": "Os compressores de parafuso Schulz são conhecidos pela eficiência e durabilidade: mais desempenho para as suas operações industriais.",
         "area": "Fornecimento para todo o Nordeste",
         "gallery": [
           "Compressor de parafuso Schulz SRP 5100 instalado em sala de compressores",
@@ -181,13 +181,35 @@
           "icon": "badge-check",
           "label": "Distribuidor Schulz"
         },
-        "brands": {
-          "label": "Linhas Schulz",
-          "names": [
-            "SRP 4000",
-            "SRP 4000 Dynamic",
-            "SRP 4000 Flex",
-            "SRP 5000 Flex"
+        "range": {
+          "title": "Linhas Schulz de compressores de parafuso",
+          "text": "Velocidade fixa ou variável, de 5 a 250 hp.",
+          "note": "Faixas de potência e reduções de consumo informadas pela Schulz nos catálogos de cada linha.",
+          "items": [
+            {
+              "name": "SRP 4000",
+              "speed": "Velocidade fixa",
+              "power": "5 a 250 hp",
+              "highlight": "Filtro e secador integrados"
+            },
+            {
+              "name": "SRP 4000 Dynamic",
+              "speed": "Velocidade fixa",
+              "power": "5 a 30 hp",
+              "highlight": "Para espaços reduzidos"
+            },
+            {
+              "name": "SRP 4000 Flex",
+              "speed": "Velocidade variável",
+              "power": "5 a 250 hp",
+              "highlight": "Até 38% menos energia"
+            },
+            {
+              "name": "SRP 5000 Flex",
+              "speed": "Velocidade variável",
+              "power": "30 a 100 hp",
+              "highlight": "Até 50% menos energia"
+            }
           ]
         },
         "closing": {
@@ -299,38 +321,38 @@
       "dataExport": "applications",
       "data": "aplicacoes.ts",
       "conteudo": {
-        "eyebrow": "Aplicações",
-        "title": "Soluções para todo o sistema de ar comprimido.",
-        "text": "Do compressor ao tratamento do ar, equipamentos Schulz e suporte técnico para a sua planta.",
+        "eyebrow": "Sistema Schulz",
+        "title": "Do compressor ao tratamento do ar.",
+        "text": "Conheça os equipamentos de um sistema Schulz e dimensione o seu com a Falanga.",
         "closing": {
           "title": "Precisa dimensionar o seu sistema?",
-          "text": "Converse com a equipe da Falanga.",
+          "text": "Converse com os especialistas da Falanga.",
           "cta": "Solicitar atendimento"
         },
         "items": [
           {
-            "id": "compressores-parafuso",
-            "label": "Compressores de parafuso",
-            "description": "Linhas Schulz de velocidade fixa e variável para operação contínua na indústria.",
-            "photo": "Compressores e reservatórios em planta industrial com tubulação de ar"
+            "id": "compressor",
+            "label": "Compressor rotativo",
+            "description": "Compressor de parafuso Schulz que gera o ar da planta, projetado para operar 24 horas por dia.",
+            "photo": "Compressor de parafuso Schulz SRP 5100 em sala de compressores"
           },
           {
-            "id": "secadores",
-            "label": "Secadores de ar",
-            "description": "Secadores por refrigeração que retiram a umidade do ar e protegem a sua rede.",
-            "photo": "Secador de ar comprimido industrial em sala de máquinas"
+            "id": "reservatorio",
+            "label": "Reservatório",
+            "description": "Armazena o ar, estabiliza a pressão da rede e separa o condensado antes do tratamento.",
+            "photo": "Reservatório Schulz com separador de condensado ao lado do compressor"
           },
           {
-            "id": "tratamento",
-            "label": "Tratamento de ar",
-            "description": "Filtragem e drenagem para manter a qualidade do ar que chega à sua produção.",
-            "photo": "Filtros de linha de ar comprimido com manômetros e drenos"
+            "id": "filtragem",
+            "label": "Filtragem",
+            "description": "Pré e pós-filtros coalescentes retêm óleo e partículas antes de o ar chegar à produção.",
+            "photo": "Filtros de linha e conjunto de tratamento de ar Schulz instalados na parede"
           },
           {
-            "id": "suporte",
-            "label": "Suporte técnico",
-            "description": "Assistência técnica e manutenção preventiva e corretiva para o seu sistema de ar.",
-            "photo": "Técnico da Falanga em manutenção de um compressor de parafuso Schulz SRP 4015"
+            "id": "secador",
+            "label": "Secador de ar",
+            "description": "Retira a umidade do ar comprimido e protege a rede e os equipamentos contra a corrosão.",
+            "photo": "Secador de ar Schulz e dreno de condensado na sala de compressores"
           }
         ]
       }
@@ -344,35 +366,35 @@
           "Eficiência e confiabilidade",
           "garantidas."
         ],
-        "text": "Mais de 40 anos de mercado, tecnologia Schulz e suporte técnico especializado para a sua operação industrial.",
+        "text": "Há mais de 40 anos no mercado, a Falanga é distribuidora Schulz no Nordeste, com confiabilidade, qualidade e assistência técnica para a sua indústria.",
         "cta": "Solicitar cotação",
         "area": "Fornecimento para todo o Nordeste",
         "scene": "Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo",
         "reasons": [
           {
+            "icon": "trend-up",
+            "title": "Ótimo custo-benefício",
+            "description": "Operação 24/7 com baixo custo de manutenção."
+          },
+          {
+            "icon": "zap",
+            "title": "Menos energia",
+            "description": "Mais ar comprimido com menor consumo de energia."
+          },
+          {
             "icon": "badge-check",
-            "title": "Tecnologia Schulz",
-            "description": "Compressores de parafuso eficientes e duráveis."
-          },
-          {
-            "icon": "users",
-            "title": "Suporte especializado",
-            "description": "Equipe técnica para apoiar a sua indústria."
-          },
-          {
-            "icon": "map-pin",
-            "title": "Cobertura regional",
-            "description": "Fornecimento para todo o Nordeste."
-          },
-          {
-            "icon": "clock",
-            "title": "Operação contínua",
-            "description": "Equipamentos projetados para operar 24/7."
+            "title": "Schulz desde 1963",
+            "description": "Marca nacional com produtos de classe internacional."
           },
           {
             "icon": "shield-check",
-            "title": "Experiência de mercado",
-            "description": "Mais de 40 anos de atuação no setor."
+            "title": "40 anos de mercado",
+            "description": "Confiabilidade, qualidade e assistência técnica."
+          },
+          {
+            "icon": "map-pin",
+            "title": "Todo o Nordeste",
+            "description": "Fornecimento com as melhores condições."
           }
         ]
       }

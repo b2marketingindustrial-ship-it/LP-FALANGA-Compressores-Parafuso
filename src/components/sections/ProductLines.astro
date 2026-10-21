@@ -4,8 +4,9 @@
  *
  * VARIANTE LOCAL herdada da LP de manutenção da Falanga (mockup da seção de serviços,
  * 21/10/2026, docs/BRIEFING.md): cabeçalho à esquerda com duas fotos à direita, cards
- * numerados, uma faixa de nomes e uma faixa de CTA. Nesta LP de produto, cada card mostra
- * o chip, a foto do equipamento e as três características, como no card da biblioteca.
+ * numerados e uma faixa de CTA. Nesta LP de produto, cada card mostra o chip, a foto do
+ * equipamento e as três características, como no card da biblioteca, e a faixa de marcas
+ * virou o comparativo das linhas do catálogo Schulz (`range`).
  * O contrato da seção é o mesmo da biblioteca — dados, CTAs `linhas-{id}`, um card
  * escuro, `tone`/`rhythm` — mais o CTA `linhas-cotacao` da faixa final.
  *
@@ -193,28 +194,40 @@ const [photo1, photo2] = productLines.gallery
     ))}
   </div>
 
-  {/* Faixa de nomes por extenso: nesta LP, as linhas Schulz (logos só com autorização — entrada 7) */}
-  <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 lg:px-6">
-    <span class="flex items-center gap-4 font-display text-[17px] font-extrabold text-primary-dark">
-      <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
-      {productLines.brands.label}
-    </span>
-    <span aria-hidden="true" class="hidden h-6 w-px bg-ink/25 sm:block"></span>
+  {/* Comparativo das linhas do catálogo Schulz (conteúdo da LP antiga do cliente) */}
+  <div class="mt-12">
+    <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+      <h3 class="flex items-center gap-4 font-display text-[20px] leading-snug font-extrabold text-primary-dark sm:text-[22px]">
+        <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
+        {productLines.range.title}
+      </h3>
+      <p class="font-sans text-[15px] text-ink-soft">{productLines.range.text}</p>
+    </div>
     <ul
-      class="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[16px] text-ink-soft"
-      aria-label={productLines.brands.label}
+      class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+      aria-label={productLines.range.title}
     >
-      {productLines.brands.names.map((name, i) => (
-        <li class="flex items-center gap-3">
-          {i > 0 && (
-            <span aria-hidden="true" class="text-ink/40">
-              •
+      {productLines.range.items.map((item) => (
+        <li class="flex flex-col rounded-2xl border border-[#e3e8f1] bg-brand-mist/60 p-5 xl:p-6">
+          <p class="font-display text-[18px] leading-snug font-extrabold text-brand-blue">
+            {item.name}
+          </p>
+          <p class="mt-1 font-sans text-[11px] font-bold tracking-[0.14em] text-ink-soft uppercase">
+            {item.speed}
+          </p>
+          <p class="mt-4 font-display text-[28px] leading-none font-extrabold tracking-[-0.02em] text-primary-dark">
+            {item.power}
+          </p>
+          <p class="mt-4 flex items-start gap-2.5 font-sans text-[14px] font-medium text-ink">
+            <span class="mt-px flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow-soft text-[#00256f]">
+              <Icon name="check" class="size-3 [stroke-width:2.4]" />
             </span>
-          )}
-          {name}
+            {item.highlight}
+          </p>
         </li>
       ))}
     </ul>
+    <p class="mt-3 font-sans text-[12px] text-ink-soft">{productLines.range.note}</p>
   </div>
   <BrandCarousel />
 

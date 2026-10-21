@@ -2,16 +2,16 @@
 /**
  * Galeria de aplicações — fase "prova" da biblioteca B2.
  *
- * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup "Manutenção para
- * todo o sistema de ar comprimido", docs/BRIEFING.md): cabeçalho centrado, 4 cards-botão
+ * VARIANTE LOCAL herdada da LP de manutenção da Falanga (mockup "Manutenção para todo o
+ * sistema de ar comprimido", 21/10/2026, docs/BRIEFING.md): cabeçalho centrado, 4 cards-botão
  * com foto, número em quadrado amarelo e rodapé "Falar com especialista", e uma faixa
  * azul de CTA fechando a seção. O contrato é o mesmo da biblioteca — 4 itens, o card
  * inteiro é o CTA `aplicacoes-{id}`, `tone`/`rhythm` —, mais o CTA
  * `aplicacoes-atendimento` da faixa e a descrição até 100 caracteres
  * (scripts/lib/contract.mjs).
  *
- * A moldura é 16:10 com a foto ancorada no topo: as fotos 2–4, recortadas do mockup,
- * têm o número dele embutido no rodapé, e essa faixa fica sempre fora da área visível.
+ * A moldura é 16:10 com a foto centrada. Nesta LP as quatro fotos são recortes da arte do
+ * sistema de ar Schulz do site do cliente, já sem os números da legenda.
  *
  * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
  * Recompor a página exige reaplicá-la a partir do git.
@@ -58,10 +58,7 @@ const { tone, rhythm } = Astro.props
               width={640}
               loading="lazy"
               decoding="async"
-              class:list={[
-                'h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100',
-                i === 0 ? 'object-[center_15%]' : 'object-top',
-              ]}
+              class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
             <span class="absolute bottom-3 left-3 flex size-11 items-center justify-center rounded-lg bg-brand-yellow font-display text-[17px] font-extrabold text-primary-dark-900">
               {String(i + 1).padStart(2, '0')}

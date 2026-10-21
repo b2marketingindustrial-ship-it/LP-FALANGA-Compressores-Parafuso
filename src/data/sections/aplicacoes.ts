@@ -2,19 +2,19 @@
  * Dados da seção "Aplicações" (biblioteca B2, fase: prova).
  *
  * 4 cards-botão com foto e cabeçalho centrado. O card inteiro é o CTA.
- * As quatro partes do sistema de ar vêm do que o material diz que a Falanga fornece e
- * atende: compressores de parafuso, secadores, tratamento do ar e suporte técnico.
+ * Os quatro equipamentos são os da arte "sistema de ar comprimido Schulz" da LP antiga do
+ * cliente: compressor rotativo, reservatório, filtragem e secador.
  *
  * Variante local herdada da LP de manutenção da Falanga (mockup do cliente, 21/10/2026,
- * docs/BRIEFING.md): a seção fecha com uma faixa de CTA (`closing`). As quatro fotos
- * também vêm de lá e são provisórias até os originais chegarem.
+ * docs/BRIEFING.md): a seção fecha com uma faixa de CTA (`closing`). As fotos são
+ * recortes da arte do site, sem os números da legenda.
  */
 import type { Photo } from '@data/types'
 
-import app1 from '@assets/aplicacoes/aplicacao-1.png'
-import app2 from '@assets/aplicacoes/aplicacao-2.png'
-import app3 from '@assets/aplicacoes/aplicacao-3.png'
-import app4 from '@assets/aplicacoes/aplicacao-4.png'
+import app1 from '@assets/aplicacoes/aplicacao-1.jpg'
+import app2 from '@assets/aplicacoes/aplicacao-2.jpg'
+import app3 from '@assets/aplicacoes/aplicacao-3.jpg'
+import app4 from '@assets/aplicacoes/aplicacao-4.jpg'
 
 export interface Application {
   id: string
@@ -24,46 +24,51 @@ export interface Application {
 }
 
 export const applications = {
-  eyebrow: 'Aplicações',
-  title: 'Soluções para todo o sistema de ar comprimido.',
-  text: 'Do compressor ao tratamento do ar, equipamentos Schulz e suporte técnico para a sua planta.',
+  eyebrow: 'Sistema Schulz',
+  title: 'Do compressor ao tratamento do ar.',
+  text: 'Conheça os equipamentos de um sistema Schulz e dimensione o seu com a Falanga.',
   /** Faixa azul que fecha a seção, com o CTA `aplicacoes-atendimento`. */
   closing: {
     title: 'Precisa dimensionar o seu sistema?',
-    text: 'Converse com a equipe da Falanga.',
+    text: 'Converse com os especialistas da Falanga.',
     cta: 'Solicitar atendimento',
   },
   items: [
     {
-      id: 'compressores-parafuso',
-      label: 'Compressores de parafuso',
+      id: 'compressor',
+      label: 'Compressor rotativo',
       description:
-        'Linhas Schulz de velocidade fixa e variável para operação contínua na indústria.',
+        'Compressor de parafuso Schulz que gera o ar da planta, projetado para operar 24 horas por dia.',
+      photo: { src: app1, alt: 'Compressor de parafuso Schulz SRP 5100 em sala de compressores' },
+    },
+    {
+      id: 'reservatorio',
+      label: 'Reservatório',
+      description:
+        'Armazena o ar, estabiliza a pressão da rede e separa o condensado antes do tratamento.',
       photo: {
-        src: app1,
-        alt: 'Compressores e reservatórios em planta industrial com tubulação de ar',
+        src: app2,
+        alt: 'Reservatório Schulz com separador de condensado ao lado do compressor',
       },
     },
     {
-      id: 'secadores',
-      label: 'Secadores de ar',
-      description: 'Secadores por refrigeração que retiram a umidade do ar e protegem a sua rede.',
-      photo: { src: app2, alt: 'Secador de ar comprimido industrial em sala de máquinas' },
-    },
-    {
-      id: 'tratamento',
-      label: 'Tratamento de ar',
-      description: 'Filtragem e drenagem para manter a qualidade do ar que chega à sua produção.',
-      photo: { src: app3, alt: 'Filtros de linha de ar comprimido com manômetros e drenos' },
-    },
-    {
-      id: 'suporte',
-      label: 'Suporte técnico',
+      id: 'filtragem',
+      label: 'Filtragem',
       description:
-        'Assistência técnica e manutenção preventiva e corretiva para o seu sistema de ar.',
+        'Pré e pós-filtros coalescentes retêm óleo e partículas antes de o ar chegar à produção.',
+      photo: {
+        src: app3,
+        alt: 'Filtros de linha e conjunto de tratamento de ar Schulz instalados na parede',
+      },
+    },
+    {
+      id: 'secador',
+      label: 'Secador de ar',
+      description:
+        'Retira a umidade do ar comprimido e protege a rede e os equipamentos contra a corrosão.',
       photo: {
         src: app4,
-        alt: 'Técnico da Falanga em manutenção de um compressor de parafuso Schulz SRP 4015',
+        alt: 'Secador de ar Schulz e dreno de condensado na sala de compressores',
       },
     },
   ],

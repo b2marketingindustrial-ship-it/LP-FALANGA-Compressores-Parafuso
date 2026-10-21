@@ -82,7 +82,7 @@ conteudo:
     title: Compressores de parafuso Schulz
     headline: [Mais ar.]
     highlight: [Menos custo, na sua indústria.]
-    text: Distribuidor Schulz com compressores de tecnologia de ponta e suporte técnico especializado para a sua indústria.
+    text: 'Somos distribuidores Schulz: compressores com tecnologia de ponta e suporte técnico especializado para a sua indústria.'
     area: [Fortaleza e Recife, Fornecimento para todo o Nordeste]
     banner: Técnico da Falanga ao lado de um compressor de parafuso Schulz SRP 4015 aberto, numa sala com outros compressores
     points:
@@ -92,16 +92,16 @@ conteudo:
       - icon: truck
         line1: Fornecimento
         line2: no Nordeste
-      - icon: worker
-        line1: Suporte
-        line2: especializado
+      - icon: gear
+        line1: Linhas de
+        line2: 5 a 250 hp
       - icon: shield-check
         line1: 40 anos de
         line2: experiência
   quote:
     eyebrow: Solicite sua cotação
     title: Fale com quem entende de compressores de parafuso.
-    text: Nossa equipe indica o compressor Schulz certo para a sua demanda de ar. Preencha o formulário ou fale direto conosco pelo WhatsApp.
+    text: Nossa equipe indica o compressor Schulz certo para a sua demanda, com as melhores condições para todo o Nordeste. Preencha o formulário ou fale direto conosco pelo WhatsApp.
     trust:
       - icon: pin
         label: Fornecimento para todo o Nordeste
@@ -120,8 +120,8 @@ blocos:
     responde: [produto, marca-schulz, tratamento-de-ar]
     papeis: [Engenharia, Compras]
     eyebrow: Compressores Schulz
-    title: Compressores de parafuso para a sua indústria.
-    text: Equipamentos Schulz eficientes e duráveis, com fornecimento para todo o Nordeste nas melhores condições.
+    title: Compressores de parafuso com tecnologia de ponta.
+    text: 'Os compressores de parafuso Schulz são conhecidos pela eficiência e durabilidade: mais desempenho para as suas operações industriais.'
     area: Fornecimento para todo o Nordeste
     gallery:
       - Compressor de parafuso Schulz SRP 5100 instalado em sala de compressores
@@ -129,9 +129,27 @@ blocos:
     badge:
       icon: badge-check
       label: Distribuidor Schulz
-    brands:
-      label: Linhas Schulz
-      names: [SRP 4000, SRP 4000 Dynamic, SRP 4000 Flex, SRP 5000 Flex]
+    range:
+      title: Linhas Schulz de compressores de parafuso
+      text: Velocidade fixa ou variável, de 5 a 250 hp.
+      note: Faixas de potência e reduções de consumo informadas pela Schulz nos catálogos de cada linha.
+      items:
+        - name: SRP 4000
+          speed: Velocidade fixa
+          power: 5 a 250 hp
+          highlight: Filtro e secador integrados
+        - name: SRP 4000 Dynamic
+          speed: Velocidade fixa
+          power: 5 a 30 hp
+          highlight: Para espaços reduzidos
+        - name: SRP 4000 Flex
+          speed: Velocidade variável
+          power: 5 a 250 hp
+          highlight: Até 38% menos energia
+        - name: SRP 5000 Flex
+          speed: Velocidade variável
+          power: 30 a 100 hp
+          highlight: Até 50% menos energia
     closing:
       title: Não sabe qual modelo escolher?
       text: Nossa equipe indica o compressor certo para a sua demanda de ar.
@@ -218,30 +236,30 @@ blocos:
     veredicto: completo
     responde: [produto, tratamento-de-ar]
     papeis: [Manutenção, Engenharia]
-    eyebrow: Aplicações
-    title: Soluções para todo o sistema de ar comprimido.
-    text: Do compressor ao tratamento do ar, equipamentos Schulz e suporte técnico para a sua planta.
+    eyebrow: Sistema Schulz
+    title: Do compressor ao tratamento do ar.
+    text: Conheça os equipamentos de um sistema Schulz e dimensione o seu com a Falanga.
     closing:
       title: Precisa dimensionar o seu sistema?
-      text: Converse com a equipe da Falanga.
+      text: Converse com os especialistas da Falanga.
       cta: Solicitar atendimento
     items:
-      - id: compressores-parafuso
-        label: Compressores de parafuso
-        description: Linhas Schulz de velocidade fixa e variável para operação contínua na indústria.
-        photo: Compressores e reservatórios em planta industrial com tubulação de ar
-      - id: secadores
-        label: Secadores de ar
-        description: Secadores por refrigeração que retiram a umidade do ar e protegem a sua rede.
-        photo: Secador de ar comprimido industrial em sala de máquinas
-      - id: tratamento
-        label: Tratamento de ar
-        description: Filtragem e drenagem para manter a qualidade do ar que chega à sua produção.
-        photo: Filtros de linha de ar comprimido com manômetros e drenos
-      - id: suporte
-        label: Suporte técnico
-        description: Assistência técnica e manutenção preventiva e corretiva para o seu sistema de ar.
-        photo: Técnico da Falanga em manutenção de um compressor de parafuso Schulz SRP 4015
+      - id: compressor
+        label: Compressor rotativo
+        description: Compressor de parafuso Schulz que gera o ar da planta, projetado para operar 24 horas por dia.
+        photo: Compressor de parafuso Schulz SRP 5100 em sala de compressores
+      - id: reservatorio
+        label: Reservatório
+        description: Armazena o ar, estabiliza a pressão da rede e separa o condensado antes do tratamento.
+        photo: Reservatório Schulz com separador de condensado ao lado do compressor
+      - id: filtragem
+        label: Filtragem
+        description: Pré e pós-filtros coalescentes retêm óleo e partículas antes de o ar chegar à produção.
+        photo: Filtros de linha e conjunto de tratamento de ar Schulz instalados na parede
+      - id: secador
+        label: Secador de ar
+        description: Retira a umidade do ar comprimido e protege a rede e os equipamentos contra a corrosão.
+        photo: Secador de ar Schulz e dreno de condensado na sala de compressores
 
   segmentos:
     veredicto: insuficiente
@@ -257,26 +275,26 @@ blocos:
     papeis: [Compras, Engenharia]
     eyebrow: Por que a Falanga
     titleLines: [Eficiência e confiabilidade, garantidas.]
-    text: Mais de 40 anos de mercado, tecnologia Schulz e suporte técnico especializado para a sua operação industrial.
+    text: Há mais de 40 anos no mercado, a Falanga é distribuidora Schulz no Nordeste, com confiabilidade, qualidade e assistência técnica para a sua indústria.
     cta: Solicitar cotação
     area: Fornecimento para todo o Nordeste
     scene: Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo
     reasons:
+      - icon: trend-up
+        title: Ótimo custo-benefício
+        description: Operação 24/7 com baixo custo de manutenção.
+      - icon: zap
+        title: Menos energia
+        description: Mais ar comprimido com menor consumo de energia.
       - icon: badge-check
-        title: Tecnologia Schulz
-        description: Compressores de parafuso eficientes e duráveis.
-      - icon: users
-        title: Suporte especializado
-        description: Equipe técnica para apoiar a sua indústria.
-      - icon: map-pin
-        title: Cobertura regional
-        description: Fornecimento para todo o Nordeste.
-      - icon: clock
-        title: Operação contínua
-        description: Equipamentos projetados para operar 24/7.
+        title: Schulz desde 1963
+        description: Marca nacional com produtos de classe internacional.
       - icon: shield-check
-        title: Experiência de mercado
-        description: Mais de 40 anos de atuação no setor.
+        title: 40 anos de mercado
+        description: Confiabilidade, qualidade e assistência técnica.
+      - icon: map-pin
+        title: Todo o Nordeste
+        description: Fornecimento com as melhores condições.
 
   perguntas:
     veredicto: insuficiente
@@ -294,7 +312,7 @@ conflitos: []
 naoAplicado:
   - e-mail falanga@falangaservice.com.br (e-mail não entra na LP pelo padrão)
   - lista de fabricantes multimarcas (não responde ao tráfego centrado em Schulz)
-  - percentuais de economia de energia do catálogo Schulz (até 38% e até 50%), sem confirmação do cliente
+  - frase "o retorno de investimento é garantido" do gráfico da LP antiga (promessa sem base; os percentuais entram atribuídos à Schulz)
   - imagem enviada sem identificação, image(20261021-125101).png (função não confirmada)
 ```
 
@@ -306,28 +324,30 @@ naoAplicado:
 
 LP de produto para a campanha de compressores de parafuso Schulz da Falanga, com a palavra-chave `compressor de parafuso` no H1 ("Compressores de parafuso Schulz") e no title. A área atendida (Nordeste, unidades em Fortaleza e Recife) aparece no hero e num selo da cotação.
 
-A oferta abre em `linhas` com os quatro equipamentos da página atual do cliente: SRP-3020 Compact, SRP-3025 Compact, SRP 4050 AD Flex e o secador SRS 60 Compact. O secador fecha o grid como card escuro e responde à família "secador de ar", que o briefing marcava como lacuna. O apoio mostra o caminho do atendimento em `processo`. A prova mostra as partes do sistema de ar em `aplicacoes`. A autoridade fecha com os cinco diferenciais do briefing e a frase de autoridade "Eficiência e confiabilidade garantidas".
+A oferta abre em `linhas` com os quatro equipamentos da página atual do cliente: SRP-3020 Compact, SRP-3025 Compact, SRP 4050 AD Flex e o secador SRS 60 Compact. O secador fecha o grid como card escuro e responde à família "secador de ar", que o briefing marcava como lacuna. Abaixo dos cards, um comparativo com as quatro linhas do catálogo Schulz publicado na LP antiga (SRP 4000, SRP 4000 Dynamic, SRP 4000 Flex e SRP 5000 Flex): velocidade, faixa de potência e um destaque de cada. O apoio mostra o caminho do atendimento em `processo`. A prova mostra o sistema de ar comprimido Schulz da LP antiga em `aplicacoes` (compressor, reservatório, filtragem e secador). A autoridade fecha com a frase de autoridade "Eficiência e confiabilidade garantidas" e os blocos da LP antiga: custo-benefício, menor consumo de energia, Schulz desde 1963, 40 anos da Falanga e fornecimento no Nordeste.
 
-O visual é o da LP de manutenção da Falanga, aprovado pelo cliente em 21/10/2026: amarelo e azul da marca, header branco, hero com foto e as variantes locais das seções. A única mudança de layout é em `linhas`: cada card mostra a foto do produto e as três características, no lugar do ícone.
+**Revisão de 21/10/2026, a pedido do usuário:** a LP antiga (`falangapneumatica.com.br/compressores-de-parafuso/`) passou a ser a referência de conteúdo. Dela vieram o texto do hero, o cabeçalho de `linhas`, o comparativo das linhas, o sistema de `aplicacoes` e os diferenciais. Os percentuais de economia ("até 38%", "até 50%") são dos catálogos Schulz que a LP antiga publica e aparecem atribuídos ao fabricante. A frase "o retorno de investimento é garantido" não entrou.
+
+O visual é o da LP de manutenção da Falanga, aprovado pelo cliente em 21/10/2026: amarelo e azul da marca, header branco, hero com foto e as variantes locais das seções. As mudanças de layout são em `linhas`: cada card mostra a foto do produto e as três características, no lugar do ícone, e a faixa de marcas virou o comparativo das linhas.
 
 A Schulz aparece **só por extenso**. "Distribuidor Schulz" vem do próprio material do cliente ("Somos distribuidores Schulz"). `autorizada` e `autorizado` ficam proibidos, como na LP de manutenção.
 
 ## Viabilidade por fase
 
-| Fase       | Bloco            | Veredicto     | Responde                           | Papéis                 | O que falta                                                       |
-| ---------- | ---------------- | ------------- | ---------------------------------- | ---------------------- | ----------------------------------------------------------------- |
-| Oferta     | `linhas`         | completo      | produto, marca Schulz, secador     | Engenharia, Compras    | descrições e características **inferidas** do site; validar       |
-| Oferta     | `vitrine`        | insuficiente  | —                                  | —                      | só 4 produtos                                                     |
-| Oferta     | `especificacoes` | insuficiente  | —                                  | —                      | 4 a 10 modelos com colunas técnicas                               |
-| Apoio      | `processo`       | completo      | produto, secador                   | Engenharia, Compras    | sequência **inferida**; sem prazos                                |
-| Apoio      | `identificar`    | insuficiente  | —                                  | —                      | os 6 dados que o comercial pede para cotar                        |
-| Apoio      | `situacoes`      | não se aplica | —                                  | —                      | compra planejada                                                  |
-| Prova      | `aplicacoes`     | completo      | produto, secador                   | Manutenção, Engenharia | 4 aplicações **inferidas**; fotos provisórias da LP de manutenção |
-| Prova      | `segmentos`      | insuficiente  | —                                  | —                      | setores atendidos                                                 |
-| Prova      | `clientes`       | insuficiente  | —                                  | —                      | logos autorizadas e números com fonte                             |
-| Autoridade | `diferenciais`   | completo      | produto, marca Schulz, localização | Compras, Engenharia    | —                                                                 |
-| Autoridade | `perguntas`      | insuficiente  | —                                  | —                      | lista real de dúvidas do comercial                                |
-| Autoridade | `escopo`         | não se aplica | —                                  | —                      | não é consolidação de compras                                     |
+| Fase       | Bloco            | Veredicto     | Responde                           | Papéis                 | O que falta                                                   |
+| ---------- | ---------------- | ------------- | ---------------------------------- | ---------------------- | ------------------------------------------------------------- |
+| Oferta     | `linhas`         | completo      | produto, marca Schulz, secador     | Engenharia, Compras    | descrições e características **inferidas** do site; validar   |
+| Oferta     | `vitrine`        | insuficiente  | —                                  | —                      | só 4 produtos                                                 |
+| Oferta     | `especificacoes` | insuficiente  | —                                  | —                      | 4 a 10 modelos com colunas técnicas                           |
+| Apoio      | `processo`       | completo      | produto, secador                   | Engenharia, Compras    | sequência **inferida**; sem prazos                            |
+| Apoio      | `identificar`    | insuficiente  | —                                  | —                      | os 6 dados que o comercial pede para cotar                    |
+| Apoio      | `situacoes`      | não se aplica | —                                  | —                      | compra planejada                                              |
+| Prova      | `aplicacoes`     | completo      | produto, secador                   | Manutenção, Engenharia | sistema Schulz da LP antiga; fotos recortadas da arte do site |
+| Prova      | `segmentos`      | insuficiente  | —                                  | —                      | setores atendidos                                             |
+| Prova      | `clientes`       | insuficiente  | —                                  | —                      | logos autorizadas e números com fonte                         |
+| Autoridade | `diferenciais`   | completo      | produto, marca Schulz, localização | Compras, Engenharia    | —                                                             |
+| Autoridade | `perguntas`      | insuficiente  | —                                  | —                      | lista real de dúvidas do comercial                            |
+| Autoridade | `escopo`         | não se aplica | —                                  | —                      | não é consolidação de compras                                 |
 
 ## Núcleo
 
@@ -355,7 +375,7 @@ A Schulz aparece **só por extenso**. "Distribuidor Schulz" vem do próprio mate
 | --------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------- |
 | Banner próprio do hero                              | designer            | hoje é o da LP de manutenção (técnico no SRP 4015); pedir 1981×900, compressor no primeiro terço         |
 | Fotos dos produtos em alta                          | cliente             | as do site têm 600×600 com marca d'água; foram recortadas para 800×600. Pedir PNG recortado sem marca    |
-| Fotos das aplicações em alta                        | cliente ou designer | as quatro vêm da LP de manutenção (340–450px); pedir originais em 1200×900                               |
+| Fotos das aplicações em alta                        | cliente ou designer | recortes da arte do sistema Schulz do site (548–900px), sem os números; pedir fotos reais em 1200×900    |
 | Validar descrições e características dos 4 produtos | cliente             | potência do SRP 4050 (50 HP) e "velocidade variável" da linha Flex foram inferidas do nome e do catálogo |
 | Validar a sequência de `processo`                   | cliente             | inferida do material (dimensionamento, fornecimento e suporte)                                           |
 | Os 6 dados para cotar um compressor                 | comercial           | habilitaria `identificar` no lugar de `processo`                                                         |
@@ -369,10 +389,10 @@ Nenhum conflito explícito no material. O visual herdado da LP de manutenção c
 
 ## Itens excedentes
 
-| Bloco    | Itens que entraram                           | Itens guardados                                                                            |
-| -------- | -------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `linhas` | SRP-3020, SRP-3025, SRP 4050 AD Flex, SRS 60 | as linhas do catálogo (SRP 4000, Dynamic, 4000 Flex, 5000 Flex) entram como faixa de nomes |
+| Bloco    | Itens que entraram                           | Itens guardados                                                                                        |
+| -------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `linhas` | SRP-3020, SRP-3025, SRP 4050 AD Flex, SRS 60 | as linhas do catálogo (SRP 4000, Dynamic, 4000 Flex, 5000 Flex) entram no comparativo abaixo dos cards |
 
 ## Dados não usados pelo padrão
 
-E-mail `falanga@falangaservice.com.br`; telefone (85) 98129-5507 da página atual; lista multimarcas; percentuais de economia de energia do catálogo Schulz; imagem sem identificação `image(20261021-125101).png`.
+E-mail `falanga@falangaservice.com.br`; telefone (85) 98129-5507 da página atual; lista multimarcas; a frase "o retorno de investimento é garantido"; os campos do formulário antigo (finalidade consumo ou revenda), que são do shortcode do plugin; imagem sem identificação `image(20261021-125101).png`.

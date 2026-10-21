@@ -24,7 +24,7 @@ export const why = {
   eyebrow: `Por que a ${site.brandShort}`,
   /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
   titleLines: ['Eficiência e confiabilidade', 'garantidas.'],
-  text: 'Mais de 40 anos de mercado, tecnologia Schulz e suporte técnico especializado para a sua operação industrial.',
+  text: 'Há mais de 40 anos no mercado, a Falanga é distribuidora Schulz no Nordeste, com confiabilidade, qualidade e assistência técnica para a sua indústria.',
   cta: 'Solicitar cotação',
   area: 'Fornecimento para todo o Nordeste',
   scene: {
@@ -33,29 +33,29 @@ export const why = {
   },
   reasons: [
     {
+      icon: 'trend-up',
+      title: 'Ótimo custo-benefício',
+      description: 'Operação 24/7 com baixo custo de manutenção.',
+    },
+    {
+      icon: 'zap',
+      title: 'Menos energia',
+      description: 'Mais ar comprimido com menor consumo de energia.',
+    },
+    {
       icon: 'badge-check',
-      title: 'Tecnologia Schulz',
-      description: 'Compressores de parafuso eficientes e duráveis.',
-    },
-    {
-      icon: 'users',
-      title: 'Suporte especializado',
-      description: 'Equipe técnica para apoiar a sua indústria.',
-    },
-    {
-      icon: 'map-pin',
-      title: 'Cobertura regional',
-      description: 'Fornecimento para todo o Nordeste.',
-    },
-    {
-      icon: 'clock',
-      title: 'Operação contínua',
-      description: 'Equipamentos projetados para operar 24/7.',
+      title: 'Schulz desde 1963',
+      description: 'Marca nacional com produtos de classe internacional.',
     },
     {
       icon: 'shield-check',
-      title: 'Experiência de mercado',
-      description: 'Mais de 40 anos de atuação no setor.',
+      title: '40 anos de mercado',
+      description: 'Confiabilidade, qualidade e assistência técnica.',
+    },
+    {
+      icon: 'map-pin',
+      title: 'Todo o Nordeste',
+      description: 'Fornecimento com as melhores condições.',
     },
   ],
 } as const satisfies {
