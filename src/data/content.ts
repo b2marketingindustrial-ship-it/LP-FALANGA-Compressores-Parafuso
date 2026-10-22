@@ -41,6 +41,8 @@ export const cta = {
 
 export const header = {
   tagline: site.product,
+  /** Área atendida ao lado da tagline (desktop): o hero do mockup de 22/10/2026 não a traz mais. */
+  area: 'Fortaleza e Recife · Todo o Nordeste',
   /** Rótulo do CTA do header no desktop, do mockup do cliente (21/10/2026). */
   cta: 'Fale com um especialista',
 } as const
@@ -50,33 +52,37 @@ export const header = {
 export const hero = {
   /**
    * H1 da página, exibido como a linha de abertura acima da manchete (mockup do cliente,
-   * 21/10/2026). É o que o check:lp confere contra a palavra-chave da campanha.
+   * 22/10/2026). É o que o check:lp confere contra a palavra-chave da campanha: o mockup
+   * diz "Compressores Schulz", e o "de parafuso" fica porque é a palavra-chave.
    */
   title: 'Compressores de parafuso Schulz',
   /** Manchete visual, uma linha por item: primeiro em branco, depois em amarelo. */
   headline: ['Mais ar.'],
   highlight: ['Menos custo', 'na sua indústria.'],
   text: 'Somos distribuidores Schulz: compressores com tecnologia de ponta e suporte técnico especializado para a sua indústria.',
-  /** Linha de área atendida abaixo do CTA, separada por ponto. */
-  area: ['Fortaleza e Recife', 'Fornecimento para todo o Nordeste'],
   banner: {
     src: heroBg,
-    alt: 'Técnico da Falanga ao lado de um compressor de parafuso Schulz SRP 4015 aberto, numa sala com outros compressores',
+    alt: 'Compressores Schulz CSA 7,5 Twister, Bravo CSL 20 BR e MSV 20 Max em galpão industrial',
   },
   points: [
     { icon: 'badge-check', line1: 'Distribuidor', line2: 'Schulz' },
     { icon: 'truck', line1: 'Fornecimento', line2: 'no Nordeste' },
-    { icon: 'gear', line1: 'Linhas de', line2: '5 a 250 hp' },
+    { icon: 'gear', line1: 'Suporte técnico', line2: 'especializado' },
     { icon: 'shield-check', line1: '40 anos de', line2: 'experiência' },
   ],
+  /** Cabeçalho do card do chat, acima do shortcode (mockup do cliente, 22/10/2026). */
+  card: {
+    title: 'Solicite sua cotação',
+    text: 'Fale com nossa equipe.',
+  },
 } as const satisfies {
   title: string
   headline: readonly string[]
   highlight: readonly string[]
   text: string
-  area: readonly string[]
   banner: Photo
   points: readonly [HeroPoint, HeroPoint, HeroPoint, HeroPoint]
+  card: { title: string; text: string }
 }
 
 /* ----------------------------------------------------------------- cotação */

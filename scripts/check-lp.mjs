@@ -201,14 +201,16 @@ for (const f of astroFiles) {
       'data-cta="header-cta"',
     ],
     // Mesmo desvio: a foto vai do fim da coluna de texto até a borda da tela, e o
-    // shortcode do chat fica num card branco que encosta na margem. O grid de três
-    // colunas e a coluna de 300px do shortcode continuam os do padrão.
+    // shortcode do chat fica num card branco que encosta na margem. Repinada em
+    // 22/10/2026 (mockup "Compressores Schulz", docs/BRIEFING.md): conteúdo até 1680px,
+    // coluna de texto de largura fixa, janela do banner com o resto e card de 340px com
+    // cabeçalho — para os três compressores caberem entre o texto e o card.
     'Hero.astro': [
-      'grid-template-columns: minmax(0, 1fr) 270px 300px',
-      'left: calc(var(--col-end) - 100px)',
+      'grid-template-columns: minmax(0, var(--text-col)) minmax(0, 1fr) 340px',
+      'left: calc(var(--col-end) - var(--photo-pull))',
       'hero-chat',
       '<slot name="shortcode">',
-      'lg:w-[300px]',
+      'lg:w-[340px]',
       'data-hero-grid',
       'fetchpriority="high"',
     ],

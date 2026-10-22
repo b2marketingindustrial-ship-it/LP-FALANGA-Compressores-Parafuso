@@ -83,8 +83,7 @@ conteudo:
     headline: [Mais ar.]
     highlight: [Menos custo, na sua indústria.]
     text: 'Somos distribuidores Schulz: compressores com tecnologia de ponta e suporte técnico especializado para a sua indústria.'
-    area: [Fortaleza e Recife, Fornecimento para todo o Nordeste]
-    banner: Técnico da Falanga ao lado de um compressor de parafuso Schulz SRP 4015 aberto, numa sala com outros compressores
+    banner: Compressores Schulz CSA 7,5 Twister, Bravo CSL 20 BR e MSV 20 Max em galpão industrial
     points:
       - icon: badge-check
         line1: Distribuidor
@@ -93,11 +92,14 @@ conteudo:
         line1: Fornecimento
         line2: no Nordeste
       - icon: gear
-        line1: Linhas de
-        line2: 5 a 250 hp
+        line1: Suporte técnico
+        line2: especializado
       - icon: shield-check
         line1: 40 anos de
         line2: experiência
+    card:
+      title: Solicite sua cotação
+      text: Fale com nossa equipe.
   quote:
     eyebrow: Solicite sua cotação
     title: Fale com quem entende de compressores de parafuso.

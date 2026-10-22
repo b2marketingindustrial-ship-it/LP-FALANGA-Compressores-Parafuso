@@ -99,10 +99,10 @@ Derivada em: 21/10/2026 por `npm run ficha` — `linhas processo aplicacoes dife
 
 ## Assets
 
-| Asset          | Arquivo                 | Origem                                                                   | Status                                                           |
-| -------------- | ----------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| Logo           | `src/assets/LOGO.png`   | a da LP de manutenção (site do cliente, 341×82)                          | entregue (baixa resolução: pedir vetor ou PNG 2×)                |
-| Banner do hero | `src/assets/heroBg.png` | o da LP de manutenção: técnico da Falanga num compressor Schulz SRP 4015 | **provisório** — pedir banner próprio, com o produto em destaque |
+| Asset          | Arquivo                 | Origem                                                                                                                                                     | Status                                                                           |
+| -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Logo           | `src/assets/LOGO.png`   | a da LP de manutenção (site do cliente, 341×82)                                                                                                            | entregue (baixa resolução: pedir vetor ou PNG 2×)                                |
+| Banner do hero | `src/assets/heroBg.png` | o mockup "Compressores Schulz" do cliente (22/10/2026, 1832×859), sem texto, card e botão do WhatsApp, recortado a partir do compressor amarelo (1377×859) | entregue — composição gerada no mockup; pedir o arquivo-fonte em alta, se houver |
 
 | Asset                 | Arquivo                                            | Origem                                                                                                                                                                                       | Status                                                         |
 | --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -149,6 +149,32 @@ Pedido do usuário: melhorar a LP usando como referência a página atual do cli
 | Cotação        | texto próprio                                         | acrescenta "com as melhores condições para todo o Nordeste" (fecho da LP antiga)                                                       |
 
 A moldura das fotos de `aplicacoes` deixou de ancorar no topo (a razão era o número embutido nas fotos do mockup da manutenção) e passou a centralizar.
+
+## Desvios do padrão — abertura no mockup "Compressores Schulz" (22/10/2026)
+
+O usuário enviou um mockup da abertura e pediu "deixe essa parte do meu site assim". O hero foi refeito sobre ele, mantendo os dois slots de shortcode e o H1 com a palavra-chave.
+
+| O que o mockup pedia                                                                          | Como entrou                                                                                                                                                            | Regra do padrão afetada                                                  |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Compressores Schulz CSA 7,5 Twister, Bravo CSL 20 BR e MSV 20 Max no centro                   | o próprio mockup virou o banner: texto, card e botão do WhatsApp apagados por interpolação do fundo, recorte a partir do compressor amarelo                            | 4.1.3 — banner de 1981×900 (o mockup tem 1832×859)                       |
+| Texto encostado à esquerda e card na margem direita                                           | conteúdo do hero até 1680px (como "Como funciona" e diferenciais); coluna de texto fixa (540px, 560px a partir de 1536px), janela do banner com o resto, card de 340px | 4.1.2 — grid `1fr 270px 300px`; assinatura A8 do `check-lp.mjs` repinada |
+| Malha de blueprint no fundo à esquerda                                                        | camada `hero-blueprint` em CSS, com brilho azul no alto                                                                                                                | —                                                                        |
+| "COMPRESSORES SCHULZ" como linha de abertura                                                  | **mantido** "Compressores de parafuso Schulz"                                                                                                                          | regra 17 — a palavra-chave fica no H1                                    |
+| Pontos: Distribuidor Schulz, Fornecimento no Nordeste, Suporte técnico especializado, 40 anos | igual (o ponto "Linhas de 5 a 250 hp" saiu)                                                                                                                            | —                                                                        |
+| Sem a linha "Fortaleza e Recife" abaixo do CTA                                                | removida do hero; a área atendida passou para o header                                                                                                                 | —                                                                        |
+| Card "Solicite sua cotação / Fale com nossa equipe." com campos                               | cabeçalho no card, e o shortcode do chat logo abaixo — os campos são do plugin no WordPress; na prévia da Vercel aparece o texto do shortcode                          | regra 4 — slot de shortcode, nunca formulário próprio                    |
+
+Em 1920px os três compressores aparecem entre o texto e o card. Abaixo de ~1500px não cabem: aparecem o Twister e o Bravo, e o card cobre o MSV 20. No mobile o banner é a faixa no rodapé do hero, como antes.
+
+**Atenção de conteúdo:** os três compressores do mockup são de **pistão** (CSA 7,5 Twister, Bravo CSL 20 BR, MSV 20 Max), e a campanha e o H1 são de **compressor de parafuso**. Quem clica procurando parafuso vê pistão na primeira dobra. Vale confirmar com o cliente ou trocar por um mockup com os SRP.
+
+## Header (22/10/2026)
+
+Pedido do usuário: "deixe esse header mais bonito". Filete amarelo-azul no topo, largura de 1680px (a logo alinha com o texto do hero), tagline com selo, área atendida "Fortaleza e Recife · Todo o Nordeste" com pin, CTA com leve elevação no hover, fundo branco translúcido com desfoque e sombra só depois que a página rola. Sem menu e sem telefone (regra 1 e 4.1.1).
+
+## Elementos amarelos de fundo (22/10/2026)
+
+Pedido do usuário: "nas partes brancas, alguns elementos de fundo na cor amarela, bem bonitos mas minimalistas, meio transparentes". Em `src/styles/global.css`, como pseudo-elementos atrás do conteúdo de `#linhas`, `#aplicacoes` e `#cotacao`: anéis finos com halo, malhas de pontos esmaecidas, um brilho atrás do card da cotação e listras diagonais. As seções ganharam `overflow: clip` para os elementos não vazarem.
 
 ## Estado da entrega
 

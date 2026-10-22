@@ -199,3 +199,105 @@
 #main > section:nth-of-type(6) {
   z-index: 1;
 }
+
+/* ---------------------------------------------------------------------------
+   Falanga: elementos de fundo amarelos nas seções claras (pedido do usuário,
+   22/10/2026: "minimalistas, meio transparentes"). Anéis finos, malhas de pontos,
+   listras diagonais e um brilho suave, no amarelo da marca com pouca opacidade. Traços
+   e pontos usam o amarelo mais fechado (brand-yellow-dark): o #fde001 quase some no branco.
+   Ficam atrás do conteúdo: z-index -1 dentro do contexto de empilhamento que cada
+   seção já cria (z-index acima), e não recebem clique. `overflow: clip` prende os
+   elementos à seção, com a curva dos cantos.
+   --------------------------------------------------------------------------- */
+#linhas,
+#aplicacoes,
+#cotacao {
+  overflow: clip;
+}
+
+#linhas::before,
+#linhas::after,
+#aplicacoes::before,
+#aplicacoes::after,
+#cotacao::before,
+#cotacao::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Produtos: anel grande saindo pela direita, com uma faixa suave por fora */
+#linhas::before {
+  top: -4rem;
+  right: -9rem;
+  width: clamp(300px, 36vw, 560px);
+  aspect-ratio: 1;
+  border: 2.5px solid rgb(240 207 0 / 0.7);
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 34px rgb(253 224 1 / 0.1),
+    0 0 140px 30px rgb(253 224 1 / 0.14);
+}
+
+/* Produtos: malha de pontos à esquerda, na altura dos cards */
+#linhas::after {
+  left: -1rem;
+  top: 46%;
+  width: 300px;
+  height: 260px;
+  background-image: radial-gradient(rgb(240 207 0 / 0.85) 2px, transparent 2.4px);
+  background-size: 20px 20px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+}
+
+/* Aplicações: malha de pontos atrás do título centrado */
+#aplicacoes::before {
+  left: 6%;
+  top: 2.5rem;
+  width: 280px;
+  height: 220px;
+  background-image: radial-gradient(rgb(240 207 0 / 0.85) 2px, transparent 2.4px);
+  background-size: 20px 20px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+}
+
+/* Aplicações: anel saindo pela direita, na altura da faixa de CTA */
+#aplicacoes::after {
+  right: -7rem;
+  bottom: 2rem;
+  width: clamp(260px, 30vw, 460px);
+  aspect-ratio: 1;
+  border: 2.5px solid rgb(240 207 0 / 0.65);
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 28px rgb(253 224 1 / 0.1),
+    0 0 120px 24px rgb(253 224 1 / 0.12);
+}
+
+/* Cotação: brilho amarelo suave atrás do card do formulário */
+#cotacao::before {
+  left: -10rem;
+  top: 8%;
+  width: clamp(420px, 48vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: radial-gradient(circle at center, rgb(253 224 1 / 0.32) 0%, transparent 62%);
+}
+
+/* Cotação: listras diagonais finas no canto direito */
+#cotacao::after {
+  right: 4%;
+  top: 12%;
+  width: 220px;
+  height: 220px;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(240 207 0 / 0.75) 0 2px,
+    transparent 2px 14px
+  );
+  -webkit-mask-image: radial-gradient(circle at center, #000 30%, transparent 70%);
+  mask-image: radial-gradient(circle at center, #000 30%, transparent 70%);
+}
