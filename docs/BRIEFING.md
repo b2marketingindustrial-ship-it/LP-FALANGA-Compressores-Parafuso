@@ -109,7 +109,7 @@ Derivada em: 21/10/2026 por `npm run ficha` — `linhas processo aplicacoes dife
 | 4 fotos de produto    | `src/assets/linhas/linha-1.png` … `-4.png`         | fotos 600×600 do site, recortadas sem as faixas da marca d'água e ampliadas para 800×600                                                                                                     | entregue — fundo branco, não recortado (o card usa `multiply`) |
 | Galeria de `linhas`   | `galeria-1.webp` e `galeria-2.webp`                | 1: sala com SRP 5100 (arte do catálogo no site, 586×595); 2: SRP 4030 no galpão (LP de manutenção)                                                                                           | entregue (baixa resolução)                                     |
 | 4 fotos de aplicação  | `src/assets/aplicacoes/aplicacao-1.jpg` … `-4.jpg` | recortes da arte "sistema de ar comprimido Schulz" da LP antiga (2048×1972), com os números da legenda cobertos por remendos da própria imagem: compressor, reservatório, filtragem, secador | entregue (548–900px; render do fabricante, não foto real)      |
-| Foto dos diferenciais | `src/assets/diferenciais/cenario.jpg`              | a da LP de manutenção (técnico no SRP 4015)                                                                                                                                                  | **provisório** — pedir original                                |
+| Foto dos diferenciais | `src/assets/diferenciais/cenario.jpg`              | compressor do primeiro mockup de hero da Falanga, 1102×755, espelhado (troca de 22/10/2026 — a foto do técnico tinha 1020×482 e era ampliada 1,5×)                                           | **provisório** — imagem genérica; pedir foto real em alta      |
 
 ## Conflitos com o padrão
 
@@ -148,11 +148,13 @@ Pedido do usuário: melhorar a LP usando como referência a página atual do cli
 | `diferenciais` | 5 motivos do briefing                                 | os blocos "Custo-benefício", "Falanga Pneumática — 40 anos" e "Schulz — confiabilidade e produto nacional" (desde 1963), mais Nordeste |
 | Cotação        | texto próprio                                         | acrescenta "com as melhores condições para todo o Nordeste" (fecho da LP antiga)                                                       |
 
+**Foto dos diferenciais (22/10/2026).** O usuário apontou a foto com má qualidade. A foto do técnico tinha 1020×482 (recortada do mockup "compressor service showcase", que não tem versão maior) e o bloco a ampliava ~1,5× para preencher a altura; o componente também nunca servia mais que 1020px. Entrou o compressor do primeiro mockup de hero da Falanga ("Premium industrial compressor website hero.png", PNG sem compressão), recortado em 1102×755 (≈3:2, sem ampliação em 1920px) à direita do texto do mockup e espelhado para o equipamento ficar longe da borda esmaecida. O `WhyBrand.astro` passou a servir até 1116px com `quality="high"`. A primeira tentativa, um recorte da arte do sistema Schulz, foi descartada: a arte já vem comprimida do site e continuava borrada nesse tamanho. O compressor do mockup é genérico (não é um Schulz); trocar por foto real da Falanga ou de um Schulz em alta (≥1600×1000) quando o cliente enviar.
+
 A moldura das fotos de `aplicacoes` deixou de ancorar no topo (a razão era o número embutido nas fotos do mockup da manutenção) e passou a centralizar.
 
 ## Estado da entrega
 
 - [x] Primeira versão de pé (`npm run check:lp:rascunho` passa) em: 21/10/2026
-- [ ] Todos os assets reais entregues — nenhum placeholder resta, mas banner do hero e diferenciais reaproveitam as fotos da LP de manutenção, as aplicações são recortes de um render do fabricante, e as fotos de produto vêm do site em 600×600
+- [ ] Todos os assets reais entregues — nenhum placeholder resta, mas o banner do hero reaproveita o da LP de manutenção, as aplicações são recortes de um render do fabricante, a foto dos diferenciais é genérica (mockup), e as fotos de produto vêm do site em 600×600
 - [x] `npm run verify` passa inteiro em: 21/10/2026 (0 erros, 13 avisos de resolução, proporção, recorte e tamanho do title)
 - [x] Padrão B2 versão: `2.8.0`

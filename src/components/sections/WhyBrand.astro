@@ -2,13 +2,16 @@
 /**
  * Diferenciais — fase "autoridade" da biblioteca B2.
  *
- * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup "Reduza o tempo de
- * inatividade", docs/BRIEFING.md): bloco navy em largura total com o fim do título em
- * amarelo, CTA em pílula amarela e a área atendida; à direita, uma foto única (o técnico
- * já está nela) fechada por uma faixa amarela curva; e os 5 cards sobrepostos à base,
+ * VARIANTE LOCAL herdada da LP de manutenção da Falanga (mockup "Reduza o tempo de
+ * inatividade", 21/10/2026, docs/BRIEFING.md): bloco navy em largura total com o fim do
+ * título em amarelo, CTA em pílula amarela e a área atendida; à direita, uma foto única
+ * (sem pessoa recortada) fechada por uma faixa amarela curva; e os 5 cards sobrepostos à base,
  * com ícone em quadrado amarelo ao lado do texto. Conteúdo e cards vão até 1680px, como
  * o "Como funciona". O contrato é o mesmo da biblioteca — 5 motivos, CTA
  * `diferenciais-cta`, bloco navy, `tone`/`rhythm`.
+ *
+ * A foto ocupa ~1110×730 em tela de 1920px: o arquivo tem de ter ao menos essa largura e
+ * proporção perto de 3:2, ou o `object-cover` a amplia e ela perde nitidez.
  *
  * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
  * Recompor a página exige reaplicá-la a partir do git.
@@ -41,7 +44,8 @@ const bleedTop = RHYTHMS[rhythm]?.top ?? 0
       <Picture
         src={why.scene.src}
         alt={why.scene.alt}
-        widths={[640, 1020]}
+        widths={[640, 1116]}
+        quality="high"
         sizes="(min-width: 1024px) 58vw, 100vw"
         formats={['avif', 'webp']}
         fallbackFormat="webp"
@@ -103,7 +107,8 @@ const bleedTop = RHYTHMS[rhythm]?.top ?? 0
       <Picture
         src={why.scene.src}
         alt={why.scene.alt}
-        widths={[640, 1020]}
+        widths={[640, 1116]}
+        quality="high"
         sizes="100vw"
         formats={['avif', 'webp']}
         fallbackFormat="webp"

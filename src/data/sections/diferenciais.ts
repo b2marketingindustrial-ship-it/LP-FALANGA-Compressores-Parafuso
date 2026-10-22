@@ -4,9 +4,10 @@
  * Bloco navy em largura total com a frase de autoridade e uma foto à direita, e 5
  * cards sobrepostos à base do bloco. São 5 exatos: o grid é `lg:grid-cols-5`.
  *
- * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): a foto de
- * cenário já traz o técnico, então não há pessoa recortada. O CTA tem rótulo próprio
- * (`cta`) e a área atendida aparece abaixo dele (`area`).
+ * Variante local herdada da LP de manutenção (mockup do cliente, 21/10/2026,
+ * docs/BRIEFING.md): foto única de cenário, sem pessoa recortada. O CTA tem rótulo próprio
+ * (`cta`) e a área atendida aparece abaixo dele (`area`). A foto vem do primeiro mockup de
+ * hero da Falanga (PNG sem compressão), espelhada, em resolução que não precisa ser ampliada.
  */
 import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
@@ -29,7 +30,7 @@ export const why = {
   area: 'Fornecimento para todo o Nordeste',
   scene: {
     src: cenario,
-    alt: 'Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo',
+    alt: 'Compressor de parafuso industrial com tubulação de ar comprimido em sala de máquinas',
   },
   reasons: [
     {
