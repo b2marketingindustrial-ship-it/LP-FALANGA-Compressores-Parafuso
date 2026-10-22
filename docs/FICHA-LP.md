@@ -278,7 +278,7 @@ blocos:
     text: Há mais de 40 anos no mercado, a Falanga é distribuidora Schulz no Nordeste, com confiabilidade, qualidade e assistência técnica para a sua indústria.
     cta: Solicitar cotação
     area: Fornecimento para todo o Nordeste
-    scene: Compressor de parafuso industrial com tubulação de ar comprimido em sala de máquinas
+    scene: Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo
     reasons:
       - icon: trend-up
         title: Ótimo custo-benefício
