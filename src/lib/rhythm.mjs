@@ -135,16 +135,19 @@ export const RHYTHMS = {
   /**
    * Falanga (23/10/2026, pedido do usuário: espaçamento igual entre todas as seções). O
    * mesmo respiro em cima e embaixo de toda seção, vindo de `--section-space` (global.css:
-   * 56px no mobile, 64px no desktop; os números abaixo são os do desktop). Sem compensação
+   * 70px em todas as larguras). Sem compensação
    * de painel: o que conta é a borda do painel navy, não o texto dentro dele.
    */
-  uniform: { class: 'py-(--section-space)', top: 64, bottom: 64 },
+  uniform: { class: 'py-(--section-space)', top: 70, bottom: 70 },
   /** Cotação com o mesmo respiro das outras seções (Falanga, 23/10/2026). */
-  close: { class: 'py-(--section-space)', top: 64, bottom: 64 },
+  close: { class: 'py-(--section-space)', top: 70, bottom: 70 },
 }
 
-/** Respiro aceito entre duas seções de mesmo fundo. */
-export const GAP_SAME_TONE = [80, 128]
+/**
+ * Respiro aceito entre duas seções de mesmo fundo. Teto de 140 (era 128) na Falanga, para
+ * os 70px + 70px do respiro único pedido pelo usuário em 23/10/2026.
+ */
+export const GAP_SAME_TONE = [80, 140]
 
 /** Respiro aceito quando o fundo muda — a troca de cor pede mais ar. */
 export const GAP_TONE_CHANGE = [96, 160]

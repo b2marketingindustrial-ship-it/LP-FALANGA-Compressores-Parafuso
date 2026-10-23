@@ -253,15 +253,15 @@
    --------------------------------------------------------------------------- */
 :root {
   --lp-round: 2rem;
-  /* Respiro vertical único de toda seção, em cima e embaixo (padronizado em 23/10/2026).
-     O ritmo `uniform` (src/lib/rhythm.mjs) aplica este valor; a curva acima soma --lp-round. */
-  --section-space: 3.5rem;
+  /* Respiro vertical único de toda seção, em cima e embaixo: 70px em todas as larguras
+     (pedido do usuário, 23/10/2026). O ritmo `uniform` (src/lib/rhythm.mjs) aplica este
+     valor; a curva acima soma --lp-round. */
+  --section-space: 70px;
 }
 
 @media (width >= 64rem) {
   :root {
     --lp-round: 3rem;
-    --section-space: 4rem;
   }
 }
 
