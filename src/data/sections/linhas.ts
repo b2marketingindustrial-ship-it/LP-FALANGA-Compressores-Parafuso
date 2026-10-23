@@ -106,9 +106,19 @@ export const productLines = {
    * como no comparativo acima. CTA `linhas-energia`.
    */
   energy: {
+    eyebrow: 'Eficiência energética',
     title: 'Mais desempenho com até 50% menos energia.',
+    /** Trecho do título com o marcador amarelo. */
+    highlight: 'até 50%',
     text: 'Nos compressores Schulz de velocidade variável, o motor acompanha a demanda de ar da planta: produz só o ar que a operação usa e reduz o consumo de energia em até 50%, segundo a Schulz.',
     cta: 'Falar com especialista',
+    /** Ao lado do CTA: o texto da antiga faixa "Não sabe qual modelo escolher?". */
+    ctaNote: 'Nossa equipe indica o compressor certo para a sua demanda de ar.',
+    /** As duas reduções do comparativo acima (catálogos Schulz), em destaque. */
+    stats: [
+      { value: '50%', label: 'menos energia', line: 'SRP 5000 Flex' },
+      { value: '38%', label: 'menos energia', line: 'SRP 4000 Flex' },
+    ],
     saving: { prefix: 'em até', value: 50, label: ['em economia', 'de energia'] },
     legend: { fixed: 'Velocidade constante', variable: 'Velocidade variável' },
     groups: [
@@ -172,9 +182,13 @@ export const productLines = {
   badge: { icon: IconName; label: string }
   range: { title: string; text: string; note: string; items: readonly RangeLine[] }
   energy: {
+    eyebrow: string
     title: string
+    highlight: string
     text: string
     cta: string
+    ctaNote: string
+    stats: readonly { value: string; label: string; line: string }[]
     saving: { prefix: string; value: number; label: readonly [string, string] }
     legend: { fixed: string; variable: string }
     groups: readonly EnergyGroup[]

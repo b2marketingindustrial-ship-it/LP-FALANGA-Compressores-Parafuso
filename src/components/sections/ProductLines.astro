@@ -27,6 +27,13 @@ const { tone, rhythm } = Astro.props
 const lines = productLines.items
 const [photo1, photo2] = productLines.gallery
 const energy = productLines.energy
+
+// O marcador amarelo cobre `energy.highlight` dentro do título; o texto inteiro continua em `energy.title`.
+const markAt = energy.title.indexOf(energy.highlight)
+const energyLead = markAt >= 0 ? energy.title.slice(0, markAt).trimEnd() : energy.title
+const energyMark = markAt >= 0 ? energy.highlight : ''
+const energyTail =
+  markAt >= 0 ? energy.title.slice(markAt + energy.highlight.length).trimStart() : ''
 ---
 
 <Section id="linhas" tone={tone} rhythm={rhythm}>
@@ -316,15 +323,50 @@ const energy = productLines.energy
       </figcaption>
     </figure>
 
+    {/* Coluna de texto: eyebrow, título com marcador, texto, as duas reduções do
+        comparativo em destaque e o CTA com a nota de atendimento */}
     <div>
-      <h3 class="font-display text-[1.75rem] leading-[1.1] font-extrabold tracking-[-0.02em] text-primary-dark sm:text-[2.1rem]">
-        {energy.title}
+      <p class="flex items-center gap-4 font-sans text-[13px] font-bold tracking-[0.14em] text-brand-blue uppercase">
+        <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
+        {energy.eyebrow}
+      </p>
+      <h3 class="mt-4 font-display text-[1.9rem] leading-[1.1] font-extrabold tracking-[-0.025em] text-primary-dark sm:text-[2.4rem]">
+        {energyLead} {energyMark && <mark class="energy-mark text-brand-blue">{energyMark}</mark>}{' '}
+        {energyTail}
       </h3>
       <p class="mt-4 font-sans text-[17px] leading-relaxed text-ink-soft">{energy.text}</p>
-      <button type="button" data-cta="linhas-energia" class="btn-slave-whats cta cta-blue mt-7">
-        {energy.cta}
-        <Icon name="arrow-right" class="shrink-0" />
-      </button>
+
+      <ul class="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
+        {energy.stats.map((stat) => (
+          <li class="flex items-center gap-3 rounded-2xl border border-[#e3e8f1] bg-neutral-light p-4 shadow-[0_14px_30px_-24px_rgba(0,33,71,0.45)]">
+            <span class="hidden size-11 shrink-0 items-center justify-center rounded-xl bg-brand-blue text-brand-yellow sm:flex">
+              <Icon name="bolt" class="size-6" />
+            </span>
+            <span class="min-w-0">
+              <span class="block font-display text-[26px] leading-none font-extrabold tracking-[-0.02em] text-primary-dark">
+                <span class="font-sans text-[13px] font-bold tracking-normal text-ink-soft">
+                  até{' '}
+                </span>
+                {stat.value}
+              </span>
+              <span class="mt-1.5 block font-sans text-[13px] leading-tight font-medium text-ink-soft">
+                {stat.label} · <span class="font-bold text-brand-blue">{stat.line}</span>
+              </span>
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
+        <button type="button" data-cta="linhas-energia" class="btn-slave-whats cta cta-blue">
+          {energy.cta}
+          <Icon name="arrow-right" class="shrink-0" />
+        </button>
+        <p class="flex max-w-[17rem] items-center gap-2.5 font-sans text-[14px] leading-snug text-ink-soft">
+          <Icon name="users" class="size-5 shrink-0 text-brand-blue" />
+          {energy.ctaNote}
+        </p>
+      </div>
     </div>
   </div>
 
@@ -332,6 +374,17 @@ const energy = productLines.energy
 </Section>
 
 <style>
+  /* Marcador amarelo atrás do "até 50%" do título. */
+  .energy-mark {
+    background: linear-gradient(
+      transparent 62%,
+      rgb(253 224 1 / 0.75) 62%,
+      rgb(253 224 1 / 0.75) 92%,
+      transparent 92%
+    );
+    padding-inline: 0.08em;
+  }
+
   .energy-fixed {
     background-color: #a9b2bf;
   }
