@@ -79,23 +79,23 @@ Derivada em: 21/10/2026 por `npm run ficha` — `linhas processo aplicacoes dife
 
 ## Entradas do núcleo
 
-| #   | Entrada                 | Valor                                                                                          | Origem                                        |
-| --- | ----------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| 1   | MARCA                   | Falanga Pneumática                                                                             | briefing                                      |
-| 2   | MARCA_CURTA             | Falanga                                                                                        | briefing (inferido)                           |
-| 3   | PRODUTO_PRINCIPAL       | Compressores de parafuso Schulz                                                                | briefing (inferido)                           |
-| 4   | CONTEXTO_DE_USO         | operações industriais                                                                          | briefing                                      |
-| 5   | PUBLICO                 | Manutenção, Engenharia, Compras                                                                | **inferido** — ausente no material            |
-| 6   | HERO                    | distribuidor Schulz · fornecimento no Nordeste · suporte · 40 anos                             | briefing                                      |
-| 7   | MARCAS_ATENDIDAS        | Schulz, só por extenso (sem logo)                                                              | logo de terceiro: decisão do cliente pendente |
-| 8   | SELOS_DE_CONFIANCA      | Fornecimento para todo o Nordeste · Suporte técnico especializado · Mais de 40 anos de mercado | briefing                                      |
-| 9   | ENDERECO                | R. Mirian Rocha, 97 - Fortaleza - CE · Rua Tomaz Gonzaga, 74 - Zumbi, Recife - PE              | briefing (sem CEP)                            |
-| 10  | URL_FINAL + PRIVACIDADE | `https://lp-compressores-de-parafuso.vercel.app` · sem política                                | **provisório** — URL final é a do WordPress   |
-| 11  | SHORTCODES              | padrão do plugin                                                                               | default                                       |
-| 12  | WHATSAPP                | `5585996267979` — botão flutuante ligado                                                       | briefing                                      |
-| 13  | STACK + PUBLICACAO      | Astro · `main` → `wp-build` · prévia na Vercel                                                 | default do padrão + Vercel                    |
-| 14  | TOKENS_DE_COR + FONTE   | os da LP de manutenção da Falanga (amarelo `#FDE001` e azul `#0043A1`)                         | herdado                                       |
-| 15  | CAMPANHA                | `compressor de parafuso`                                                                       | briefing                                      |
+| #   | Entrada                 | Valor                                                                                          | Origem                                                              |
+| --- | ----------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| 1   | MARCA                   | Falanga Pneumática                                                                             | briefing                                                            |
+| 2   | MARCA_CURTA             | Falanga                                                                                        | briefing (inferido)                                                 |
+| 3   | PRODUTO_PRINCIPAL       | Compressores de parafuso Schulz                                                                | briefing (inferido)                                                 |
+| 4   | CONTEXTO_DE_USO         | operações industriais                                                                          | briefing                                                            |
+| 5   | PUBLICO                 | Manutenção, Engenharia, Compras                                                                | **inferido** — ausente no material                                  |
+| 6   | HERO                    | distribuidor Schulz · fornecimento no Nordeste · suporte · 40 anos                             | briefing                                                            |
+| 7   | MARCAS_ATENDIDAS        | Schulz, só por extenso (sem logo)                                                              | logo de terceiro: decisão do cliente pendente                       |
+| 8   | SELOS_DE_CONFIANCA      | Fornecimento para todo o Nordeste · Suporte técnico especializado · Mais de 40 anos de mercado | briefing                                                            |
+| 9   | ENDERECO                | R. Mirian Rocha, 97 - Fortaleza - CE · Rua Tomaz Gonzaga, 74 - Zumbi, Recife - PE              | briefing (sem CEP)                                                  |
+| 10  | URL_FINAL + PRIVACIDADE | `https://falangapneumatica.com.br/compressores-de-parafuso/` · sem política                    | definida em 23/10/2026 — substitui a página atual do mesmo endereço |
+| 11  | SHORTCODES              | padrão do plugin                                                                               | default                                                             |
+| 12  | WHATSAPP                | `5585996267979` — botão flutuante ligado                                                       | briefing                                                            |
+| 13  | STACK + PUBLICACAO      | Astro · `main` → `wp-build` · prévia na Vercel                                                 | default do padrão + Vercel                                          |
+| 14  | TOKENS_DE_COR + FONTE   | os da LP de manutenção da Falanga (amarelo `#FDE001` e azul `#0043A1`)                         | herdado                                                             |
+| 15  | CAMPANHA                | `compressor de parafuso`                                                                       | briefing                                                            |
 
 ## Assets
 
