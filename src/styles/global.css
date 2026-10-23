@@ -179,6 +179,17 @@
   }
 }
 
+/* Texto descritivo abaixo dos títulos (padronizado e reduzido em 23/10/2026): 16px,
+   17px a partir de 1024px. */
+@utility text-lead {
+  font-size: 1rem;
+  line-height: 1.65;
+
+  @media (width >= 64rem) {
+    font-size: 1.0625rem;
+  }
+}
+
 /* Fundo navy com brilho radial: hero, painéis, bloco de diferenciais e footer. */
 @utility navy-premium {
   background-color: var(--color-primary-dark);

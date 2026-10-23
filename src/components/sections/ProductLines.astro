@@ -73,9 +73,7 @@ const energyTail =
       <h2 class="mt-4 font-display title-section leading-[1.08] font-extrabold tracking-[-0.03em] text-primary-dark">
         {productLines.title}
       </h2>
-      <p class="mt-5 max-w-xl font-sans text-lg leading-relaxed text-ink-soft xl:text-xl">
-        {productLines.text}
-      </p>
+      <p class="mt-5 max-w-xl font-sans text-lead text-ink-soft">{productLines.text}</p>
       {/* Destaque da distribuição no Nordeste (pedido do usuário, 23/10/2026) */}
       <p class="mt-7 inline-flex items-center gap-4 rounded-2xl border border-brand-blue/15 bg-brand-mist py-3 pr-6 pl-3">
         <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue text-neutral-light shadow-[0_10px_20px_-12px_rgba(0,67,161,0.8)]">
@@ -136,7 +134,7 @@ const energyTail =
         <h2 class="font-display title-section leading-[1.08] font-extrabold tracking-[-0.03em] text-primary-dark sm:whitespace-pre-line">
           {productLines.catalog.title}
         </h2>
-        <p class="mt-3 font-sans text-[17px] leading-relaxed text-ink-soft md:whitespace-pre-line">
+        <p class="mt-3 font-sans text-lead text-ink-soft md:whitespace-pre-line">
           {productLines.catalog.text}
         </p>
       </div>
@@ -368,7 +366,7 @@ const energyTail =
         {energyLead} {energyMark && <mark class="energy-mark text-brand-blue">{energyMark}</mark>}{' '}
         {energyTail}
       </h2>
-      <p class="mt-4 font-sans text-[17px] leading-relaxed text-ink-soft">{energy.text}</p>
+      <p class="mt-4 font-sans text-lead text-ink-soft">{energy.text}</p>
 
       <ul class="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
         {energy.stats.map((stat) => (

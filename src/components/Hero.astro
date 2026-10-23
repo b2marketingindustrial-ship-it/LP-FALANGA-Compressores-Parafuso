@@ -58,8 +58,8 @@ const highlight = cut >= 0 ? hero.highlight : ''
       {/* Coluna 1 — textos */}
       <div class="max-w-xl lg:max-w-none">
         {/* Pílula com a frase de efeito */}
-        <p class="inline-flex items-center gap-2.5 rounded-full border border-brand-yellow/40 bg-white/[0.06] px-4 py-1.5 font-sans text-[13px] font-bold tracking-[0.12em] text-brand-yellow uppercase sm:text-[14px]">
-          <span aria-hidden="true" class="size-2 shrink-0 rounded-full bg-brand-yellow"></span>
+        <p class="inline-flex items-center gap-2 rounded-full border border-brand-yellow/40 bg-white/[0.06] px-3 py-1 font-sans text-[11px] font-bold tracking-[0.12em] text-brand-yellow uppercase sm:text-[12px]">
+          <span aria-hidden="true" class="size-1.5 shrink-0 rounded-full bg-brand-yellow"></span>
           {hero.pill}
         </p>
 
@@ -71,9 +71,7 @@ const highlight = cut >= 0 ? hero.highlight : ''
           </span>
         </h1>
 
-        <p class="mt-6 max-w-[34rem] font-sans text-lg leading-relaxed text-neutral-light/90 2xl:text-xl">
-          {hero.text}
-        </p>
+        <p class="mt-5 max-w-[32rem] font-sans text-lead text-neutral-light/90">{hero.text}</p>
 
         {/* 4 pontos numa linha só, ícone ao lado do texto, numa barra de vidro com separadores
             (pedidos do usuário, 23/10/2026); texto sempre em duas linhas. Abaixo de 640px voltam
