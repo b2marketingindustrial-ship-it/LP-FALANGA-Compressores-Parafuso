@@ -121,133 +121,162 @@ const energyTail =
     </div>
   </div>
 
-  {/* Cards de produto e das linhas Schulz numa grade só, um escuro */}
   {/* Blocos da seção (abertura, grade, gráfico) separados por 70px com um filete no meio
       (pedido do usuário, 23/10/2026): `lp-block` em global.css. */}
-  <div class="lp-block grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-    {lines.map((line, i) => (
-      <article
-        class:list={[
-          'flex flex-col rounded-2xl border p-5 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 xl:p-6',
-          line.dark
-            ? 'border-transparent bg-[linear-gradient(160deg,#0550ab_0%,#0043a1_55%,#003a8f_100%)] shadow-[0_24px_48px_-28px_rgba(0,55,127,0.8)]'
-            : 'border-[#e3e8f1] bg-neutral-light shadow-[0_10px_30px_-24px_rgba(0,33,71,0.35)] hover:shadow-[0_24px_48px_-28px_rgba(0,33,71,0.4)]',
-        ]}
-      >
-        <div class="flex items-center justify-between">
-          <span
-            class:list={[
-              'rounded-full px-3 py-1 font-sans text-[11px] font-bold tracking-[0.12em] uppercase',
-              line.dark
-                ? 'bg-brand-yellow text-primary-dark-900'
-                : 'bg-brand-yellow-soft text-[#00256f]',
-            ]}
-          >
-            {line.tag}
-          </span>
-          <span
-            class:list={[
-              'font-display text-[17px] font-bold',
-              line.dark ? 'text-neutral-light/45' : 'text-[#c0c9df]',
-            ]}
-          >
-            {String(i + 1).padStart(2, '0')}
-          </span>
-        </div>
-
-        {/* Palco do produto: o fundo branco da foto some no multiply */}
-        <figure
-          class:list={[
-            'mt-4 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl p-3',
-            line.dark ? 'bg-neutral-light' : 'bg-[linear-gradient(180deg,#f5f7fa_0%,#ffffff_100%)]',
-          ]}
-        >
-          {line.photo ? (
-            <Image
-              src={line.photo.src}
-              alt={line.photo.alt}
-              width={400}
-              format="webp"
-              loading="lazy"
-              decoding="async"
-              class="h-full w-full object-contain mix-blend-multiply"
-            />
-          ) : (
-            <span class="flex h-full w-full flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#d5dcea] text-[#9aa7bf]">
-              <Icon name="camera" class="size-8" />
-              <span class="font-sans text-[12px] font-semibold tracking-[0.12em] uppercase">
-                Imagem · {line.title.replace('Linha ', '')}
-              </span>
-            </span>
-          )}
-        </figure>
-
-        <h3
-          class:list={[
-            'mt-5 font-display text-[21px] leading-[1.2] font-extrabold tracking-[-0.015em] lg:text-[19px] xl:text-[20px] 2xl:text-[22px]',
-            line.dark ? 'text-neutral-light' : 'text-brand-blue',
-          ]}
-        >
-          {line.title}
+  <div class="lp-block">
+    {/* Cabeçalho da grade: toda a linha Schulz; os cards são só referências */}
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
+      <div class="max-w-3xl">
+        <h3 class="font-display text-[1.75rem] leading-[1.1] font-extrabold tracking-[-0.025em] text-primary-dark sm:text-[2.1rem]">
+          {productLines.catalog.title}
         </h3>
-        <p
+        <p class="mt-3 font-sans text-[17px] leading-relaxed text-ink-soft">
+          {productLines.catalog.text}
+        </p>
+      </div>
+      <ul class="flex flex-wrap gap-2 lg:max-w-[26rem] lg:justify-end" aria-label="Linha Schulz">
+        {productLines.catalog.categories.map((category) => (
+          <li class="flex items-center gap-2 rounded-full border border-brand-blue/15 bg-brand-mist px-3.5 py-2 font-sans text-[14px] font-semibold text-primary-dark">
+            <Icon name={category.icon} class="size-4 shrink-0 text-brand-blue" />
+            {category.label}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <p class="mt-8 flex items-center gap-3 font-sans text-[12px] font-bold tracking-[0.16em] text-ink-soft uppercase">
+      {productLines.catalog.note}
+      <span aria-hidden="true" class="h-px flex-1 bg-primary-dark/10"></span>
+    </p>
+
+    {/* Cards de produto e das linhas Schulz numa grade só, um escuro */}
+    <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+      {lines.map((line, i) => (
+        <article
           class:list={[
-            'mt-2 font-sans text-[15px] leading-relaxed',
-            line.dark ? 'text-neutral-light/85' : 'text-ink-soft',
+            'flex flex-col rounded-2xl border p-5 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 xl:p-6',
+            line.dark
+              ? 'border-transparent bg-[linear-gradient(160deg,#0550ab_0%,#0043a1_55%,#003a8f_100%)] shadow-[0_24px_48px_-28px_rgba(0,55,127,0.8)]'
+              : 'border-[#e3e8f1] bg-neutral-light shadow-[0_10px_30px_-24px_rgba(0,33,71,0.35)] hover:shadow-[0_24px_48px_-28px_rgba(0,33,71,0.4)]',
           ]}
         >
-          {line.description}
-        </p>
-
-        <ul class="mt-4 space-y-2" aria-label={`Características: ${line.title}`}>
-          {line.features.map((feature) => (
-            <li
+          <div class="flex items-center justify-between">
+            <span
               class:list={[
-                'flex items-center gap-2.5 font-sans text-[14px] font-medium',
-                line.dark ? 'text-neutral-light/90' : 'text-ink',
+                'rounded-full px-3 py-1 font-sans text-[11px] font-bold tracking-[0.12em] uppercase',
+                line.dark
+                  ? 'bg-brand-yellow text-primary-dark-900'
+                  : 'bg-brand-yellow-soft text-[#00256f]',
               ]}
             >
-              <span
-                class:list={[
-                  'flex size-5 shrink-0 items-center justify-center rounded-full',
-                  line.dark
-                    ? 'bg-brand-yellow text-primary-dark-900'
-                    : 'bg-brand-yellow-soft text-[#00256f]',
-                ]}
-              >
-                <Icon name="check" class="size-3 [stroke-width:2.4]" />
-              </span>
-              {feature}
-            </li>
-          ))}
-        </ul>
+              {line.tag}
+            </span>
+            <span
+              class:list={[
+                'font-display text-[17px] font-bold',
+                line.dark ? 'text-neutral-light/45' : 'text-[#c0c9df]',
+              ]}
+            >
+              {String(i + 1).padStart(2, '0')}
+            </span>
+          </div>
 
-        <div class="mt-auto pt-6">
-          <button
-            type="button"
-            data-cta={`linhas-${line.id}`}
+          {/* Palco do produto: o fundo branco da foto some no multiply */}
+          <figure
             class:list={[
-              'btn-slave-whats inline-flex w-full max-w-[16.5rem] items-center justify-between gap-4 border-b-2 pb-2 font-sans text-[15px] font-bold transition-colors duration-200 motion-reduce:transition-none',
+              'mt-4 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl p-3',
               line.dark
-                ? 'border-white/45 text-neutral-light hover:border-brand-yellow'
-                : 'border-brand-blue/25 text-brand-blue hover:border-brand-blue',
+                ? 'bg-neutral-light'
+                : 'bg-[linear-gradient(180deg,#f5f7fa_0%,#ffffff_100%)]',
             ]}
           >
-            {cta.card}
-            <Icon
-              name="arrow-right"
-              class:list={[
-                'size-5 shrink-0 [stroke-width:2.2]',
-                line.dark ? 'text-brand-yellow' : 'text-brand-blue',
-              ]}
-            />
-          </button>
-        </div>
-      </article>
-    ))}
-  </div>
+            {line.photo ? (
+              <Image
+                src={line.photo.src}
+                alt={line.photo.alt}
+                width={400}
+                format="webp"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-contain mix-blend-multiply"
+              />
+            ) : (
+              <span class="flex h-full w-full flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#d5dcea] text-[#9aa7bf]">
+                <Icon name="camera" class="size-8" />
+                <span class="font-sans text-[12px] font-semibold tracking-[0.12em] uppercase">
+                  Imagem · {line.title.replace('Linha ', '')}
+                </span>
+              </span>
+            )}
+          </figure>
 
-  <p class="mt-4 font-sans text-[12px] text-ink-soft">{productLines.range.note}</p>
+          <h3
+            class:list={[
+              'mt-5 font-display text-[21px] leading-[1.2] font-extrabold tracking-[-0.015em] lg:text-[19px] xl:text-[20px] 2xl:text-[22px]',
+              line.dark ? 'text-neutral-light' : 'text-brand-blue',
+            ]}
+          >
+            {line.title}
+          </h3>
+          <p
+            class:list={[
+              'mt-2 font-sans text-[15px] leading-relaxed',
+              line.dark ? 'text-neutral-light/85' : 'text-ink-soft',
+            ]}
+          >
+            {line.description}
+          </p>
+
+          <ul class="mt-4 space-y-2" aria-label={`Características: ${line.title}`}>
+            {line.features.map((feature) => (
+              <li
+                class:list={[
+                  'flex items-center gap-2.5 font-sans text-[14px] font-medium',
+                  line.dark ? 'text-neutral-light/90' : 'text-ink',
+                ]}
+              >
+                <span
+                  class:list={[
+                    'flex size-5 shrink-0 items-center justify-center rounded-full',
+                    line.dark
+                      ? 'bg-brand-yellow text-primary-dark-900'
+                      : 'bg-brand-yellow-soft text-[#00256f]',
+                  ]}
+                >
+                  <Icon name="check" class="size-3 [stroke-width:2.4]" />
+                </span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-auto pt-6">
+            <button
+              type="button"
+              data-cta={`linhas-${line.id}`}
+              class:list={[
+                'btn-slave-whats inline-flex w-full max-w-[16.5rem] items-center justify-between gap-4 border-b-2 pb-2 font-sans text-[15px] font-bold transition-colors duration-200 motion-reduce:transition-none',
+                line.dark
+                  ? 'border-white/45 text-neutral-light hover:border-brand-yellow'
+                  : 'border-brand-blue/25 text-brand-blue hover:border-brand-blue',
+              ]}
+            >
+              {cta.card}
+              <Icon
+                name="arrow-right"
+                class:list={[
+                  'size-5 shrink-0 [stroke-width:2.2]',
+                  line.dark ? 'text-brand-yellow' : 'text-brand-blue',
+                ]}
+              />
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-4 font-sans text-[12px] text-ink-soft">{productLines.range.note}</p>
+  </div>
 
   {/* Gráfico velocidade constante × variável: barras sobem, a seta se desenha e o "50%" conta
       quando o gráfico entra na tela (pedido do usuário, 23/10/2026). Sem JavaScript, ou com

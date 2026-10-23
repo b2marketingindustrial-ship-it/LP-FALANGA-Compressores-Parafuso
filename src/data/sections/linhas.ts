@@ -68,6 +68,22 @@ export const productLines = {
   /** Selo sobre a primeira foto da galeria. */
   badge: { icon: 'badge-check', label: 'Distribuidor Schulz' },
   /**
+   * Cabeçalho da grade (pedido do usuário, 23/10/2026): a Falanga fornece toda a linha
+   * Schulz, e os cards são só algumas referências. As categorias são as do sistema de ar
+   * da seção de aplicações (compressor, reservatório, filtragem, secador).
+   */
+  catalog: {
+    title: 'Toda a linha Schulz para a sua indústria.',
+    text: 'Fornecemos toda a linha de compressores de parafuso, secadores, filtros e reservatórios Schulz. Os modelos abaixo são algumas referências: fale com a nossa equipe para encontrar o equipamento certo para a sua demanda.',
+    categories: [
+      { icon: 'gear', label: 'Compressores de parafuso' },
+      { icon: 'droplet', label: 'Secadores de ar' },
+      { icon: 'layers', label: 'Filtros' },
+      { icon: 'cylinder', label: 'Reservatórios' },
+    ],
+    note: 'Algumas referências da linha Schulz',
+  },
+  /**
    * Linhas do catálogo Schulz publicadas na LP antiga do cliente. Desde 23/10/2026 entram
    * na mesma grade dos produtos (pedido do usuário: "uma tabela única"), como cards; as que
    * ainda não têm `photo` mostram o espaço reservado da imagem. Os percentuais são os dos
@@ -188,6 +204,12 @@ export const productLines = {
   areaNote: string
   gallery: readonly [Photo, Photo]
   badge: { icon: IconName; label: string }
+  catalog: {
+    title: string
+    text: string
+    categories: readonly { icon: IconName; label: string }[]
+    note: string
+  }
   range: { note: string; items: readonly RangeLine[] }
   energy: {
     eyebrow: string
