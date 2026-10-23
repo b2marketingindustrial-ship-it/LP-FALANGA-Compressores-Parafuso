@@ -13,10 +13,14 @@ import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
 
 export interface RangeLine {
+  /** Vira o CTA `linhas-{id}` do card. */
+  id: string
   name: string
   speed: string
   power: string
   highlight: string
+  /** Foto da linha. Sem ela, o card mostra o espaço reservado para a imagem. */
+  photo?: Photo
 }
 
 import galeria1 from '@assets/linhas/galeria-1.webp'
@@ -64,33 +68,37 @@ export const productLines = {
   /** Selo sobre a primeira foto da galeria. */
   badge: { icon: 'badge-check', label: 'Distribuidor Schulz' },
   /**
-   * Comparativo das linhas do catálogo Schulz publicado na LP antiga do cliente. Os
-   * percentuais são os dos catálogos da Schulz, e a nota os atribui ao fabricante.
+   * Linhas do catálogo Schulz publicadas na LP antiga do cliente. Desde 23/10/2026 entram
+   * na mesma grade dos produtos (pedido do usuário: "uma tabela única"), como cards; as que
+   * ainda não têm `photo` mostram o espaço reservado da imagem. Os percentuais são os dos
+   * catálogos da Schulz, e a nota abaixo da grade os atribui ao fabricante.
    */
   range: {
-    title: 'Linhas Schulz de compressores de parafuso',
-    text: 'Velocidade fixa ou variável, de 5 a 250 hp.',
     note: 'Faixas de potência e reduções de consumo informadas pela Schulz nos catálogos de cada linha.',
     items: [
       {
+        id: 'srp-4000',
         name: 'SRP 4000',
         speed: 'Velocidade fixa',
         power: '5 a 250 hp',
         highlight: 'Filtro e secador integrados',
       },
       {
+        id: 'srp-4000-dynamic',
         name: 'SRP 4000 Dynamic',
         speed: 'Velocidade fixa',
         power: '5 a 30 hp',
         highlight: 'Para espaços reduzidos',
       },
       {
+        id: 'srp-4000-flex',
         name: 'SRP 4000 Flex',
         speed: 'Velocidade variável',
         power: '5 a 250 hp',
         highlight: 'Até 38% menos energia',
       },
       {
+        id: 'srp-5000-flex',
         name: 'SRP 5000 Flex',
         speed: 'Velocidade variável',
         power: '30 a 100 hp',
@@ -180,7 +188,7 @@ export const productLines = {
   areaNote: string
   gallery: readonly [Photo, Photo]
   badge: { icon: IconName; label: string }
-  range: { title: string; text: string; note: string; items: readonly RangeLine[] }
+  range: { note: string; items: readonly RangeLine[] }
   energy: {
     eyebrow: string
     title: string
