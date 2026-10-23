@@ -26,7 +26,7 @@ import { header, cta } from '../data/content'
     class="block h-[3px] bg-[linear-gradient(90deg,var(--color-brand-yellow)_0%,var(--color-brand-yellow)_40%,var(--color-brand-blue)_100%)]"
   ></span>
   <div class="page-container flex items-center justify-between gap-3 py-3 sm:gap-6">
-    {/* 1. Logo da Falanga e, separada por um filete, a da Schulz (23/10/2026). A da Schulz
+    {/* 1. Logos 20% menores desde 23/10/2026. Logo da Falanga e, separada por um filete, a da Schulz (23/10/2026). A da Schulz
         some abaixo de 640px, onde não cabe ao lado do CTA. */}
     <div class="flex shrink-0 items-center gap-5 lg:gap-6">
       <a href="/" class="flex shrink-0 items-center">
@@ -39,10 +39,10 @@ import { header, cta } from '../data/content'
           loading="eager"
           fetchpriority="low"
           decoding="async"
-          class="header-logo h-10 w-auto sm:h-14"
+          class="header-logo h-8 w-auto sm:h-[45px]"
         />
       </a>
-      <span aria-hidden="true" class="hidden h-10 w-px bg-primary-dark/15 sm:block"></span>
+      <span aria-hidden="true" class="hidden h-8 w-px bg-primary-dark/15 sm:block"></span>
       <Image
         src={schulzLogo}
         alt="Schulz"
@@ -50,7 +50,7 @@ import { header, cta } from '../data/content'
         format="webp"
         loading="eager"
         decoding="async"
-        class="hidden h-6 w-auto sm:block lg:h-7"
+        class="hidden h-[19px] w-auto sm:block lg:h-[22px]"
       />
     </div>
 
