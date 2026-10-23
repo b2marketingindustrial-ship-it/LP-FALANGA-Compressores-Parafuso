@@ -61,7 +61,7 @@ export const hero = {
   text: 'Mais ar comprimido com menos custo na sua operação: a Falanga é distribuidora autorizada Schulz, com tecnologia de ponta e suporte técnico especializado.',
   banner: {
     src: heroBg,
-    alt: 'Compressores de parafuso Schulz SRP 4025, SRP 4050 e SRP 5100 lado a lado',
+    alt: 'Compressores de parafuso Schulz SRP 4015 e secador SRS 60 Compact em galpão industrial',
   },
   points: [
     { icon: 'badge-check', line1: 'Distribuidor', line2: 'autorizado' },

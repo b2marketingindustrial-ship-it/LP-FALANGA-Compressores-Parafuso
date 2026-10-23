@@ -99,10 +99,10 @@ Derivada em: 21/10/2026 por `npm run ficha` — `linhas processo aplicacoes dife
 
 ## Assets
 
-| Asset          | Arquivo                 | Origem                                                                                                                                                                            | Status                                                |
-| -------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Logo           | `src/assets/LOGO.png`   | a da LP de manutenção (site do cliente, 341×82)                                                                                                                                   | entregue (baixa resolução: pedir vetor ou PNG 2×)     |
-| Banner do hero | `src/assets/heroBg.png` | desde 23/10/2026, composição provisória (1720×1073) com os SRP 4025, 4050 e 5100 recortados das fotos de produto sobre fundo navy; substituiu o mockup com compressores de pistão | **provisório** — pedir banner com a linha SRP em alta |
+| Asset          | Arquivo                 | Origem                                                                                                                                                                                          | Status                                            |
+| -------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| Logo           | `src/assets/LOGO.png`   | a da LP de manutenção (site do cliente, 341×82)                                                                                                                                                 | entregue (baixa resolução: pedir vetor ou PNG 2×) |
+| Banner do hero | `src/assets/heroBg.png` | banner do cliente (23/10/2026, 1870×841: SRP 4015 com reservatório, SRP 4015 e secador SRS 60 em galpão), cortado 560px à esquerda para os equipamentos ficarem logo depois do texto (1310×841) | entregue                                          |
 
 | Asset                 | Arquivo                                            | Origem                                                                                                                                                                                       | Status                                                    |
 | --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
@@ -200,7 +200,6 @@ A arte do sistema Schulz no site do cliente tem no máximo 2482px; os recortes d
 
 ### Fotos a pedir ao cliente
 
-- Banner do hero com a linha SRP (parafuso), em alta — substitui a composição provisória.
 - Fotos dos produtos SRP 3020, SRP 3025, SRP 4050 e SRP 60 em pelo menos 800×600, de preferência já recortadas.
 - Fotos reais do sistema de ar (compressor, reservatório, filtros, secador) em pelo menos 1200px de largura.
 - Original da foto do técnico (`cenario.jpg`) em pelo menos 1600px.
@@ -209,6 +208,6 @@ A arte do sistema Schulz no site do cliente tem no máximo 2482px; os recortes d
 ## Estado da entrega
 
 - [x] Primeira versão de pé (`npm run check:lp:rascunho` passa) em: 21/10/2026
-- [ ] Todos os assets reais entregues — nenhum placeholder resta, mas o banner do hero é uma composição provisória, os diferenciais reaproveitam a foto da LP de manutenção, as aplicações são recortes de um render do fabricante, e as fotos de produto vêm do site em 600×600
+- [ ] Todos os assets reais entregues — nenhum placeholder resta, mas os diferenciais reaproveitam a foto da LP de manutenção, as aplicações são recortes de um render do fabricante, e as fotos de produto vêm do site em 600×600
 - [x] `npm run verify` passa inteiro em: 21/10/2026 (0 erros, 13 avisos de resolução, proporção, recorte e tamanho do title)
 - [x] Padrão B2 versão: `2.8.0`
