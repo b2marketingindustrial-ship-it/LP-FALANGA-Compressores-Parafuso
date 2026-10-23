@@ -70,7 +70,7 @@ export const productLines = {
     },
   ],
   /** Selo sobre a primeira foto da galeria. */
-  badge: { icon: 'badge-check', label: 'Distribuidor Schulz' },
+  badge: { icon: 'badge-check', label: 'Distribuidor autorizado' },
   /**
    * Cabeçalho da grade (pedido do usuário, 23/10/2026): a Falanga fornece toda a linha
    * Schulz, e os cards são só algumas referências. As categorias são as do sistema de ar

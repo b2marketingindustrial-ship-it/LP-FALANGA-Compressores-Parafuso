@@ -25,7 +25,7 @@
 | Origem                     | lista informada                                                                                                      |
 | Área atendida              | Nordeste, com unidades em Fortaleza/CE e Recife/PE — no title, no hero e num selo                                    |
 | Negativas de oferta        | nenhuma informada                                                                                                    |
-| Claims proibidos           | `autorizada`, `autorizado`, `oficial` — sem comprovação no material (`oficial` bloqueado em 23/10/2026)              |
+| Claims proibidos           | `oficial`. `autorizada`/`autorizado` liberados em 23/10/2026: o site do cliente diz "Distribuidor Autorizado" Schulz |
 | Divergência de vocabulário | "compressores de parafuso industriais" (cliente) × "compressor de parafuso" (campanha): o H1 usa a forma da campanha |
 
 ### Famílias de palavra-chave

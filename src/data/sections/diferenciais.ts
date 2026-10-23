@@ -26,7 +26,7 @@ export const why = {
   /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
   titleLines: ['Há 40 anos, referência em', 'ar comprimido no Nordeste.'],
   /** Cada `\n` é uma quebra forçada a partir de 1280px; abaixo disso o texto corre normal. */
-  text: 'Distribuidora Schulz, a Falanga acompanha a sua\nindústria do dimensionamento à assistência técnica,\ncom confiabilidade e qualidade em cada etapa.',
+  text: 'Distribuidora autorizada Schulz, a Falanga acompanha\na sua indústria do dimensionamento à assistência técnica,\ncom confiabilidade e qualidade em cada etapa.',
   cta: cta.primary,
   scene: {
     src: cenario,
@@ -52,9 +52,10 @@ export const why = {
       description: 'Do escritório de representação à distribuição Schulz.',
     },
     {
-      icon: 'users',
-      title: 'Equipe técnica',
-      description: 'Especialistas em ar comprimido industrial.',
+      // Serviço da página "A empresa" do cliente (23/10/2026), no lugar de "Equipe técnica".
+      icon: 'tools',
+      title: 'Rede de ar comprimido',
+      description: 'Projeto e execução da rede da sua planta.',
     },
     {
       icon: 'layers',
