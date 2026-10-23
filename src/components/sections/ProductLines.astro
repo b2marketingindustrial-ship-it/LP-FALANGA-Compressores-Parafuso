@@ -26,6 +26,7 @@ type Props = SectionProps
 const { tone, rhythm } = Astro.props
 const lines = productLines.items
 const [photo1, photo2] = productLines.gallery
+const energy = productLines.energy
 ---
 
 <Section id="linhas" tone={tone} rhythm={rhythm}>
@@ -240,5 +241,212 @@ const [photo1, photo2] = productLines.gallery
     </ul>
     <p class="mt-3 font-sans text-[12px] text-ink-soft">{productLines.range.note}</p>
   </div>
+  {/* Gráfico velocidade constante × variável: barras sobem, a seta se desenha e o "50%" conta
+      quando o gráfico entra na tela (pedido do usuário, 23/10/2026). Sem JavaScript, ou com
+      movimento reduzido, aparece pronto. */}
+  <div class="mt-12 grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+    <figure
+      data-energy-chart
+      class="energy-chart rounded-2xl border border-[#e3e8f1] bg-brand-mist/60 p-5 sm:p-7"
+    >
+      <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-2">
+        <span class="flex items-center gap-2 font-sans text-[13px] font-semibold text-ink-soft">
+          <span aria-hidden="true" class="energy-fixed size-3.5 rounded-[4px]"></span>
+          {energy.legend.fixed}
+        </span>
+        <span class="flex items-center gap-2 font-sans text-[13px] font-semibold text-ink-soft">
+          <span aria-hidden="true" class="energy-variable size-3.5 rounded-[4px]"></span>
+          {energy.legend.variable}
+        </span>
+      </div>
+
+      <div aria-hidden="true" class="relative mt-5 h-64 border-b-2 border-primary-dark/15 sm:h-72">
+        {/* Destaque do "até 50%", sobre as barras baixas */}
+        <div class="energy-callout absolute top-0 left-[27%] flex items-center gap-3 sm:left-[29%]">
+          <span class="font-display leading-none font-extrabold text-brand-blue">
+            <span class="block font-sans text-[13px] font-bold italic sm:text-[15px]">
+              {energy.saving.prefix}
+            </span>
+            <span class="text-[2.6rem] tracking-[-0.04em] italic sm:text-[3.4rem]">
+              <span data-energy-count>{energy.saving.value}</span>%
+            </span>
+          </span>
+          <span class="border-l-2 border-brand-blue/30 pl-3 font-display text-[12px] leading-tight font-extrabold tracking-[0.04em] text-primary-dark uppercase sm:text-[14px]">
+            <span class="block">{energy.saving.label[0]}</span>
+            <span class="block">{energy.saving.label[1]}</span>
+          </span>
+        </div>
+
+        <div class="grid h-full grid-cols-4">
+          {energy.groups.map((group, i) => (
+            <div class="flex h-full items-end justify-center">
+              <div class="relative flex h-full items-end gap-1 sm:gap-1.5">
+                <span
+                  class="energy-bar energy-fixed w-6 rounded-t-md sm:w-9"
+                  style={`height: ${group.fixed}%; --delay: ${i * 160}ms`}
+                ></span>
+                <span
+                  class="energy-bar energy-variable w-6 rounded-t-md sm:w-9"
+                  style={`height: ${group.variable}%; --delay: ${i * 160 + 90}ms`}
+                ></span>
+                {i === 0 && (
+                  <span
+                    class="energy-arrow absolute -right-4 sm:-right-5"
+                    style={`top: 0; height: ${group.fixed - group.variable}%`}
+                  ></span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div aria-hidden="true" class="mt-3 grid grid-cols-4 gap-2">
+        {energy.groups.map((group) => (
+          <span class="text-center font-sans text-[12px] leading-tight font-medium text-ink-soft sm:text-[13px]">
+            {group.label}
+          </span>
+        ))}
+      </div>
+
+      <figcaption class="sr-only">
+        {energy.title} Comparação entre {energy.legend.fixed.toLowerCase()} e{' '}
+        {energy.legend.variable.toLowerCase()}, em altura relativa:{' '}
+        {energy.groups.map((g) => `${g.label}, ${g.fixed} contra ${g.variable}`).join('; ')}.
+      </figcaption>
+    </figure>
+
+    <div>
+      <h3 class="font-display text-[1.75rem] leading-[1.1] font-extrabold tracking-[-0.02em] text-primary-dark sm:text-[2.1rem]">
+        {energy.title}
+      </h3>
+      <p class="mt-4 font-sans text-[17px] leading-relaxed text-ink-soft">{energy.text}</p>
+      <button type="button" data-cta="linhas-energia" class="btn-slave-whats cta cta-blue mt-7">
+        {energy.cta}
+        <Icon name="arrow-right" class="shrink-0" />
+      </button>
+    </div>
+  </div>
+
   <BrandCarousel />
 </Section>
+
+<style>
+  .energy-fixed {
+    background-color: #a9b2bf;
+  }
+
+  .energy-variable {
+    background-image: linear-gradient(180deg, var(--color-brand-blue) 0%, #003a8f 100%);
+  }
+
+  /* Seta dupla entre o topo das duas barras de consumo: a diferença de energia. */
+  .energy-arrow {
+    width: 2px;
+    background-color: var(--color-primary-dark);
+  }
+
+  .energy-arrow::before,
+  .energy-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    border-color: var(--color-primary-dark);
+    border-style: solid;
+    border-width: 0;
+  }
+
+  .energy-arrow::before {
+    top: 0;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .energy-arrow::after {
+    bottom: 0;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  /* Estado inicial, só quando o script assumiu o gráfico (data-ready) e ainda não animou. */
+  .energy-chart[data-ready] .energy-bar {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms);
+  }
+
+  .energy-chart[data-ready] .energy-arrow {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease-out 0.75s;
+  }
+
+  .energy-chart[data-ready] .energy-callout {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 0.5s ease-out 0.7s,
+      transform 0.5s ease-out 0.7s;
+  }
+
+  .energy-chart[data-animated] .energy-bar,
+  .energy-chart[data-animated] .energy-arrow {
+    transform: scaleY(1);
+  }
+
+  .energy-chart[data-animated] .energy-callout {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* O script já não anima com movimento reduzido; isto cobre a troca da preferência depois. */
+  @media (prefers-reduced-motion: reduce) {
+    .energy-chart .energy-bar,
+    .energy-chart .energy-arrow,
+    .energy-chart .energy-callout {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Anima o gráfico de energia uma vez, quando ele entra na tela. Com movimento reduzido,
+  // não assume o gráfico: ele fica como veio do HTML, já completo.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  document.querySelectorAll<HTMLElement>('[data-energy-chart]').forEach((chart) => {
+    if (reduce || !('IntersectionObserver' in window)) return
+
+    const counter = chart.querySelector<HTMLElement>('[data-energy-count]')
+    const target = Number(counter?.textContent ?? 0)
+    if (counter) counter.textContent = '0'
+    chart.setAttribute('data-ready', '')
+
+    const count = () => {
+      if (!counter) return
+      const start = performance.now()
+      const duration = 900
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / duration)
+        counter.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))))
+        if (t < 1) requestAnimationFrame(tick)
+      }
+      requestAnimationFrame(tick)
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return
+        observer.disconnect()
+        chart.setAttribute('data-animated', '')
+        window.setTimeout(count, 750)
+      },
+      { threshold: 0.35 },
+    )
+    observer.observe(chart)
+  })
+</script>

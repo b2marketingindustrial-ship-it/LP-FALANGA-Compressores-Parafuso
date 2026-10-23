@@ -37,6 +37,13 @@ export interface ProductLine {
   dark: boolean
 }
 
+/** Um par de barras do gráfico de energia: altura relativa (0–100) de cada velocidade. */
+export interface EnergyGroup {
+  label: string
+  fixed: number
+  variable: number
+}
+
 export const productLines = {
   eyebrow: 'Compressores Schulz',
   title: 'Compressores de parafuso com tecnologia de ponta.',
@@ -89,6 +96,26 @@ export const productLines = {
         power: '30 a 100 hp',
         highlight: 'Até 50% menos energia',
       },
+    ],
+  },
+  /**
+   * Gráfico velocidade constante × variável, refeito do gráfico da LP antiga do cliente
+   * (23/10/2026), sem a frase "o retorno de investimento é garantido" (docs/BRIEFING.md).
+   * Os valores são as alturas relativas das barras medidas na imagem original, que não
+   * traz números: a tela mostra só as barras, sem eixo, e o "até 50%" atribuído à Schulz
+   * como no comparativo acima. CTA `linhas-energia`.
+   */
+  energy: {
+    title: 'Mais desempenho com até 50% menos energia.',
+    text: 'Nos compressores Schulz de velocidade variável, o motor acompanha a demanda de ar da planta: produz só o ar que a operação usa e reduz o consumo de energia em até 50%, segundo a Schulz.',
+    cta: 'Falar com especialista',
+    saving: { prefix: 'em até', value: 50, label: ['em economia', 'de energia'] },
+    legend: { fixed: 'Velocidade constante', variable: 'Velocidade variável' },
+    groups: [
+      { label: 'Consumo de energia', fixed: 100, variable: 50 },
+      { label: 'Investimento', fixed: 30, variable: 36 },
+      { label: 'Manutenção', fixed: 20, variable: 16 },
+      { label: 'Instalação', fixed: 10, variable: 12 },
     ],
   },
   items: [
@@ -144,6 +171,14 @@ export const productLines = {
   gallery: readonly [Photo, Photo]
   badge: { icon: IconName; label: string }
   range: { title: string; text: string; note: string; items: readonly RangeLine[] }
+  energy: {
+    title: string
+    text: string
+    cta: string
+    saving: { prefix: string; value: number; label: readonly [string, string] }
+    legend: { fixed: string; variable: string }
+    groups: readonly EnergyGroup[]
+  }
   items:
     | readonly [ProductLine, ProductLine, ProductLine]
     | readonly [ProductLine, ProductLine, ProductLine, ProductLine]
