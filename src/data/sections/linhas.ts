@@ -161,8 +161,8 @@ export const productLines = {
     ctaNote: 'Nossa equipe indica o compressor certo para a sua demanda de ar.',
     /** As duas reduções do comparativo acima (catálogos Schulz), em destaque. */
     stats: [
-      { value: '50%', label: 'menos energia', line: 'SRP 5000 Flex' },
-      { value: '38%', label: 'menos energia', line: 'SRP 4000 Flex' },
+      { prefix: 'até', value: '50%', label: 'menos energia', line: 'SRP 5000 Flex' },
+      { prefix: 'até', value: '38%', label: 'menos energia', line: 'SRP 4000 Flex' },
     ],
     saving: { prefix: 'em até', value: 50, label: ['em economia', 'de energia'] },
     legend: { fixed: 'Velocidade constante', variable: 'Velocidade variável' },
@@ -239,7 +239,7 @@ export const productLines = {
     text: string
     cta: string
     ctaNote: string
-    stats: readonly { value: string; label: string; line: string }[]
+    stats: readonly { prefix: string; value: string; label: string; line: string }[]
     saving: { prefix: string; value: number; label: readonly [string, string] }
     legend: { fixed: string; variable: string }
     groups: readonly EnergyGroup[]

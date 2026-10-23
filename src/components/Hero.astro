@@ -97,9 +97,10 @@ const highlight = cut >= 0 ? hero.highlight : ''
       {/* Coluna 2 — VAZIA de propósito: janela do banner */}
       <div class="hidden lg:block" aria-hidden="true"></div>
 
-      {/* Coluna 3 — só o shortcode do chat, sem card em volta (pedido do usuário, 23/10/2026) */}
+      {/* Coluna 3 — só o shortcode do chat, sem card em volta (pedido do usuário, 23/10/2026).
+          A altura de 340px só é reservada no desktop; no celular o chat ocupa o que renderizar. */}
       <div class="hero-chat w-full lg:w-[340px]">
-        <div class="min-h-[340px] w-full">
+        <div class="w-full lg:min-h-[340px]">
           <slot name="shortcode">
             {isDev ? (
               <div

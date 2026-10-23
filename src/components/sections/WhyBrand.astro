@@ -75,10 +75,11 @@ const titleBottom = why.titleLines.at(-1)
           {why.eyebrow}
         </p>
         <h2 class="mt-4 font-display title-section leading-[1.08] font-extrabold tracking-[-0.03em] text-neutral-light">
+          {/* Quebra forçada só no desktop; no celular o título corre, sem "em" sozinho na linha */}
           {titleTop.map((line) => (
-            <span class="block">{line}</span>
+            <span class="lg:block">{line} </span>
           ))}
-          <span class="block text-brand-yellow">{titleBottom}</span>
+          <span class="text-brand-yellow lg:block">{titleBottom}</span>
         </h2>
         <p class="mt-5 font-sans text-lead text-[#8cc6f2] xl:whitespace-pre-line">{why.text}</p>
         <button
@@ -112,7 +113,7 @@ const titleBottom = why.titleLines.at(-1)
   {/* Cards sobrepostos à base do bloco navy */}
   <div data-why class="page-container relative z-10 -mt-16 lg:-mt-20">
     <ul
-      class="why-track scroll-track -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 lg:-mx-12 lg:px-12 xl:mx-0 xl:grid xl:grid-cols-5 xl:gap-3 xl:overflow-visible xl:px-0 xl:pb-0 2xl:gap-4"
+      class="why-track scroll-track -mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-3 lg:-mx-12 lg:scroll-px-12 lg:px-12 xl:mx-0 xl:grid xl:grid-cols-5 xl:gap-3 xl:overflow-visible xl:px-0 xl:pb-0 2xl:gap-4"
       aria-label={why.eyebrow}
     >
       {/* Ícone e título na mesma linha, título sem quebra, descrição em duas linhas (pedidos
