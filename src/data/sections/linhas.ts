@@ -29,6 +29,7 @@ import linha1 from '@assets/linhas/linha-1.png'
 import linha2 from '@assets/linhas/linha-2.png'
 import linha3 from '@assets/linhas/linha-3.png'
 import linha4 from '@assets/linhas/linha-4.png'
+import srp5000Flex from '@assets/linhas/srp-5000-flex.png'
 
 export interface ProductLine {
   id: string
@@ -120,6 +121,10 @@ export const productLines = {
         speed: 'Velocidade variável',
         power: '30 a 100 hp',
         highlight: 'Até 50% menos energia',
+        photo: {
+          src: srp5000Flex,
+          alt: 'Compressor de parafuso Schulz SRP 5100 da linha SRP 5000 Flex, com a lateral aberta mostrando o elemento compressor',
+        },
       },
     ],
   },
