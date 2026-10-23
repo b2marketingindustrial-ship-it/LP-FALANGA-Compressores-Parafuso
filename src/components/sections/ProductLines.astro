@@ -45,9 +45,10 @@ const lines: Card[] = [
     id: item.id,
     tag: item.power,
     title: `Linha ${item.name}`,
-    description: `Compressores de parafuso Schulz de ${item.power}, com ${item.speed.toLowerCase()}.`,
+    // A velocidade e o destaque vão só nas características, sem repetir na descrição.
+    description: `Compressores de parafuso Schulz de ${item.power}.`,
     photo: item.photo,
-    features: [item.speed, item.highlight, 'Compressor de parafuso'],
+    features: [item.speed, item.highlight],
     dark: false,
   })),
 ]
@@ -410,7 +411,7 @@ const energyTail =
       </h2>
       <p class="mt-4 font-sans text-lead text-ink-soft">{energy.text}</p>
 
-      <ul class="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
+      <ul class="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1 xl:grid-cols-2">
         {energy.stats.map((stat) => (
           <li class="flex items-center gap-3 rounded-xl border border-[#e3e8f1] bg-neutral-light px-3.5 py-3 shadow-[0_10px_24px_-20px_rgba(0,33,71,0.45)]">
             <span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand-blue text-brand-yellow">
@@ -419,7 +420,7 @@ const energyTail =
             <span class="min-w-0">
               <span class="flex flex-wrap items-baseline gap-x-1.5">
                 <span class="font-sans text-[12px] font-bold text-ink-soft">{stat.prefix}</span>
-                <span class="font-display text-[24px] leading-none font-extrabold tracking-[-0.02em] text-primary-dark">
+                <span class="font-display text-[24px] leading-none font-extrabold whitespace-nowrap tracking-[-0.02em] text-primary-dark">
                   {stat.value}
                 </span>
                 <span class="font-sans text-[13px] font-medium whitespace-nowrap text-ink-soft">
@@ -434,7 +435,7 @@ const energyTail =
         ))}
       </ul>
 
-      <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
+      <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5 lg:flex-col lg:items-start xl:flex-row xl:items-center">
         <button type="button" data-cta="linhas-energia" class="btn-slave-whats cta cta-blue">
           {energy.cta}
           <Icon name="arrow-right" class="shrink-0" />

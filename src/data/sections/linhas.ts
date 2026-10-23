@@ -54,8 +54,8 @@ export interface EnergyGroup {
 
 export const productLines = {
   eyebrow: 'Compressores Schulz',
-  title: 'Compressores de parafuso com tecnologia de ponta.',
-  text: 'Os compressores de parafuso Schulz são conhecidos pela eficiência e durabilidade: mais desempenho para as suas operações industriais.',
+  title: 'Compressores de parafuso eficientes e duráveis.',
+  text: 'Os compressores de parafuso Schulz entregam ar comprimido contínuo e mais desempenho para as suas operações industriais.',
   area: 'Fornecimento para todo o Nordeste',
   /** Linha de apoio do destaque da área atendida (era a área do header até 23/10/2026). */
   areaNote: 'Atendimento em Fortaleza e Recife',
@@ -79,7 +79,7 @@ export const productLines = {
   catalog: {
     eyebrow: 'Linha completa',
     /** Cada `\n` é uma quebra forçada (título a partir de 640px, texto a partir de 768px). */
-    title: 'Toda a linha Schulz\npara a sua indústria.',
+    title: 'Toda a linha Schulz\npara o seu ar comprimido.',
     text: 'Fornecemos todos os compressores de parafuso,\nsecadores, filtros e reservatórios Schulz. Abaixo, algumas referências.',
     categories: [
       { icon: 'gear', label: 'Compressores de parafuso' },
@@ -155,13 +155,16 @@ export const productLines = {
     title: 'Mais desempenho com até 50% menos energia.',
     /** Trecho do título com o marcador amarelo. */
     highlight: 'até 50%',
-    text: 'Nos compressores Schulz de velocidade variável, o motor acompanha a demanda de ar da planta: produz só o ar que a operação usa e reduz o consumo de energia em até 50%, segundo a Schulz.',
+    text: 'Nos compressores Schulz de velocidade variável, o motor acompanha a demanda de ar da planta e produz só o ar que a operação usa. A redução de consumo é a informada pela Schulz em catálogo.',
     cta: 'Falar com especialista',
     /** Ao lado do CTA: o texto da antiga faixa "Não sabe qual modelo escolher?". */
-    ctaNote: 'Nossa equipe indica o compressor certo para a sua demanda de ar.',
-    /** As duas reduções do comparativo acima (catálogos Schulz), em destaque. */
+    ctaNote: 'Tire dúvidas sobre velocidade fixa ou variável com a nossa equipe.',
+    /**
+     * Dois dados do catálogo Schulz em destaque. O "até 50%" já está no título e no gráfico,
+     * então o primeiro card traz a faixa de potência da velocidade variável.
+     */
     stats: [
-      { prefix: 'até', value: '50%', label: 'menos energia', line: 'SRP 5000 Flex' },
+      { prefix: 'de', value: '5 a 250', label: 'hp', line: 'Velocidade variável' },
       { prefix: 'até', value: '38%', label: 'menos energia', line: 'SRP 4000 Flex' },
     ],
     saving: { prefix: 'em até', value: 50, label: ['em economia', 'de energia'] },
@@ -176,35 +179,36 @@ export const productLines = {
   items: [
     {
       id: 'srp-3020',
-      tag: '20 HP',
-      title: 'Compressor SRP-3020 Compact',
-      description: 'Compressor de parafuso Schulz de 20 HP, sobre reservatório de 250 litros.',
+      tag: '20 hp',
+      title: 'Compressor SRP 3020 Compact',
+      description: 'Compressor de parafuso Schulz compacto, já montado sobre o reservatório.',
       photo: {
         src: linha1,
         alt: 'Compressor de parafuso Schulz SRP 3020 Compact montado sobre reservatório',
       },
-      features: ['Parafuso rotativo', 'Potência de 20 HP', 'Linha Compact'],
+      features: ['Potência de 20 hp', 'Reservatório de 250 litros', 'Linha Compact'],
       dark: false,
     },
     {
       id: 'srp-3025',
-      tag: '25 HP',
-      title: 'Compressor SRP-3025 Compact',
-      description: 'Compressor de parafuso Schulz de 25 HP, sobre reservatório de 250 litros.',
+      tag: '25 hp',
+      title: 'Compressor SRP 3025 Compact',
+      description: 'Compressor de parafuso Schulz compacto, já montado sobre o reservatório.',
       photo: {
         src: linha2,
         alt: 'Compressor de parafuso Schulz SRP 3025 Compact montado sobre reservatório',
       },
-      features: ['Parafuso rotativo', 'Potência de 25 HP', 'Linha Compact'],
+      features: ['Potência de 25 hp', 'Reservatório de 250 litros', 'Linha Compact'],
       dark: false,
     },
     {
       id: 'srp-4050-flex',
-      tag: 'Flex',
+      tag: '50 hp',
       title: 'Compressor SRP 4050 AD Flex',
-      description: 'Compressor de parafuso Schulz de 50 HP, com velocidade variável da linha Flex.',
+      description:
+        'Compressor de parafuso Schulz em gabinete fechado, que ajusta a rotação à demanda de ar.',
       photo: { src: linha3, alt: 'Compressor de parafuso Schulz SRP 4050 em gabinete fechado' },
-      features: ['Potência de 50 HP', 'Velocidade variável', 'Linha Flex'],
+      features: ['Potência de 50 hp', 'Velocidade variável', 'Linha Flex'],
       dark: false,
     },
     {

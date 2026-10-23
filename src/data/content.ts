@@ -84,7 +84,7 @@ export const hero = {
 export const quote = {
   eyebrow: 'Solicite sua cotação',
   title: 'Fale com quem entende de compressores de parafuso.',
-  text: 'Nossa equipe indica o compressor Schulz certo para a sua demanda, com as melhores condições para todo o Nordeste. Preencha o formulário ou fale direto conosco pelo WhatsApp.',
+  text: 'Conte a demanda de ar da sua planta e receba uma proposta Schulz sob medida. Preencha o formulário ou fale direto conosco pelo WhatsApp.',
   trust: [{ icon: 'shield', label: 'Mais de 40 anos de mercado' }],
 } as const satisfies {
   eyebrow: string

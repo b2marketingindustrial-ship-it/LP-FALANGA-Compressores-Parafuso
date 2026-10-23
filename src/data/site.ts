@@ -62,7 +62,7 @@ export const campaign = {
    * Claims que o briefing proíbe ("autorizado", "distribuidor", "até 42%"), em todas
    * as formas em que podem aparecer. O `check:lp` falha se a página usar qualquer um.
    */
-  forbidden: ['autorizada', 'autorizado'],
+  forbidden: ['autorizada', 'autorizado', 'oficial'],
 } as const satisfies {
   mainKeyword: string | null
   negatives: readonly string[]

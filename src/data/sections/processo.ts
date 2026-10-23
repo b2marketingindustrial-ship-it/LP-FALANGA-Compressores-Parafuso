@@ -11,6 +11,7 @@
  * (`highlight`), e o CTA da seção tem rótulo próprio (`cta`).
  */
 import type { IconName } from '@data/icons'
+import { cta } from '@data/content'
 
 export interface ProcessStep {
   id: string
@@ -43,7 +44,7 @@ export const process: Process = {
   highlight: 'compressor em operação.',
   text: 'Um atendimento completo para indicar o compressor certo e manter o seu sistema de ar comprimido produtivo.',
   microcopy: 'Suporte técnico especializado',
-  cta: 'Solicitar cotação',
+  cta: cta.primary,
   steps: [
     {
       id: 'levantamento',
@@ -61,7 +62,7 @@ export const process: Process = {
       id: 'proposta',
       icon: 'file-text',
       title: 'Proposta comercial',
-      description: 'Cotação com as melhores condições para a sua empresa, em todo o Nordeste.',
+      description: 'Cotação com as melhores condições de compra para a sua empresa.',
     },
     {
       id: 'fornecimento',

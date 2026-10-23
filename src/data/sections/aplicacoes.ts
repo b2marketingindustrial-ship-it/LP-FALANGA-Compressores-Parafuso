@@ -28,9 +28,8 @@ export const applications = {
   items: [
     {
       id: 'compressor',
-      label: 'Compressor rotativo',
-      description:
-        'Compressor de parafuso Schulz que gera o ar da planta, projetado para operar 24 horas por dia.',
+      label: 'Compressor de parafuso',
+      description: 'Gera o ar comprimido da planta e foi projetado para operar 24 horas por dia.',
       photo: { src: app1, alt: 'Compressor de parafuso Schulz SRP 5100 em sala de compressores' },
     },
     {

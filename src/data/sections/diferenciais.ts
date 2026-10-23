@@ -11,6 +11,7 @@
 import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
 import { site } from '@data/site'
+import { cta } from '@data/content'
 
 import cenario from '@assets/diferenciais/cenario.jpg'
 
@@ -25,8 +26,8 @@ export const why = {
   /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
   titleLines: ['Há 40 anos, referência em', 'ar comprimido no Nordeste.'],
   /** Cada `\n` é uma quebra forçada a partir de 1280px; abaixo disso o texto corre normal. */
-  text: 'Distribuidora oficial Schulz, a Falanga acompanha a sua\nindústria do dimensionamento à assistência técnica,\ncom confiabilidade e qualidade em cada etapa.',
-  cta: 'Solicitar cotação',
+  text: 'Distribuidora Schulz, a Falanga acompanha a sua\nindústria do dimensionamento à assistência técnica,\ncom confiabilidade e qualidade em cada etapa.',
+  cta: cta.primary,
   scene: {
     src: cenario,
     alt: 'Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo',
@@ -34,7 +35,8 @@ export const why = {
   /**
    * Revistos em 23/10/2026 para não repetir o resto da página (pedido do usuário): saíram
    * "Menos energia" (seção de economia), "40 anos de mercado" e "Todo o Nordeste" (título).
-   * Os novos vêm do catálogo (linha completa) e das etapas do "Como funciona".
+   * Revistos de novo na mesma data: "Linha completa", "Dimensionamento" e "Pós-venda"
+   * repetiam o rótulo do catálogo e as etapas 02 e 05 do "Como funciona".
    */
   reasons: [
     {
@@ -48,19 +50,19 @@ export const why = {
       description: 'Marca nacional com produtos de classe internacional.',
     },
     {
-      icon: 'layers',
-      title: 'Linha completa',
-      description: 'Toda a linha Schulz, direto do distribuidor oficial.',
+      icon: 'users',
+      title: 'Equipe técnica',
+      description: 'Especialistas em ar comprimido industrial.',
     },
     {
-      icon: 'sliders',
-      title: 'Dimensionamento',
-      description: 'O compressor certo para a demanda da sua planta.',
+      icon: 'layers',
+      title: 'Um só fornecedor',
+      description: 'Compressor e tratamento de ar na mesma compra.',
     },
     {
       icon: 'wrench',
-      title: 'Pós-venda',
-      description: 'Manutenção preventiva e corretiva após a compra.',
+      title: 'Manutenção',
+      description: 'Quem vende também cuida da manutenção.',
     },
   ],
 } as const satisfies {
