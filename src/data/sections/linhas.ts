@@ -74,14 +74,13 @@ export const productLines = {
    */
   catalog: {
     title: 'Toda a linha Schulz para a sua indústria.',
-    text: 'Fornecemos toda a linha de compressores de parafuso, secadores, filtros e reservatórios Schulz. Os modelos abaixo são algumas referências: fale com a nossa equipe para encontrar o equipamento certo para a sua demanda.',
+    text: 'Fornecemos todos os compressores de parafuso, secadores, filtros e reservatórios Schulz. Abaixo, algumas referências.',
     categories: [
       { icon: 'gear', label: 'Compressores de parafuso' },
       { icon: 'droplet', label: 'Secadores de ar' },
       { icon: 'layers', label: 'Filtros' },
       { icon: 'cylinder', label: 'Reservatórios' },
     ],
-    note: 'Algumas referências da linha Schulz',
   },
   /**
    * Linhas do catálogo Schulz publicadas na LP antiga do cliente. Desde 23/10/2026 entram
@@ -208,7 +207,6 @@ export const productLines = {
     title: string
     text: string
     categories: readonly { icon: IconName; label: string }[]
-    note: string
   }
   range: { note: string; items: readonly RangeLine[] }
   energy: {

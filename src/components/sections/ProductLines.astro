@@ -36,8 +36,11 @@ interface Card {
   features: readonly string[]
   dark: boolean
 }
+// Todos os cards com o mesmo visual, sem destacar nenhum (pedido do usuário, 23/10/2026):
+// o contrato da biblioteca exige um item `dark: true` nos dados, então o flag fica lá e é
+// ignorado aqui.
 const lines: Card[] = [
-  ...productLines.items,
+  ...productLines.items.map((item) => ({ ...item, dark: false })),
   ...productLines.range.items.map((item: RangeLine) => ({
     id: item.id,
     tag: item.power,
@@ -124,19 +127,19 @@ const energyTail =
   {/* Blocos da seção (abertura, grade, gráfico) separados por 70px com um filete no meio
       (pedido do usuário, 23/10/2026): `lp-block` em global.css. */}
   <div class="lp-block">
-    {/* Cabeçalho da grade: toda a linha Schulz; os cards são só referências */}
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
-      <div class="max-w-3xl">
-        <h3 class="font-display text-[1.75rem] leading-[1.1] font-extrabold tracking-[-0.025em] text-primary-dark sm:text-[2.1rem]">
+    {/* Cabeçalho da grade, compacto: toda a linha Schulz à esquerda, categorias à direita */}
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+      <div class="max-w-2xl">
+        <h3 class="font-display text-[1.5rem] leading-tight font-extrabold tracking-[-0.02em] text-primary-dark sm:text-[1.75rem]">
           {productLines.catalog.title}
         </h3>
-        <p class="mt-3 font-sans text-[17px] leading-relaxed text-ink-soft">
+        <p class="mt-1.5 font-sans text-[16px] leading-relaxed text-ink-soft">
           {productLines.catalog.text}
         </p>
       </div>
-      <ul class="flex flex-wrap gap-2 lg:max-w-[26rem] lg:justify-end" aria-label="Linha Schulz">
+      <ul class="flex flex-wrap gap-2 xl:flex-nowrap" aria-label="Linha Schulz">
         {productLines.catalog.categories.map((category) => (
-          <li class="flex items-center gap-2 rounded-full border border-brand-blue/15 bg-brand-mist px-3.5 py-2 font-sans text-[14px] font-semibold text-primary-dark">
+          <li class="flex items-center gap-1.5 rounded-full border border-brand-blue/15 bg-brand-mist px-3 py-1.5 font-sans text-[13px] font-semibold whitespace-nowrap text-primary-dark">
             <Icon name={category.icon} class="size-4 shrink-0 text-brand-blue" />
             {category.label}
           </li>
@@ -144,13 +147,8 @@ const energyTail =
       </ul>
     </div>
 
-    <p class="mt-8 flex items-center gap-3 font-sans text-[12px] font-bold tracking-[0.16em] text-ink-soft uppercase">
-      {productLines.catalog.note}
-      <span aria-hidden="true" class="h-px flex-1 bg-primary-dark/10"></span>
-    </p>
-
-    {/* Cards de produto e das linhas Schulz numa grade só, um escuro */}
-    <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+    {/* Cards de produto e das linhas Schulz numa grade só, todos iguais */}
+    <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
       {lines.map((line, i) => (
         <article
           class:list={[
