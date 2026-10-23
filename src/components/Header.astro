@@ -23,7 +23,7 @@ import { header, cta } from '../data/content'
     aria-hidden="true"
     class="block h-[3px] bg-[linear-gradient(90deg,var(--color-brand-yellow)_0%,var(--color-brand-yellow)_40%,var(--color-brand-blue)_100%)]"
   ></span>
-  <div class="mx-auto flex max-w-[1680px] items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 lg:px-12">
+  <div class="page-container flex items-center justify-between gap-3 py-3 sm:gap-6">
     {/* 1. Logo alinhada na barra */}
     <a href="/" class="flex shrink-0 items-center">
       <Image
@@ -55,14 +55,10 @@ import { header, cta } from '../data/content'
     </div>
 
     {/* 3. CTA em pílula amarela, rótulo curto no mobile */}
-    <button
-      type="button"
-      data-cta="header-cta"
-      class="btn-slave-whats inline-flex shrink-0 items-center gap-2 rounded-full bg-brand-yellow px-4 py-2 font-sans text-[13px] font-bold text-primary-dark-900 shadow-[0_10px_24px_-14px_rgba(0,24,48,0.6)] ring-1 ring-primary-dark/5 transition-[background-color,transform] duration-200 hover:-translate-y-px hover:bg-brand-yellow-dark motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:px-7 sm:py-3.5 sm:text-[16px]"
-    >
+    <button type="button" data-cta="header-cta" class="btn-slave-whats cta cta-yellow cta-sm">
       <span class="sm:hidden">{cta.primaryShort}</span>
       <span class="hidden sm:inline">{header.cta}</span>
-      <Icon name="arrow-right" class="size-4 [stroke-width:2.4] sm:size-5" />
+      <Icon name="arrow-right" class="shrink-0" />
     </button>
   </div>
 </header>

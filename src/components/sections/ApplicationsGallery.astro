@@ -3,12 +3,11 @@
  * Galeria de aplicações — fase "prova" da biblioteca B2.
  *
  * VARIANTE LOCAL herdada da LP de manutenção da Falanga (mockup "Manutenção para todo o
- * sistema de ar comprimido", 21/10/2026, docs/BRIEFING.md): cabeçalho centrado, 4 cards-botão
- * com foto, número em quadrado amarelo e rodapé "Falar com especialista", e uma faixa
- * azul de CTA fechando a seção. O contrato é o mesmo da biblioteca — 4 itens, o card
- * inteiro é o CTA `aplicacoes-{id}`, `tone`/`rhythm` —, mais o CTA
- * `aplicacoes-atendimento` da faixa e a descrição até 100 caracteres
- * (scripts/lib/contract.mjs).
+ * sistema de ar comprimido", 21/10/2026, docs/BRIEFING.md): cabeçalho centrado e 4
+ * cards-botão com foto, número em quadrado amarelo e rodapé "Falar com especialista". O
+ * contrato é o mesmo da biblioteca — 4 itens, o card inteiro é o CTA `aplicacoes-{id}`,
+ * `tone`/`rhythm` —, mais a descrição até 100 caracteres (scripts/lib/contract.mjs). A faixa
+ * azul de CTA que fechava a seção saiu a pedido do usuário (23/10/2026).
  *
  * A moldura é 16:10 com a foto centrada. Nesta LP as quatro fotos são recortes da arte do
  * sistema de ar Schulz do site do cliente, já sem os números da legenda.
@@ -30,12 +29,12 @@ const { tone, rhythm } = Astro.props
 
 <Section id="aplicacoes" tone={tone} rhythm={rhythm}>
   {/* Cabeçalho centrado */}
-  <div class="mx-auto max-w-4xl text-center">
+  <div class="mx-auto text-center">
     <p class="inline-flex items-center gap-4 font-sans text-[13px] font-bold tracking-[0.28em] text-primary-dark uppercase sm:text-[14px]">
       <span aria-hidden="true" class="h-[4px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
       {applications.eyebrow}
     </p>
-    <h2 class="mt-4 font-display text-[2.1rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-primary-dark sm:text-[2.75rem] lg:text-[3.1rem] xl:text-[3.4rem]">
+    <h2 class="mt-4 font-display text-[2.1rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-primary-dark sm:text-[2.75rem] lg:text-nowrap lg:text-[3.1rem] xl:text-[3.4rem]">
       {applications.title}
     </h2>
     <p class="mt-4 font-sans text-lg leading-relaxed text-ink-soft">{applications.text}</p>
@@ -83,36 +82,4 @@ const { tone, rhythm } = Astro.props
       </li>
     ))}
   </ul>
-
-  {/* Faixa de CTA */}
-  <div class="apps-closing mt-8 flex flex-col gap-5 overflow-hidden rounded-2xl px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
-    <div class="flex items-center gap-5">
-      <span aria-hidden="true" class="h-12 w-1 shrink-0 rounded-full bg-brand-yellow"></span>
-      <div>
-        <p class="font-display text-[20px] leading-snug font-extrabold text-neutral-light sm:text-[24px]">
-          {applications.closing.title}
-        </p>
-        <p class="mt-1 font-sans text-[16px] font-semibold text-[#7fc0ff]">
-          {applications.closing.text}
-        </p>
-      </div>
-    </div>
-    <button
-      type="button"
-      data-cta="aplicacoes-atendimento"
-      class="btn-slave-whats inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-brand-yellow px-6 py-4 font-sans text-[17px] font-bold whitespace-nowrap text-primary-dark-900 shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none sm:px-8"
-    >
-      {applications.closing.cta}
-      <Icon name="arrow-right" class="size-5 shrink-0 [stroke-width:2.4]" />
-    </button>
-  </div>
 </Section>
-
-<style>
-  /* Faixa azul do mockup, com um brilho discreto à direita. */
-  .apps-closing {
-    background:
-      radial-gradient(700px 220px at 85% 50%, rgb(255 255 255 / 0.07) 0%, transparent 70%),
-      linear-gradient(100deg, #01418f 0%, #01458f 45%, #013b81 100%);
-  }
-</style>

@@ -30,7 +30,7 @@
       "dataExport": "productLines",
       "carriesNavy": false,
       "tone": "light",
-      "rhythm": "open",
+      "rhythm": "uniform",
       "tones": [
         "light",
         "gray"
@@ -39,7 +39,8 @@
         "open",
         "tight",
         "even",
-        "flow"
+        "flow",
+        "uniform"
       ],
       "exampleHash": "8d2664e3a490fc3d",
       "ctas": [
@@ -100,13 +101,14 @@
       "dataExport": "process",
       "carriesNavy": true,
       "tone": "light",
-      "rhythm": "panel-lead",
+      "rhythm": "uniform",
       "tones": [
         "light",
         "gray"
       ],
       "rhythms": [
-        "panel-lead"
+        "panel-lead",
+        "uniform"
       ],
       "exampleHash": "d3aa70a611368bc0",
       "ctas": [
@@ -140,7 +142,7 @@
       "dataExport": "applications",
       "carriesNavy": false,
       "tone": "gray",
-      "rhythm": "centered-lead",
+      "rhythm": "uniform",
       "tones": [
         "light",
         "gray"
@@ -148,7 +150,8 @@
       "rhythms": [
         "centered-lead",
         "even",
-        "flow"
+        "flow",
+        "uniform"
       ],
       "exampleHash": "61d1254bd3fc3c58",
       "ctas": [
@@ -190,13 +193,14 @@
       "dataExport": "why",
       "carriesNavy": true,
       "tone": "gray",
-      "rhythm": "overlap",
+      "rhythm": "uniform",
       "tones": [
         "light",
         "gray"
       ],
       "rhythms": [
-        "overlap"
+        "overlap",
+        "uniform"
       ],
       "exampleHash": "24683935274bbad0",
       "ctas": [

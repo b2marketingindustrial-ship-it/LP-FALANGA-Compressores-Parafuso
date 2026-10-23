@@ -5,9 +5,7 @@
  * Os quatro equipamentos são os da arte "sistema de ar comprimido Schulz" da LP antiga do
  * cliente: compressor rotativo, reservatório, filtragem e secador.
  *
- * Variante local herdada da LP de manutenção da Falanga (mockup do cliente, 21/10/2026,
- * docs/BRIEFING.md): a seção fecha com uma faixa de CTA (`closing`). As fotos são
- * recortes da arte do site, sem os números da legenda.
+ * As fotos são recortes da arte do site, sem os números da legenda.
  */
 import type { Photo } from '@data/types'
 
@@ -27,12 +25,6 @@ export const applications = {
   eyebrow: 'Sistema Schulz',
   title: 'Do compressor ao tratamento do ar.',
   text: 'Conheça os equipamentos de um sistema Schulz e dimensione o seu com a Falanga.',
-  /** Faixa azul que fecha a seção, com o CTA `aplicacoes-atendimento`. */
-  closing: {
-    title: 'Precisa dimensionar o seu sistema?',
-    text: 'Converse com os especialistas da Falanga.',
-    cta: 'Solicitar atendimento',
-  },
   items: [
     {
       id: 'compressor',
@@ -76,6 +68,5 @@ export const applications = {
   eyebrow: string
   title: string
   text: string
-  closing: { title: string; text: string; cta: string }
   items: readonly [Application, Application, Application, Application]
 }

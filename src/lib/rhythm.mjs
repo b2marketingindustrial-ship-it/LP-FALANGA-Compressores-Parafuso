@@ -16,7 +16,7 @@
 
 /**
  * @typedef {'light' | 'gray'} Tone
- * @typedef {'open' | 'even' | 'tight' | 'panel-lead' | 'centered-lead' | 'overlap' | 'close'} Rhythm
+ * @typedef {'open' | 'even' | 'tight' | 'panel-lead' | 'centered-lead' | 'overlap' | 'uniform' | 'close'} Rhythm
  * @typedef {'abertura' | 'oferta' | 'apoio' | 'prova' | 'autoridade' | 'conversao'} Phase
  */
 
@@ -132,7 +132,15 @@ export const RHYTHMS = {
    * seção de biblioteca no meio, os cards ficam flutuando sobre um fundo liso.
    */
   overlap: { class: 'pt-6 pb-8', top: 24, bottom: 32, innerBottom: 40, mustBeLast: true },
-  close: { class: 'pt-8 pb-20', top: 32, bottom: 80 },
+  /**
+   * Falanga (23/10/2026, pedido do usuário: espaçamento igual entre todas as seções). O
+   * mesmo respiro em cima e embaixo de toda seção, vindo de `--section-space` (global.css:
+   * 56px no mobile, 64px no desktop; os números abaixo são os do desktop). Sem compensação
+   * de painel: o que conta é a borda do painel navy, não o texto dentro dele.
+   */
+  uniform: { class: 'py-(--section-space)', top: 64, bottom: 64 },
+  /** Cotação com o mesmo respiro das outras seções (Falanga, 23/10/2026). */
+  close: { class: 'py-(--section-space)', top: 64, bottom: 64 },
 }
 
 /** Respiro aceito entre duas seções de mesmo fundo. */

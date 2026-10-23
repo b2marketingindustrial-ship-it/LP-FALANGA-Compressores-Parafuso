@@ -70,11 +70,6 @@ export const hero = {
     { icon: 'gear', line1: 'Suporte técnico', line2: 'especializado' },
     { icon: 'shield-check', line1: '40 anos de', line2: 'experiência' },
   ],
-  /** Cabeçalho do card do chat, acima do shortcode (mockup do cliente, 22/10/2026). */
-  card: {
-    title: 'Solicite sua cotação',
-    text: 'Fale com nossa equipe.',
-  },
 } as const satisfies {
   title: string
   headline: readonly string[]
@@ -82,7 +77,6 @@ export const hero = {
   text: string
   banner: Photo
   points: readonly [HeroPoint, HeroPoint, HeroPoint, HeroPoint]
-  card: { title: string; text: string }
 }
 
 /* ----------------------------------------------------------------- cotação */

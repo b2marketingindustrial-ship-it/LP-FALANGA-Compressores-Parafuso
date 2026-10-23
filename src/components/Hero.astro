@@ -9,10 +9,10 @@
  * do texto, com a foto ancorada ao fim da coluna 1 até a borda da tela; o H1 com a
  * palavra-chave é a linha de abertura, acima da manchete ("Mais ar." em branco, o resto em
  * amarelo); quatro pontos em grade 2×2 com ícone amarelo; um único CTA em pílula amarela.
- * O shortcode do chat fica num card branco com cabeçalho, que encosta na margem da tela.
+ * O shortcode do chat fica sozinho na coluna 3, sem card nem cabeçalho (23/10/2026).
  * Conteúdo até 1680px, como o "Como funciona" e os diferenciais: a coluna de texto tem
  * largura fixa e a janela do banner fica com o resto, para os três compressores caberem
- * entre o texto e o card.
+ * entre o texto e o chat.
  */
 import { Picture } from 'astro:assets'
 import Icon from './Icon.astro'
@@ -44,7 +44,7 @@ const isDev = import.meta.env.DEV
   </div>
 
   {/* z5 — conteúdo */}
-  <div class="relative z-[5] mx-auto max-w-[1680px] px-6 pt-14 pb-[320px] lg:px-12 lg:py-24">
+  <div class="page-container relative z-[5] pt-14 pb-[320px] lg:py-24">
     <div class="hero-grid grid items-center gap-y-12 lg:min-h-[600px] lg:gap-x-6">
       {/* Coluna 1 — textos */}
       <div class="max-w-xl lg:max-w-none">
@@ -71,12 +71,13 @@ const isDev = import.meta.env.DEV
           {hero.text}
         </p>
 
-        {/* 4 pontos em grade 2×2: ícone amarelo e texto sempre em duas linhas */}
-        <ul class="mt-8 grid max-w-[32rem] grid-cols-2 gap-x-6 gap-y-6 sm:gap-x-10">
+        {/* 4 pontos numa linha só (pedido do usuário, 23/10/2026): ícone amarelo em cima, texto
+            sempre em duas linhas. Abaixo de 640px voltam à grade 2×2, por falta de largura. */}
+        <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:flex sm:items-start sm:gap-x-7 xl:gap-x-9">
           {hero.points.map((point) => (
-            <li class="flex items-center gap-3 sm:gap-4">
-              <Icon name={point.icon} class="size-9 shrink-0 text-brand-yellow sm:size-10" />
-              <span class="font-sans text-[14px] leading-snug font-semibold text-neutral-light sm:text-[16px]">
+            <li class="flex flex-col gap-2.5">
+              <Icon name={point.icon} class="size-8 shrink-0 text-brand-yellow" />
+              <span class="font-sans text-[14px] leading-snug font-semibold text-neutral-light xl:text-[15px]">
                 <span class="block whitespace-nowrap">{point.line1}</span>
                 <span class="block whitespace-nowrap">{point.line2}</span>
               </span>
@@ -84,52 +85,42 @@ const isDev = import.meta.env.DEV
           ))}
         </ul>
 
-        <button
-          type="button"
-          data-cta="hero-primary"
-          class="btn-slave-whats mt-10 inline-flex items-center gap-3 rounded-full bg-brand-yellow px-10 py-4 font-sans text-[18px] font-bold text-primary-dark-900 shadow-[0_16px_32px_-16px_rgba(253,224,1,0.6)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none sm:text-[19px]"
-        >
+        <button type="button" data-cta="hero-primary" class="btn-slave-whats cta cta-yellow mt-10">
           {cta.primary}
-          <Icon name="arrow-right" class="size-5 [stroke-width:2.4]" />
+          <Icon name="arrow-right" class="shrink-0" />
         </button>
       </div>
 
       {/* Coluna 2 — VAZIA de propósito: janela do banner */}
       <div class="hidden lg:block" aria-hidden="true"></div>
 
-      {/* Coluna 3 — shortcode do chat, em card branco com cabeçalho que encosta na margem da tela */}
+      {/* Coluna 3 — só o shortcode do chat, sem card em volta (pedido do usuário, 23/10/2026) */}
       <div class="hero-chat w-full lg:w-[340px]">
-        <div class="w-full overflow-hidden rounded-2xl bg-neutral-light p-6 shadow-[0_30px_60px_-28px_rgba(0,0,0,0.7)]">
-          <p class="font-display text-[26px] leading-tight font-extrabold tracking-[-0.02em] text-primary-dark">
-            {hero.card.title}
-          </p>
-          <p class="mt-1.5 font-sans text-[16px] text-ink">{hero.card.text}</p>
-          <div class="mt-5 min-h-[340px] w-full">
-            <slot name="shortcode">
-              {isDev ? (
-                <div
-                  class="flex min-h-[340px] w-full flex-col gap-3 text-left"
-                  aria-label="Mock do chat (só em desenvolvimento)"
-                >
-                  <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-primary-dark uppercase">
-                    Mock · chat
-                  </span>
-                  <div class="h-11 rounded-lg bg-neutral-gray-100" />
-                  <div class="h-11 rounded-lg bg-neutral-gray-100" />
-                  <div class="h-11 rounded-lg bg-neutral-gray-100" />
-                  <div class="h-11 rounded-lg bg-neutral-gray-100" />
-                  <div class="mt-auto h-12 rounded-full bg-brand-yellow" />
-                </div>
-              ) : (
-                <div class="flex min-h-[340px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-primary-dark/25 p-6 text-center">
-                  <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
-                    Espaço reservado
-                  </span>
-                  <p class="font-display text-lg font-bold text-ink">Shortcode — 300px</p>
-                </div>
-              )}
-            </slot>
-          </div>
+        <div class="min-h-[340px] w-full">
+          <slot name="shortcode">
+            {isDev ? (
+              <div
+                class="flex min-h-[340px] w-full flex-col gap-3 text-left"
+                aria-label="Mock do chat (só em desenvolvimento)"
+              >
+                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-brand-yellow uppercase">
+                  Mock · chat
+                </span>
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="mt-auto h-12 rounded-full bg-brand-yellow" />
+              </div>
+            ) : (
+              <div class="flex min-h-[340px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-neutral-light/30 p-6 text-center">
+                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
+                  Espaço reservado
+                </span>
+                <p class="font-display text-lg font-bold text-neutral-light">Shortcode — 300px</p>
+              </div>
+            )}
+          </slot>
         </div>
       </div>
     </div>
@@ -144,7 +135,7 @@ const isDev = import.meta.env.DEV
         </span>
       </div>
     </div>
-    <div class="mx-auto h-full max-w-[1680px] px-6 lg:px-12">
+    <div class="page-container h-full">
       <div class="hero-grid grid h-full lg:gap-x-6">
         <div class="border-x border-dashed border-white/60">
           <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
@@ -187,7 +178,7 @@ const isDev = import.meta.env.DEV
   /* Borda da página (conteúdo até 1680px, padding de 48px) e fim da coluna de texto. */
   .hero-photo,
   .hero-grid {
-    --page-max: 1680px;
+    --page-max: var(--container-page);
     --page-edge: max(0px, calc(50% - var(--page-max) / 2));
     --text-col: 540px;
     --col-end: calc(var(--page-edge) + 3rem + var(--text-col));
@@ -202,7 +193,7 @@ const isDev = import.meta.env.DEV
   }
 
   @media (min-width: 1024px) {
-    /* Col 1 texto (largura fixa) | Col 2 janela do banner | Col 3 card do shortcode */
+    /* Col 1 texto (largura fixa) | Col 2 janela do banner | Col 3 shortcode */
     .hero-grid {
       grid-template-columns: minmax(0, var(--text-col)) minmax(0, 1fr) 340px;
     }
@@ -224,15 +215,9 @@ const isDev = import.meta.env.DEV
       );
       mask-image: linear-gradient(to right, transparent 0, rgb(0 0 0 / 0.6) 40px, #000 90px);
     }
-
-    /* O card do chat sai do container e encosta na margem da tela, sobre o fundo. */
-    /* cqw e não %: em translateX o % seria da largura do próprio card, não da seção. */
-    .hero-chat {
-      transform: translateX(max(0px, calc(50cqw - var(--page-max) / 2)));
-    }
   }
 
-  /* Telas largas: a foto puxa mais para a esquerda, para o MSV 20 sair de baixo do card. */
+  /* Telas largas: a foto puxa mais para a esquerda, para o MSV 20 sair de baixo do chat. */
   @media (min-width: 1536px) {
     .hero-photo,
     .hero-grid {
