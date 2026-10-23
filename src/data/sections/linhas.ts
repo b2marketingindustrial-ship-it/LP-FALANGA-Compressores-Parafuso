@@ -31,6 +31,7 @@ import linha3 from '@assets/linhas/linha-3.png'
 import linha4 from '@assets/linhas/linha-4.png'
 import srp4000 from '@assets/linhas/srp-4000.png'
 import srp4000Dynamic from '@assets/linhas/srp-4000-dynamic.png'
+import srp4000Flex from '@assets/linhas/srp-4000-flex.png'
 import srp5000Flex from '@assets/linhas/srp-5000-flex.png'
 
 export interface ProductLine {
@@ -124,6 +125,10 @@ export const productLines = {
         speed: 'Velocidade variável',
         power: '5 a 250 hp',
         highlight: 'Até 38% menos energia',
+        photo: {
+          src: srp4000Flex,
+          alt: 'Compressor de parafuso Schulz SRP 4025 Total Solution, da linha SRP 4000 Flex, sobre reservatório',
+        },
       },
       {
         id: 'srp-5000-flex',
