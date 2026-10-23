@@ -23,9 +23,9 @@ export interface Reason {
 export const why = {
   eyebrow: `Por que a ${site.brandShort}`,
   /** Cada item é uma linha do H2 (quebra forçada): as primeiras em branco, a última em amarelo. */
-  titleLines: ['Eficiência e', 'confiabilidade', 'garantidas.'],
+  titleLines: ['Eficiência e', 'confiabilidade', 'com garantia Schulz.'],
   /** Cada `\n` é uma quebra forçada a partir de 1280px; abaixo disso o texto corre normal. */
-  text: 'Há mais de 40 anos no mercado, a Falanga é distribuidora Schulz\nno Nordeste, com confiabilidade, qualidade e assistência\ntécnica para a sua indústria.',
+  text: 'Há mais de 40 anos no mercado, a Falanga é distribuidora\nSchulz no Nordeste, com confiabilidade, qualidade e\nassistência técnica para a sua indústria.',
   cta: 'Solicitar cotação',
   area: 'Fornecimento para todo o Nordeste',
   scene: {

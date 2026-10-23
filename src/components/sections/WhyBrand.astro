@@ -66,7 +66,7 @@ const titleBottom = why.titleLines.at(-1)
     </svg>
 
     <div class="page-container relative z-[2] pt-(--section-space) pb-10 lg:pb-36">
-      <div class="max-w-xl lg:max-w-[44%] xl:max-w-[36rem]">
+      <div class="max-w-xl lg:max-w-[44%] xl:max-w-[38rem]">
         <p class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.16em] text-[#97d1f7] uppercase sm:text-[15px]">
           <span
             aria-hidden="true"
@@ -74,13 +74,13 @@ const titleBottom = why.titleLines.at(-1)
           ></span>
           {why.eyebrow}
         </p>
-        <h2 class="mt-4 font-display text-[2.6rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[3.25rem] xl:text-[3.6rem] 2xl:text-[4rem]">
+        <h2 class="mt-4 font-display text-[2.6rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[3.25rem] lg:text-[3rem] xl:text-[3.25rem]">
           {titleTop.map((line) => (
             <span class="block">{line}</span>
           ))}
           <span class="block text-brand-yellow">{titleBottom}</span>
         </h2>
-        <p class="mt-5 font-sans text-lg leading-relaxed text-[#8cc6f2] xl:whitespace-pre-line 2xl:text-xl">
+        <p class="mt-5 font-sans text-lg leading-relaxed text-[#8cc6f2] xl:whitespace-pre-line">
           {why.text}
         </p>
         <button
