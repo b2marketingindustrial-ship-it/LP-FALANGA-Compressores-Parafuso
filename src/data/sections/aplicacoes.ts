@@ -39,7 +39,7 @@ export const applications = {
         'Armazena o ar, estabiliza a pressão da rede e separa o condensado antes do tratamento.',
       photo: {
         src: app2,
-        alt: 'Reservatório Schulz com separador de condensado ao lado do compressor',
+        alt: 'Reservatório vertical de baixa pressão Schulz instalado na sala de compressores',
       },
     },
     {

@@ -25,7 +25,7 @@
 | Origem                     | lista informada                                                                                                      |
 | Área atendida              | Nordeste, com unidades em Fortaleza/CE e Recife/PE — no title, no hero e num selo                                    |
 | Negativas de oferta        | nenhuma informada                                                                                                    |
-| Claims proibidos           | `autorizada`, `autorizado` — mesma regra da LP de manutenção, sem comprovação no material                            |
+| Claims proibidos           | `autorizada`, `autorizado`, `oficial` — sem comprovação no material (`oficial` bloqueado em 23/10/2026)              |
 | Divergência de vocabulário | "compressores de parafuso industriais" (cliente) × "compressor de parafuso" (campanha): o H1 usa a forma da campanha |
 
 ### Famílias de palavra-chave
@@ -99,17 +99,17 @@ Derivada em: 21/10/2026 por `npm run ficha` — `linhas processo aplicacoes dife
 
 ## Assets
 
-| Asset          | Arquivo                 | Origem                                                                                                                                                     | Status                                                                           |
-| -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Logo           | `src/assets/LOGO.png`   | a da LP de manutenção (site do cliente, 341×82)                                                                                                            | entregue (baixa resolução: pedir vetor ou PNG 2×)                                |
-| Banner do hero | `src/assets/heroBg.png` | o mockup "Compressores Schulz" do cliente (22/10/2026, 1832×859), sem texto, card e botão do WhatsApp, recortado a partir do compressor amarelo (1377×859) | entregue — composição gerada no mockup; pedir o arquivo-fonte em alta, se houver |
+| Asset          | Arquivo                 | Origem                                                                                                                                                                            | Status                                                |
+| -------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Logo           | `src/assets/LOGO.png`   | a da LP de manutenção (site do cliente, 341×82)                                                                                                                                   | entregue (baixa resolução: pedir vetor ou PNG 2×)     |
+| Banner do hero | `src/assets/heroBg.png` | desde 23/10/2026, composição provisória (1720×1073) com os SRP 4025, 4050 e 5100 recortados das fotos de produto sobre fundo navy; substituiu o mockup com compressores de pistão | **provisório** — pedir banner com a linha SRP em alta |
 
-| Asset                 | Arquivo                                            | Origem                                                                                                                                                                                       | Status                                                         |
-| --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| 4 fotos de produto    | `src/assets/linhas/linha-1.png` … `-4.png`         | fotos 600×600 do site, recortadas sem as faixas da marca d'água e ampliadas para 800×600                                                                                                     | entregue — fundo branco, não recortado (o card usa `multiply`) |
-| Galeria de `linhas`   | `galeria-1.webp` e `galeria-2.webp`                | 1: sala com SRP 5100 (arte do catálogo no site, 586×595); 2: SRP 4030 no galpão (LP de manutenção)                                                                                           | entregue (baixa resolução)                                     |
-| 4 fotos de aplicação  | `src/assets/aplicacoes/aplicacao-1.jpg` … `-4.jpg` | recortes da arte "sistema de ar comprimido Schulz" da LP antiga (2048×1972), com os números da legenda cobertos por remendos da própria imagem: compressor, reservatório, filtragem, secador | entregue (548–900px; render do fabricante, não foto real)      |
-| Foto dos diferenciais | `src/assets/diferenciais/cenario.jpg`              | a da LP de manutenção (técnico no SRP 4015)                                                                                                                                                  | **provisório** — pedir original                                |
+| Asset                 | Arquivo                                            | Origem                                                                                                                                                                                       | Status                                                    |
+| --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| 4 fotos de produto    | `src/assets/linhas/linha-1.png` … `-4.png`         | fotos 600×600 do site, recortadas sem as faixas da marca d'água e ampliadas para 800×600; fundo branco removido em 23/10/2026                                                                | entregue — fundo transparente (ampliadas de 600px)        |
+| Galeria de `linhas`   | `galeria-1.webp` e `galeria-2.webp`                | 1: sala com SRP 5100 (arte do catálogo no site, 586×595); 2: SRP 4030 no galpão (LP de manutenção)                                                                                           | entregue (baixa resolução)                                |
+| 4 fotos de aplicação  | `src/assets/aplicacoes/aplicacao-1.jpg` … `-4.jpg` | recortes da arte "sistema de ar comprimido Schulz" da LP antiga (2048×1972), com os números da legenda cobertos por remendos da própria imagem: compressor, reservatório, filtragem, secador | entregue (548–900px; render do fabricante, não foto real) |
+| Foto dos diferenciais | `src/assets/diferenciais/cenario.jpg`              | a da LP de manutenção (técnico no SRP 4015)                                                                                                                                                  | **provisório** — pedir original                           |
 
 ## Conflitos com o padrão
 
@@ -166,7 +166,7 @@ O usuário enviou um mockup da abertura e pediu "deixe essa parte do meu site as
 
 Em 1920px os três compressores aparecem entre o texto e o card. Abaixo de ~1500px não cabem: aparecem o Twister e o Bravo, e o card cobre o MSV 20. No mobile o banner é a faixa no rodapé do hero, como antes.
 
-**Atenção de conteúdo:** os três compressores do mockup são de **pistão** (CSA 7,5 Twister, Bravo CSL 20 BR, MSV 20 Max), e a campanha e o H1 são de **compressor de parafuso**. Quem clica procurando parafuso vê pistão na primeira dobra. Vale confirmar com o cliente ou trocar por um mockup com os SRP.
+**Atenção de conteúdo (resolvida em 23/10/2026):** os três compressores do mockup eram de **pistão** (CSA 7,5 Twister, Bravo CSL 20 BR, MSV 20 Max), numa campanha de **compressor de parafuso**. O banner foi trocado por uma composição provisória com os SRP — ver "Revisão visual".
 
 ## Header (22/10/2026)
 
@@ -176,9 +176,39 @@ Pedido do usuário: "deixe esse header mais bonito". Filete amarelo-azul no topo
 
 Pedido do usuário: "nas partes brancas, alguns elementos de fundo na cor amarela, bem bonitos mas minimalistas, meio transparentes". Em `src/styles/global.css`, como pseudo-elementos atrás do conteúdo de `#linhas`, `#aplicacoes` e `#cotacao`: anéis finos com halo, malhas de pontos esmaecidas, um brilho atrás do card da cotação e listras diagonais. As seções ganharam `overflow: clip` para os elementos não vazarem.
 
+## Revisão visual (23/10/2026)
+
+Checagem completa da página (360, 768, 1024, 1440 e 1920px) e decisões do usuário, ponto a ponto:
+
+| Ponto                                    | Decisão / o que mudou                                                                                                  |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Hero com compressores de pistão          | banner provisório com SRP 4025, 4050 e 5100 recortados; no celular a faixa ancora em `0% 75%` para não cortar a base   |
+| Overflow horizontal em 360 e 1024px      | cards de número da economia quebram linha e empilham; endereço do footer quebra até 1280px                             |
+| "Oficial" (decisão do briefing)          | removido do texto e bloqueado em `campaign.forbidden`                                                                  |
+| Vão de 340px do chat no celular          | reserva de altura só a partir de 1024px                                                                                |
+| Gráfico de economia no celular           | texto antes do gráfico; rótulos menores com hifenização                                                                |
+| 8 cards de produto empilhados no celular | trilho com setas abaixo de 1024px                                                                                      |
+| Card escuro (`dark: true` do secador)    | mantidos todos claros; o flag fica só pelo contrato da biblioteca                                                      |
+| Repetições de texto                      | Nordeste, "até 50%", compressor certo, tecnologia de ponta e "para a sua indústria" reduzidos; diferenciais reescritos |
+| Vocabulário de CTA                       | "Solicite sua cotação" em todos os botões de cotação; header mantém "Fale com um especialista" (mockup)                |
+| Nomenclatura                             | potência em hp, modelos sem hífen, tags por potência, características sem "Parafuso rotativo"/"Compressor de parafuso" |
+| Card 02 do Sistema (reservatório)        | na legenda da Schulz o tanque é o reservatório de baixa pressão; recorte reenquadrado no tanque                        |
+| Card 01 do Sistema × galeria             | mantido: a galeria é foto real do SRP 5100, o card é o render da arte — único compressor da cena                       |
+| Mantidos sem alteração                   | tagline do header, valores do gráfico (medidos da arte antiga, sem fonte numérica), title com 72 caracteres            |
+
+A arte do sistema Schulz no site do cliente tem no máximo 2482px; os recortes de aplicação já estão na escala máxima dela.
+
+### Fotos a pedir ao cliente
+
+- Banner do hero com a linha SRP (parafuso), em alta — substitui a composição provisória.
+- Fotos dos produtos SRP 3020, SRP 3025, SRP 4050 e SRP 60 em pelo menos 800×600, de preferência já recortadas.
+- Fotos reais do sistema de ar (compressor, reservatório, filtros, secador) em pelo menos 1200px de largura.
+- Original da foto do técnico (`cenario.jpg`) em pelo menos 1600px.
+- Logo em vetor ou PNG 2×.
+
 ## Estado da entrega
 
 - [x] Primeira versão de pé (`npm run check:lp:rascunho` passa) em: 21/10/2026
-- [ ] Todos os assets reais entregues — nenhum placeholder resta, mas banner do hero e diferenciais reaproveitam as fotos da LP de manutenção, as aplicações são recortes de um render do fabricante, e as fotos de produto vêm do site em 600×600
+- [ ] Todos os assets reais entregues — nenhum placeholder resta, mas o banner do hero é uma composição provisória, os diferenciais reaproveitam a foto da LP de manutenção, as aplicações são recortes de um render do fabricante, e as fotos de produto vêm do site em 600×600
 - [x] `npm run verify` passa inteiro em: 21/10/2026 (0 erros, 13 avisos de resolução, proporção, recorte e tamanho do title)
 - [x] Padrão B2 versão: `2.8.0`

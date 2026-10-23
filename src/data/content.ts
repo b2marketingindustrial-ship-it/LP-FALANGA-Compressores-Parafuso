@@ -61,7 +61,7 @@ export const hero = {
   text: 'Mais ar comprimido com menos custo na sua operação: a Falanga é distribuidora Schulz, com tecnologia de ponta e suporte técnico especializado.',
   banner: {
     src: heroBg,
-    alt: 'Compressores Schulz CSA 7,5 Twister, Bravo CSL 20 BR e MSV 20 Max em galpão industrial',
+    alt: 'Compressores de parafuso Schulz SRP 4025, SRP 4050 e SRP 5100 lado a lado',
   },
   points: [
     { icon: 'badge-check', line1: 'Distribuidor', line2: 'Schulz' },
