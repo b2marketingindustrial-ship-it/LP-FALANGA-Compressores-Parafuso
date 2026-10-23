@@ -46,8 +46,10 @@ export const why = {
     },
     {
       icon: 'badge-check',
-      title: 'Schulz desde 1963',
-      description: 'Marca nacional com produtos de classe internacional.',
+      // A idade da Schulz não vende a Falanga (pedido do usuário, 23/10/2026); o ano e a
+      // origem vêm da página "A empresa" do site do cliente.
+      title: 'Desde 1981',
+      description: 'Do escritório de representação à distribuição Schulz.',
     },
     {
       icon: 'users',
