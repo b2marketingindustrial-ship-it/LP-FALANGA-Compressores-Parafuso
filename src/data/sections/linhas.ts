@@ -58,7 +58,7 @@ export const productLines = {
   text: 'Os compressores de parafuso Schulz entregam ar comprimido contínuo e mais desempenho para as suas operações industriais.',
   area: 'Fornecimento para todo o Nordeste',
   /** Linha de apoio do destaque da área atendida (era a área do header até 23/10/2026). */
-  areaNote: 'Atendimento em Fortaleza e Recife',
+  areaNote: 'Unidades em Fortaleza e Recife',
   gallery: [
     {
       src: galeria1,
