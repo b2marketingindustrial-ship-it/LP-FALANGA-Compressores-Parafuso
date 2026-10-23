@@ -29,7 +29,7 @@ const [photo1, photo2] = productLines.gallery
 ---
 
 <Section id="linhas" tone={tone} rhythm={rhythm}>
-  <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12">
+  <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-12">
     {/* Cabeçalho */}
     <div class="max-w-2xl">
       <p class="flex items-center gap-4 font-sans text-[13px] font-bold tracking-[0.14em] text-brand-blue uppercase sm:text-[14px]">
@@ -58,9 +58,10 @@ const [photo1, photo2] = productLines.gallery
       </p>
     </div>
 
-    {/* Duas fotos, a primeira com o selo */}
-    <div class="grid grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-center gap-3 sm:gap-4">
-      <figure class="relative h-56 overflow-hidden rounded-2xl bg-neutral-gray-100 sm:h-72 xl:h-[340px]">
+    {/* Duas fotos, a primeira com o selo. No desktop as duas têm a altura da coluna de texto
+        (pedido do usuário, 23/10/2026): a foto fica absoluta para não empurrar a linha. */}
+    <div class="grid grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-center gap-3 sm:gap-4 lg:items-stretch">
+      <figure class="relative h-56 overflow-hidden rounded-2xl bg-neutral-gray-100 sm:h-72 lg:h-auto">
         <Image
           src={photo1.src}
           alt={photo1.alt}
@@ -68,14 +69,14 @@ const [photo1, photo2] = productLines.gallery
           format="webp"
           loading="lazy"
           decoding="async"
-          class="h-full w-full object-cover"
+          class="h-full w-full object-cover lg:absolute lg:inset-0"
         />
         <span class="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-neutral-light px-3 py-2 font-sans text-[12px] font-bold text-brand-blue shadow-[0_10px_24px_-14px_rgba(0,33,71,0.6)] sm:bottom-4 sm:left-4 sm:px-4 sm:py-2.5 sm:text-[14px]">
           <Icon name={productLines.badge.icon} class="size-4 shrink-0 sm:size-5" />
           {productLines.badge.label}
         </span>
       </figure>
-      <figure class="h-48 overflow-hidden rounded-2xl bg-neutral-gray-100 sm:h-64 xl:h-[320px]">
+      <figure class="relative h-56 overflow-hidden rounded-2xl bg-neutral-gray-100 sm:h-72 lg:h-auto">
         <Image
           src={photo2.src}
           alt={photo2.alt}
@@ -83,7 +84,7 @@ const [photo1, photo2] = productLines.gallery
           format="webp"
           loading="lazy"
           decoding="async"
-          class="h-full w-full object-cover"
+          class="h-full w-full object-cover lg:absolute lg:inset-0"
         />
       </figure>
     </div>
