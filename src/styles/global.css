@@ -161,6 +161,24 @@
   }
 }
 
+/* Escala única dos títulos de seção (H2), reduzida em 23/10/2026 para dar mais respiro:
+   30px no celular, 36px a partir de 640px, 40px a partir de 1024px e 44px a partir de 1280px. */
+@utility title-section {
+  font-size: 1.875rem;
+
+  @media (width >= 40rem) {
+    font-size: 2.25rem;
+  }
+
+  @media (width >= 64rem) {
+    font-size: 2.5rem;
+  }
+
+  @media (width >= 80rem) {
+    font-size: 2.75rem;
+  }
+}
+
 /* Bloco seguinte dentro de uma seção: o mesmo respiro de uma seção (--section-space),
    dividido ao meio por um filete. */
 @utility lp-block {
