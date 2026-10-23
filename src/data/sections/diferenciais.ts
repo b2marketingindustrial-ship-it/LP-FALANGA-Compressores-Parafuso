@@ -6,7 +6,7 @@
  *
  * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): a foto de
  * cenário já traz o técnico, então não há pessoa recortada. O CTA tem rótulo próprio
- * (`cta`) e a área atendida aparece abaixo dele (`area`).
+ * (`cta`).
  */
 import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
@@ -25,13 +25,17 @@ export const why = {
   /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
   titleLines: ['Há 40 anos, referência em', 'ar comprimido no Nordeste.'],
   /** Cada `\n` é uma quebra forçada a partir de 1280px; abaixo disso o texto corre normal. */
-  text: 'Há mais de 40 anos no mercado, a Falanga é distribuidora\nSchulz no Nordeste, com confiabilidade, qualidade e\nassistência técnica para a sua indústria.',
+  text: 'Distribuidora oficial Schulz, a Falanga acompanha a sua\nindústria do dimensionamento à assistência técnica,\ncom confiabilidade e qualidade em cada etapa.',
   cta: 'Solicitar cotação',
-  area: 'Fornecimento para todo o Nordeste',
   scene: {
     src: cenario,
     alt: 'Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo',
   },
+  /**
+   * Revistos em 23/10/2026 para não repetir o resto da página (pedido do usuário): saíram
+   * "Menos energia" (seção de economia), "40 anos de mercado" e "Todo o Nordeste" (título).
+   * Os novos vêm do catálogo (linha completa) e das etapas do "Como funciona".
+   */
   reasons: [
     {
       icon: 'trend-up',
@@ -39,24 +43,24 @@ export const why = {
       description: 'Operação 24/7 com baixo custo de manutenção.',
     },
     {
-      icon: 'zap',
-      title: 'Menos energia',
-      description: 'Mais ar comprimido com menor consumo de energia.',
-    },
-    {
       icon: 'badge-check',
       title: 'Schulz desde 1963',
       description: 'Marca nacional com produtos de classe internacional.',
     },
     {
-      icon: 'shield-check',
-      title: '40 anos de mercado',
-      description: 'Confiabilidade, qualidade e assistência técnica.',
+      icon: 'layers',
+      title: 'Linha completa',
+      description: 'Toda a linha Schulz, direto do distribuidor oficial.',
     },
     {
-      icon: 'map-pin',
-      title: 'Todo o Nordeste',
-      description: 'Fornecimento com as melhores condições.',
+      icon: 'sliders',
+      title: 'Dimensionamento',
+      description: 'O compressor certo para a demanda da sua planta.',
+    },
+    {
+      icon: 'wrench',
+      title: 'Pós-venda',
+      description: 'Manutenção preventiva e corretiva após a compra.',
     },
   ],
 } as const satisfies {
@@ -64,7 +68,6 @@ export const why = {
   titleLines: readonly [string, string]
   text: string
   cta: string
-  area: string
   scene: Photo
   reasons: readonly [Reason, Reason, Reason, Reason, Reason]
 }
