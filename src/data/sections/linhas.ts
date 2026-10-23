@@ -73,8 +73,9 @@ export const productLines = {
    * da seção de aplicações (compressor, reservatório, filtragem, secador).
    */
   catalog: {
-    title: 'Toda a linha Schulz para a sua indústria.',
-    text: 'Fornecemos todos os compressores de parafuso, secadores, filtros e reservatórios Schulz. Abaixo, algumas referências.',
+    /** Cada `\n` é uma quebra forçada (título a partir de 640px, texto a partir de 768px). */
+    title: 'Toda a linha Schulz\npara a sua indústria.',
+    text: 'Fornecemos todos os compressores de parafuso,\nsecadores, filtros e reservatórios Schulz. Abaixo, algumas referências.',
     categories: [
       { icon: 'gear', label: 'Compressores de parafuso' },
       { icon: 'droplet', label: 'Secadores de ar' },
