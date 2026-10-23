@@ -5,7 +5,7 @@
  * parafuso e o secador, que fecha o grid como card escuro (tratamento de ar).
  *
  * Variante local herdada da LP de manutenção da Falanga (mockup do cliente, 21/10/2026,
- * docs/BRIEFING.md): cabeçalho com duas fotos e faixa de CTA. Nesta LP cada card mostra a
+ * docs/BRIEFING.md): cabeçalho com duas fotos. Nesta LP cada card mostra a
  * foto do produto (`linha-N.png`, recortada da foto do site) e as três características, e
  * abaixo dos cards entra o comparativo das linhas do catálogo Schulz da LP antiga (`range`).
  */
@@ -42,6 +42,8 @@ export const productLines = {
   title: 'Compressores de parafuso com tecnologia de ponta.',
   text: 'Os compressores de parafuso Schulz são conhecidos pela eficiência e durabilidade: mais desempenho para as suas operações industriais.',
   area: 'Fornecimento para todo o Nordeste',
+  /** Linha de apoio do destaque da área atendida (era a área do header até 23/10/2026). */
+  areaNote: 'Atendimento em Fortaleza e Recife',
   gallery: [
     {
       src: galeria1,
@@ -88,11 +90,6 @@ export const productLines = {
         highlight: 'Até 50% menos energia',
       },
     ],
-  },
-  closing: {
-    title: 'Não sabe qual modelo escolher?',
-    text: 'Nossa equipe indica o compressor certo para a sua demanda de ar.',
-    cta: 'Solicitar cotação',
   },
   items: [
     {
@@ -143,10 +140,10 @@ export const productLines = {
   title: string
   text: string
   area: string
+  areaNote: string
   gallery: readonly [Photo, Photo]
   badge: { icon: IconName; label: string }
   range: { title: string; text: string; note: string; items: readonly RangeLine[] }
-  closing: { title: string; text: string; cta: string }
   items:
     | readonly [ProductLine, ProductLine, ProductLine]
     | readonly [ProductLine, ProductLine, ProductLine, ProductLine]

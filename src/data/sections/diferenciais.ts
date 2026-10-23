@@ -35,7 +35,7 @@ export const why = {
   reasons: [
     {
       icon: 'trend-up',
-      title: 'Ótimo custo-benefício',
+      title: 'Custo-benefício',
       description: 'Operação 24/7 com baixo custo de manutenção.',
     },
     {

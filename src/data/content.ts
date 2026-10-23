@@ -41,8 +41,6 @@ export const cta = {
 
 export const header = {
   tagline: site.product,
-  /** Área atendida ao lado da tagline (desktop): o hero do mockup de 22/10/2026 não a traz mais. */
-  area: 'Fortaleza e Recife · Todo o Nordeste',
   /** Rótulo do CTA do header no desktop, do mockup do cliente (21/10/2026). */
   cta: 'Fale com um especialista',
 } as const

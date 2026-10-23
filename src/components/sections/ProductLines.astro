@@ -4,11 +4,11 @@
  *
  * VARIANTE LOCAL herdada da LP de manutenção da Falanga (mockup da seção de serviços,
  * 21/10/2026, docs/BRIEFING.md): cabeçalho à esquerda com duas fotos à direita, cards
- * numerados e uma faixa de CTA. Nesta LP de produto, cada card mostra o chip, a foto do
+ * numerados. Nesta LP de produto, cada card mostra o chip, a foto do
  * equipamento e as três características, como no card da biblioteca, e a faixa de marcas
  * virou o comparativo das linhas do catálogo Schulz (`range`).
  * O contrato da seção é o mesmo da biblioteca — dados, CTAs `linhas-{id}`, um card
- * escuro, `tone`/`rhythm` — mais o CTA `linhas-cotacao` da faixa final.
+ * escuro, `tone`/`rhythm` (a faixa final de CTA saiu a pedido do usuário, 23/10/2026).
  *
  * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
  * Recompor a página exige reaplicá-la a partir do git.
@@ -42,9 +42,19 @@ const [photo1, photo2] = productLines.gallery
       <p class="mt-5 max-w-xl font-sans text-lg leading-relaxed text-ink-soft xl:text-xl">
         {productLines.text}
       </p>
-      <p class="mt-5 flex items-center gap-2.5 font-sans text-[16px] font-medium text-ink">
-        <Icon name="map-pin" class="size-5 shrink-0 text-brand-blue" />
-        {productLines.area}
+      {/* Destaque da distribuição no Nordeste (pedido do usuário, 23/10/2026) */}
+      <p class="mt-7 inline-flex items-center gap-4 rounded-2xl border border-brand-blue/15 bg-brand-mist py-3 pr-6 pl-3">
+        <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue text-neutral-light shadow-[0_10px_20px_-12px_rgba(0,67,161,0.8)]">
+          <Icon name="map-pin" class="size-6" />
+        </span>
+        <span>
+          <span class="block font-display text-[17px] leading-tight font-extrabold text-primary-dark sm:text-[19px]">
+            {productLines.area}
+          </span>
+          <span class="mt-1 block font-sans text-[14px] font-medium text-ink-soft">
+            {productLines.areaNote}
+          </span>
+        </span>
       </p>
     </div>
 
@@ -230,23 +240,4 @@ const [photo1, photo2] = productLines.gallery
     <p class="mt-3 font-sans text-[12px] text-ink-soft">{productLines.range.note}</p>
   </div>
   <BrandCarousel />
-
-  {/* Faixa de CTA */}
-  <div class="mt-6 flex flex-col gap-5 rounded-2xl bg-brand-mist px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
-    <div class="flex items-center gap-5">
-      <span aria-hidden="true" class="h-12 w-1 shrink-0 rounded-full bg-brand-yellow"></span>
-      <div>
-        <p class="font-display text-[20px] leading-snug font-extrabold text-brand-blue sm:text-[22px]">
-          {productLines.closing.title}
-        </p>
-        <p class="mt-1 font-sans text-[15px] text-ink-soft sm:text-[16px]">
-          {productLines.closing.text}
-        </p>
-      </div>
-    </div>
-    <button type="button" data-cta="linhas-cotacao" class="btn-slave-whats cta cta-blue">
-      {productLines.closing.cta}
-      <Icon name="arrow-right" class="shrink-0" />
-    </button>
-  </div>
 </Section>

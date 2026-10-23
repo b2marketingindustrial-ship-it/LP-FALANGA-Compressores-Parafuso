@@ -6,14 +6,16 @@
  * O menu do mockup não entra: uma rota, uma página (regra 1). Registrado em
  * docs/BRIEFING.md (Desvios do padrão).
  *
- * Acabamento de 22/10/2026, a pedido do usuário: filete amarelo-azul no topo, largura de
- * do conteúdo da página, como o hero (a logo alinha com o texto dele), tagline com selo e a área atendida
- * ao lado, e a sombra só depois que a página rola (`data-scrolled`).
- * Muda só: logo (src/assets/LOGO.png), tagline (site.product) e rótulos (content.header, content.cta).
+ * Acabamento de 22/10/2026, a pedido do usuário: filete amarelo-azul no topo, largura do
+ * conteúdo da página, como o hero (a logo alinha com o texto dele), tagline com selo e a
+ * sombra só depois que a página rola (`data-scrolled`). Em 23/10/2026 entrou a logo da
+ * Schulz ao lado da Falanga, com filete, e saiu a área atendida.
+ * Muda só: logos (src/assets/LOGO.png, src/assets/schulz.png), tagline (site.product) e rótulos (content.header, content.cta).
  */
 import { Image } from 'astro:assets'
 import Icon from './Icon.astro'
 import logo from '../assets/LOGO.png'
+import schulzLogo from '../assets/schulz.png'
 import { site } from '../data/site'
 import { header, cta } from '../data/content'
 ---
@@ -24,33 +26,41 @@ import { header, cta } from '../data/content'
     class="block h-[3px] bg-[linear-gradient(90deg,var(--color-brand-yellow)_0%,var(--color-brand-yellow)_40%,var(--color-brand-blue)_100%)]"
   ></span>
   <div class="page-container flex items-center justify-between gap-3 py-3 sm:gap-6">
-    {/* 1. Logo alinhada na barra */}
-    <a href="/" class="flex shrink-0 items-center">
+    {/* 1. Logo da Falanga e, separada por um filete, a da Schulz (23/10/2026). A da Schulz
+        some abaixo de 640px, onde não cabe ao lado do CTA. */}
+    <div class="flex shrink-0 items-center gap-5 lg:gap-6">
+      <a href="/" class="flex shrink-0 items-center">
+        <Image
+          src={logo}
+          alt={site.brand}
+          width={341}
+          height={82}
+          format="webp"
+          loading="eager"
+          fetchpriority="low"
+          decoding="async"
+          class="header-logo h-10 w-auto sm:h-14"
+        />
+      </a>
+      <span aria-hidden="true" class="hidden h-10 w-px bg-primary-dark/15 sm:block"></span>
       <Image
-        src={logo}
-        alt={site.brand}
-        width={341}
-        height={82}
+        src={schulzLogo}
+        alt="Schulz"
+        width={240}
         format="webp"
         loading="eager"
-        fetchpriority="low"
         decoding="async"
-        class="header-logo h-10 w-auto sm:h-14"
+        class="hidden h-6 w-auto sm:block lg:h-7"
       />
-    </a>
+    </div>
 
-    {/* 2. Tagline com selo e área atendida (somem no mobile) — no lugar do menu do mockup */}
+    {/* 2. Tagline com selo (some no mobile) — no lugar do menu do mockup */}
     <div class="hidden flex-1 items-center justify-end gap-6 lg:flex">
       <span class="flex items-center gap-2.5 font-display text-[13px] font-extrabold tracking-[0.14em] text-primary-dark uppercase">
         <span class="flex size-7 items-center justify-center rounded-full bg-brand-yellow-soft text-[#00256f]">
           <Icon name="badge-check" class="size-4" />
         </span>
         {header.tagline}
-      </span>
-      <span aria-hidden="true" class="h-6 w-px bg-primary-dark/15"></span>
-      <span class="flex items-center gap-2 font-sans text-[14px] font-semibold text-ink-soft">
-        <Icon name="map-pin" class="size-4 shrink-0 text-brand-blue" />
-        {header.area}
       </span>
     </div>
 
