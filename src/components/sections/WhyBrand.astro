@@ -6,7 +6,7 @@
  * inatividade", docs/BRIEFING.md): bloco navy em largura total com o fim do título em
  * amarelo, CTA em pílula amarela e a área atendida; à direita, uma foto única (o técnico
  * já está nela) fechada por uma faixa amarela curva; e os 5 cards sobrepostos à base,
- * com ícone em quadrado amarelo ao lado do texto. Conteúdo e cards vão até 1450px, como
+ * com ícone em quadrado amarelo acima do título (trilho com rolagem abaixo de 1280px). Conteúdo e cards vão até 1450px, como
  * o "Como funciona". O contrato é o mesmo da biblioteca — 5 motivos, CTA
  * `diferenciais-cta`, bloco navy, `tone`/`rhythm`.
  *
@@ -118,27 +118,27 @@ const titleBottom = why.titleLines.at(-1)
   {/* Cards sobrepostos à base do bloco navy */}
   <div data-why class="page-container relative z-10 -mt-16 lg:-mt-20">
     <ul
-      class="why-track scroll-track -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0 lg:pb-0"
+      class="why-track scroll-track -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 lg:-mx-12 lg:px-12 xl:mx-0 xl:grid xl:grid-cols-5 xl:gap-3 xl:overflow-visible xl:px-0 xl:pb-0 2xl:gap-4"
       aria-label={why.eyebrow}
     >
+      {/* Ícone em cima, para o título caber numa linha e a descrição em duas (pedido do
+          usuário, 23/10/2026). A descrição reserva sempre a altura de duas linhas. */}
       {why.reasons.map((reason) => (
-        <li class="flex w-[82%] shrink-0 snap-start items-start gap-4 rounded-2xl bg-neutral-light p-5 shadow-[0_24px_48px_-26px_rgba(0,24,48,0.5)] sm:w-[46%] lg:w-auto 2xl:p-6">
-          <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-yellow-soft text-[#00256f] 2xl:size-14">
-            <Icon name={reason.icon} class="size-6 2xl:size-7" />
+        <li class="flex w-[82%] shrink-0 snap-start flex-col rounded-2xl bg-neutral-light p-5 shadow-[0_24px_48px_-26px_rgba(0,24,48,0.5)] sm:w-[46%] lg:w-[31%] xl:w-auto xl:p-4 2xl:p-5">
+          <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand-yellow-soft text-[#00256f]">
+            <Icon name={reason.icon} class="size-6" />
           </span>
-          <span class="min-w-0">
-            <h3 class="font-display text-[16px] leading-snug font-extrabold text-brand-blue-dark 2xl:text-[18px]">
-              {reason.title}
-            </h3>
-            <p class="mt-1.5 font-sans text-[14px] leading-relaxed text-ink-soft 2xl:text-[15px]">
-              {reason.description}
-            </p>
-          </span>
+          <h3 class="mt-4 font-display text-[16px] leading-snug font-extrabold whitespace-nowrap text-brand-blue-dark xl:text-[15px] 2xl:text-[16px]">
+            {reason.title}
+          </h3>
+          <p class="mt-1.5 min-h-[3.25em] font-sans text-[14px] leading-relaxed text-ink-soft">
+            {reason.description}
+          </p>
         </li>
       ))}
     </ul>
 
-    <div class="mt-3 flex items-center justify-center gap-3 lg:hidden">
+    <div class="mt-3 flex items-center justify-center gap-3 xl:hidden">
       <button
         type="button"
         data-why-prev
