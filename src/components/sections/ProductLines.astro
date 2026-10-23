@@ -122,7 +122,9 @@ const energyTail =
   </div>
 
   {/* Cards de produto e das linhas Schulz numa grade só, um escuro */}
-  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4 lg:gap-5">
+  {/* Blocos da seção (abertura, grade, gráfico) separados por 70px com um filete no meio
+      (pedido do usuário, 23/10/2026): `lp-block` em global.css. */}
+  <div class="lp-block grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
     {lines.map((line, i) => (
       <article
         class:list={[
@@ -250,7 +252,7 @@ const energyTail =
   {/* Gráfico velocidade constante × variável: barras sobem, a seta se desenha e o "50%" conta
       quando o gráfico entra na tela (pedido do usuário, 23/10/2026). Sem JavaScript, ou com
       movimento reduzido, aparece pronto. */}
-  <div class="mt-12 grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+  <div class="lp-block grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
     <figure
       data-energy-chart
       class="energy-chart rounded-2xl border border-[#e3e8f1] bg-brand-mist/60 p-5 sm:p-7"
