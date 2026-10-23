@@ -295,10 +295,12 @@ const energyTail =
 </Section>
 
 <Section id="economia" tone={tone} rhythm={rhythm}>
-  <div class="grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+  {/* No desktop, o card do gráfico estica até a altura da coluna de texto e a área das
+      barras cresce para ocupar o espaço (pedido do usuário, 23/10/2026). */}
+  <div class="grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-stretch lg:gap-14">
     <figure
       data-energy-chart
-      class="energy-chart rounded-2xl border border-[#e3e8f1] bg-brand-mist/60 p-5 sm:p-7"
+      class="energy-chart flex flex-col rounded-2xl border border-[#e3e8f1] bg-brand-mist/60 p-5 sm:p-7"
     >
       <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-2">
         <span class="flex items-center gap-2 font-sans text-[13px] font-semibold text-ink-soft">
@@ -311,7 +313,10 @@ const energyTail =
         </span>
       </div>
 
-      <div aria-hidden="true" class="relative mt-5 h-64 border-b-2 border-primary-dark/15 sm:h-72">
+      <div
+        aria-hidden="true"
+        class="relative mt-5 h-64 border-b-2 border-primary-dark/15 sm:h-72 lg:h-auto lg:min-h-64 lg:flex-1"
+      >
         {/* Destaque do "até 50%", sobre as barras baixas */}
         <div class="energy-callout absolute top-0 left-[27%] flex items-center gap-3 sm:left-[29%]">
           <span class="font-display leading-none font-extrabold text-brand-blue">
@@ -382,22 +387,21 @@ const energyTail =
 
       <ul class="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
         {energy.stats.map((stat) => (
-          <li class="rounded-2xl border border-[#e3e8f1] bg-neutral-light p-4 shadow-[0_14px_30px_-24px_rgba(0,33,71,0.45)] sm:p-5">
-            {/* Modelo em cima, número grande, rótulo embaixo: nada quebra no meio */}
-            <span class="flex items-center justify-between gap-3">
-              <span class="font-sans text-[11px] font-bold tracking-[0.12em] whitespace-nowrap text-brand-blue uppercase sm:text-[12px]">
+          <li class="flex items-center gap-3 rounded-xl border border-[#e3e8f1] bg-neutral-light px-3.5 py-3 shadow-[0_10px_24px_-20px_rgba(0,33,71,0.45)]">
+            <span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand-blue text-brand-yellow">
+              <Icon name="bolt" class="size-[18px]" />
+            </span>
+            <span class="min-w-0">
+              <span class="flex items-baseline gap-1.5 whitespace-nowrap">
+                <span class="font-sans text-[12px] font-bold text-ink-soft">até</span>
+                <span class="font-display text-[24px] leading-none font-extrabold tracking-[-0.02em] text-primary-dark">
+                  {stat.value}
+                </span>
+                <span class="font-sans text-[13px] font-medium text-ink-soft">{stat.label}</span>
+              </span>
+              <span class="mt-1 block font-sans text-[11px] font-bold tracking-[0.12em] whitespace-nowrap text-brand-blue uppercase">
                 {stat.line}
               </span>
-              <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-blue text-brand-yellow">
-                <Icon name="bolt" class="size-4" />
-              </span>
-            </span>
-            <span class="mt-3 flex items-baseline gap-1.5 font-display leading-none font-extrabold text-primary-dark">
-              <span class="font-sans text-[14px] font-bold text-ink-soft">até</span>
-              <span class="text-[34px] tracking-[-0.03em]">{stat.value}</span>
-            </span>
-            <span class="mt-1.5 block font-sans text-[14px] font-medium text-ink-soft">
-              {stat.label}
             </span>
           </li>
         ))}
