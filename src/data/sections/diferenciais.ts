@@ -22,9 +22,10 @@ export interface Reason {
 
 export const why = {
   eyebrow: `Por que a ${site.brandShort}`,
-  /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
-  titleLines: ['Eficiência e confiabilidade', 'garantidas.'],
-  text: 'Há mais de 40 anos no mercado, a Falanga é distribuidora Schulz no Nordeste, com confiabilidade, qualidade e assistência técnica para a sua indústria.',
+  /** Cada item é uma linha do H2 (quebra forçada): as primeiras em branco, a última em amarelo. */
+  titleLines: ['Eficiência e', 'confiabilidade', 'garantidas.'],
+  /** Cada `\n` é uma quebra forçada a partir de 1280px; abaixo disso o texto corre normal. */
+  text: 'Há mais de 40 anos no mercado, a Falanga é distribuidora Schulz\nno Nordeste, com confiabilidade, qualidade e assistência\ntécnica para a sua indústria.',
   cta: 'Solicitar cotação',
   area: 'Fornecimento para todo o Nordeste',
   scene: {
@@ -60,7 +61,7 @@ export const why = {
   ],
 } as const satisfies {
   eyebrow: string
-  titleLines: readonly [string, string]
+  titleLines: readonly [string, string, string]
   text: string
   cta: string
   area: string

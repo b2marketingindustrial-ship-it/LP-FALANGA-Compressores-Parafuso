@@ -26,9 +26,9 @@
   --color-brand-yellow-soft: #feedab;
   --color-brand-mist: #ecf1f9;
 
-  /* Largura única do conteúdo em toda a página (padronizada em 23/10/2026): a mesma do
-     header e do hero. Use sempre a utility `page-container`, nunca max-w avulso. */
-  --container-page: 1680px;
+  /* Largura única do conteúdo em toda a página (padronizada em 23/10/2026, 1400px a
+     pedido do usuário). Use sempre a utility `page-container`, nunca max-w avulso. */
+  --container-page: 1400px;
 
   /* Uma única família para títulos e corpo; o peso e o tracking fazem a hierarquia. */
   --font-display: 'Manrope', ui-sans-serif, system-ui, sans-serif;
@@ -64,7 +64,7 @@
   }
 }
 
-/* Contêiner de toda seção, header e footer: 1680px, gutter de 24px (mobile) e 48px (desktop). */
+/* Contêiner de toda seção, header e footer: 1400px, gutter de 24px (mobile) e 48px (desktop). */
 @utility page-container {
   width: 100%;
   max-width: var(--container-page);

@@ -50,16 +50,17 @@ export const header = {
 /* -------------------------------------------------------------------- hero */
 
 export const hero = {
+  /** Frase de efeito na pílula acima do título (pedido do usuário, 23/10/2026). */
+  pill: 'Mais ar. Menos custo.',
   /**
-   * H1 da página, exibido como a linha de abertura acima da manchete (mockup do cliente,
-   * 22/10/2026). É o que o check:lp confere contra a palavra-chave da campanha: o mockup
-   * diz "Compressores Schulz", e o "de parafuso" fica porque é a palavra-chave.
+   * H1 da página, agora a manchete grande: o produto em destaque (pedido do usuário,
+   * 23/10/2026). É o que o check:lp confere contra a palavra-chave da campanha.
+   * `highlight` é o trecho final em amarelo; `tail` completa a frase comercial, também em amarelo.
    */
   title: 'Compressores de parafuso Schulz',
-  /** Manchete visual, uma linha por item: primeiro em branco, depois em amarelo. */
-  headline: ['Mais ar.'],
-  highlight: ['Menos custo', 'na sua indústria.'],
-  text: 'Somos distribuidores Schulz: compressores com tecnologia de ponta e suporte técnico especializado para a sua indústria.',
+  highlight: 'Schulz',
+  tail: 'para a sua indústria.',
+  text: 'Mais ar comprimido com menos custo na sua operação: a Falanga é distribuidora Schulz, com tecnologia de ponta e suporte técnico especializado.',
   banner: {
     src: heroBg,
     alt: 'Compressores Schulz CSA 7,5 Twister, Bravo CSL 20 BR e MSV 20 Max em galpão industrial',
@@ -72,8 +73,9 @@ export const hero = {
   ],
 } as const satisfies {
   title: string
-  headline: readonly string[]
-  highlight: readonly string[]
+  pill: string
+  highlight: string
+  tail: string
   text: string
   banner: Photo
   points: readonly [HeroPoint, HeroPoint, HeroPoint, HeroPoint]
@@ -90,23 +92,11 @@ export const quote = {
     { icon: 'wrench', label: 'Suporte técnico especializado' },
     { icon: 'shield', label: 'Mais de 40 anos de mercado' },
   ],
-  /**
-   * Cabeçalho do card do formulário (mockup do cliente, 21/10/2026). O `eyebrow` acima
-   * vai no card, e não mais na coluna de texto, para não aparecer duas vezes lado a lado.
-   */
-  form: {
-    title: 'Como podemos ajudar?',
-    text: 'Preencha os dados e conte qual compressor a sua operação precisa.',
-  },
-  /** Nota de LGPD exibida abaixo do formulário. */
-  lgpd: `Seus dados serão utilizados apenas para responder à sua solicitação.`,
 } as const satisfies {
   eyebrow: string
   title: string
   text: string
   trust: readonly [TrustItem, TrustItem, TrustItem]
-  form: { title: string; text: string }
-  lgpd: string
 }
 
 /* ------------------------------------------------------------------ footer */

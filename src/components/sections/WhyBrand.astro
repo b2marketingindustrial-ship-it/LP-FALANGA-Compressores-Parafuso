@@ -6,7 +6,7 @@
  * inatividade", docs/BRIEFING.md): bloco navy em largura total com o fim do título em
  * amarelo, CTA em pílula amarela e a área atendida; à direita, uma foto única (o técnico
  * já está nela) fechada por uma faixa amarela curva; e os 5 cards sobrepostos à base,
- * com ícone em quadrado amarelo ao lado do texto. Conteúdo e cards vão até 1680px, como
+ * com ícone em quadrado amarelo ao lado do texto. Conteúdo e cards vão até 1400px, como
  * o "Como funciona". O contrato é o mesmo da biblioteca — 5 motivos, CTA
  * `diferenciais-cta`, bloco navy, `tone`/`rhythm`.
  *
@@ -22,7 +22,8 @@ import { why } from '@data/sections/diferenciais'
 type Props = SectionProps
 
 const { tone, rhythm } = Astro.props
-const [titleTop, titleBottom] = why.titleLines
+const titleTop = why.titleLines.slice(0, -1)
+const titleBottom = why.titleLines.at(-1)
 ---
 
 <Section id="diferenciais" tone={tone} rhythm={rhythm} container={false} class="relative">
@@ -65,7 +66,7 @@ const [titleTop, titleBottom] = why.titleLines
     </svg>
 
     <div class="page-container relative z-[2] pt-(--section-space) pb-10 lg:pb-36">
-      <div class="max-w-xl lg:max-w-[44%]">
+      <div class="max-w-xl lg:max-w-[44%] xl:max-w-[36rem]">
         <p class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.16em] text-[#97d1f7] uppercase sm:text-[15px]">
           <span
             aria-hidden="true"
@@ -74,10 +75,14 @@ const [titleTop, titleBottom] = why.titleLines
           {why.eyebrow}
         </p>
         <h2 class="mt-4 font-display text-[2.6rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[3.25rem] xl:text-[3.6rem] 2xl:text-[4rem]">
-          <span class="block">{titleTop}</span>
+          {titleTop.map((line) => (
+            <span class="block">{line}</span>
+          ))}
           <span class="block text-brand-yellow">{titleBottom}</span>
         </h2>
-        <p class="mt-5 font-sans text-lg leading-relaxed text-[#8cc6f2] 2xl:text-xl">{why.text}</p>
+        <p class="mt-5 font-sans text-lg leading-relaxed text-[#8cc6f2] xl:whitespace-pre-line 2xl:text-xl">
+          {why.text}
+        </p>
         <button
           type="button"
           data-cta="diferenciais-cta"

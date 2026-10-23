@@ -6,19 +6,23 @@
  *
  * Desvio pedido pelo cliente em 22/10/2026 (mockup "Compressores Schulz", docs/BRIEFING.md):
  * fundo navy com malha de blueprint à esquerda; os compressores Schulz começam logo depois
- * do texto, com a foto ancorada ao fim da coluna 1 até a borda da tela; o H1 com a
- * palavra-chave é a linha de abertura, acima da manchete ("Mais ar." em branco, o resto em
- * amarelo); quatro pontos em grade 2×2 com ícone amarelo; um único CTA em pílula amarela.
- * O shortcode do chat fica sozinho na coluna 3, sem card nem cabeçalho (23/10/2026).
- * Conteúdo até 1680px, como o "Como funciona" e os diferenciais: a coluna de texto tem
- * largura fixa e a janela do banner fica com o resto, para os três compressores caberem
- * entre o texto e o chat.
+ * do texto, com a foto ancorada ao fim da coluna 1 até a borda da tela; um único CTA em
+ * pílula amarela. Ajustes de 23/10/2026: a frase de efeito vai numa pílula e o H1 com a
+ * palavra-chave é a manchete, com o produto em destaque; os quatro pontos ficam numa linha,
+ * ícone ao lado do texto; o shortcode do chat fica sozinho na coluna 3, sem card.
+ * Conteúdo até 1400px (--container-page), como as outras seções: a coluna de texto tem
+ * largura fixa e a janela do banner fica com o resto.
  */
 import { Picture } from 'astro:assets'
 import Icon from './Icon.astro'
 import { hero, cta } from '../data/content'
 
 const isDev = import.meta.env.DEV
+
+// O trecho em amarelo é o fim do H1; o texto inteiro continua em `hero.title`.
+const cut = hero.title.lastIndexOf(hero.highlight)
+const lead = cut >= 0 ? hero.title.slice(0, cut).trimEnd() : hero.title
+const highlight = cut >= 0 ? hero.highlight : ''
 ---
 
 <section class="hero relative overflow-hidden [container-type:inline-size]" data-hero>
@@ -48,36 +52,31 @@ const isDev = import.meta.env.DEV
     <div class="hero-grid grid items-center gap-y-12 lg:min-h-[600px] lg:gap-x-6">
       {/* Coluna 1 — textos */}
       <div class="max-w-xl lg:max-w-none">
-        {/* H1 com a palavra-chave da campanha, na forma de linha de abertura */}
-        <h1 class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.14em] text-neutral-light/90 uppercase sm:text-[15px]">
-          <span
-            aria-hidden="true"
-            class="h-[3px] w-12 shrink-0 rounded-full bg-brand-yellow"
-          ></span>
-          {hero.title}
-        </h1>
-
-        {/* Manchete visual: cada item é uma linha */}
-        <p class="mt-5 font-display text-[2.4rem] leading-[1.02] font-extrabold tracking-[-0.035em] text-neutral-light sm:text-[3.25rem] lg:text-[3rem] xl:text-[3.75rem] 2xl:text-[4.5rem]">
-          {hero.headline.map((line) => (
-            <span class="block">{line}</span>
-          ))}
-          {hero.highlight.map((line) => (
-            <span class="block text-brand-yellow">{line}</span>
-          ))}
+        {/* Pílula com a frase de efeito */}
+        <p class="inline-flex items-center gap-2.5 rounded-full border border-brand-yellow/40 bg-white/[0.06] px-4 py-1.5 font-sans text-[13px] font-bold tracking-[0.12em] text-brand-yellow uppercase sm:text-[14px]">
+          <span aria-hidden="true" class="size-2 shrink-0 rounded-full bg-brand-yellow"></span>
+          {hero.pill}
         </p>
+
+        {/* H1 com a palavra-chave da campanha: o produto, com o fim da frase em amarelo */}
+        <h1 class="mt-5 font-display text-[2.4rem] leading-[1.04] font-extrabold tracking-[-0.035em] text-balance text-neutral-light sm:text-[3rem] lg:text-[2.75rem] xl:text-[3.4rem] 2xl:text-[3.75rem]">
+          {lead}{' '}
+          <span class="text-brand-yellow">
+            {highlight} {hero.tail}
+          </span>
+        </h1>
 
         <p class="mt-6 max-w-[34rem] font-sans text-lg leading-relaxed text-neutral-light/90 2xl:text-xl">
           {hero.text}
         </p>
 
-        {/* 4 pontos numa linha só (pedido do usuário, 23/10/2026): ícone amarelo em cima, texto
+        {/* 4 pontos numa linha só, ícone ao lado do texto (pedido do usuário, 23/10/2026); texto
             sempre em duas linhas. Abaixo de 640px voltam à grade 2×2, por falta de largura. */}
-        <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:flex sm:items-start sm:gap-x-7 xl:gap-x-9">
+        <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:w-max sm:items-center sm:gap-x-5">
           {hero.points.map((point) => (
-            <li class="flex flex-col gap-2.5">
-              <Icon name={point.icon} class="size-8 shrink-0 text-brand-yellow" />
-              <span class="font-sans text-[14px] leading-snug font-semibold text-neutral-light xl:text-[15px]">
+            <li class="flex items-center gap-2.5">
+              <Icon name={point.icon} class="size-9 shrink-0 text-brand-yellow sm:size-8" />
+              <span class="font-sans text-[14px] leading-tight font-semibold text-neutral-light sm:text-[13px]">
                 <span class="block whitespace-nowrap">{point.line1}</span>
                 <span class="block whitespace-nowrap">{point.line2}</span>
               </span>
@@ -175,7 +174,7 @@ const isDev = import.meta.env.DEV
     mask-image: radial-gradient(ellipse 55% 75% at 18% 22%, #000 0%, transparent 78%);
   }
 
-  /* Borda da página (conteúdo até 1680px, padding de 48px) e fim da coluna de texto. */
+  /* Borda da página (conteúdo até --container-page, padding de 48px) e fim da coluna de texto. */
   .hero-photo,
   .hero-grid {
     --page-max: var(--container-page);

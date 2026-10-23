@@ -202,7 +202,7 @@ for (const f of astroFiles) {
     ],
     // Mesmo desvio: a foto vai do fim da coluna de texto até a borda da tela, e o
     // shortcode do chat fica num card branco que encosta na margem. Repinada em
-    // 22/10/2026 (mockup "Compressores Schulz", docs/BRIEFING.md): conteúdo até 1680px,
+    // 22/10/2026 (mockup "Compressores Schulz", docs/BRIEFING.md): conteúdo até --container-page (1400px desde 23/10/2026),
     // coluna de texto de largura fixa, janela do banner com o resto e card de 340px com
     // cabeçalho — para os três compressores caberem entre o texto e o card.
     'Hero.astro': [
