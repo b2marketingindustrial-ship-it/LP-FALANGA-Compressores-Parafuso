@@ -5,8 +5,9 @@
  * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup "Do diagnóstico
  * ao compressor em operação", docs/BRIEFING.md): painel navy com o fim do título em
  * amarelo, as etapas numa trilha com círculos amarelos numerados ligados por uma linha
- * com setas, cada etapa num card contornado com ícone amarelo, e uma faixa final com o
- * selo da equipe e o CTA. O contrato da seção é o mesmo da biblioteca — etapas, CTA
+ * com setas, cada etapa num card contornado com ícone amarelo. CTA e selo da equipe
+ * ficam ao lado do cabeçalho; em 23/10/2026 o bloco foi compactado (título, círculos e
+ * cards menores, ícone ao lado do título do card). O contrato da seção é o mesmo da biblioteca — etapas, CTA
  * `processo-cta`, painel navy, `tone`/`rhythm`.
  *
  * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
@@ -31,67 +32,67 @@ const highlight = cut >= 0 ? process.highlight : ''
 <Section id="processo" tone={tone} rhythm={rhythm} container={false}>
   {/* Painel na largura do conteúdo da página (page-container), como as outras seções. */}
   <div class="page-container">
-    <div class="process-panel relative overflow-hidden rounded-[28px] p-6 shadow-[0_24px_60px_-34px_rgba(0,24,48,0.8)] sm:p-8 lg:px-10 lg:py-9 2xl:px-14 2xl:py-10">
+    <div class="process-panel relative overflow-hidden rounded-[28px] p-6 shadow-[0_24px_60px_-34px_rgba(0,24,48,0.8)] sm:p-8 lg:p-10">
       <div class="relative">
-        {/* Cabeçalho: textos à esquerda, selo da equipe e CTA ao lado (pedido do usuário, 23/10/2026) */}
-        <div class="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+        {/* Cabeçalho: textos à esquerda; CTA e selo da equipe à direita, alinhados à base do texto */}
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
           <div class="min-w-0">
-            <p class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.2em] text-[#8bcdff] uppercase sm:text-[14px]">
+            <p class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.2em] text-[#8bcdff] uppercase">
               <span
                 aria-hidden="true"
                 class="h-[4px] w-10 shrink-0 rounded-full bg-brand-yellow"
               ></span>
               {process.eyebrow}
             </p>
-            <h2 class="mt-3 font-display text-[2.25rem] leading-[1.05] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.3rem] 2xl:text-[3.6rem]">
+            <h2 class="mt-3 font-display text-[2rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[2.5rem] xl:text-[2.75rem]">
               {lead} {highlight && <span class="text-brand-yellow sm:block">{highlight}</span>}
             </h2>
-            <p class="mt-3 max-w-3xl font-sans text-lg leading-relaxed text-neutral-light/80">
+            <p class="mt-3 max-w-2xl font-sans text-[17px] leading-relaxed text-neutral-light/80">
               {process.text}
             </p>
           </div>
 
-          <div class="flex shrink-0 flex-col items-start gap-5 lg:items-end">
-            <div class="flex items-center gap-4">
-              <Icon name="shield-check" class="size-10 shrink-0 text-brand-yellow" />
-              <span aria-hidden="true" class="h-10 w-px bg-white/20"></span>
-              <span class="font-display text-[17px] font-bold text-neutral-light sm:text-[18px]">
-                {process.microcopy}
-              </span>
-            </div>
+          <div class="flex shrink-0 flex-col items-start gap-3 lg:items-end">
             <button type="button" data-cta="processo-cta" class="btn-slave-whats cta cta-yellow">
               {process.cta}
               <Icon name="arrow-right" class="shrink-0" />
             </button>
+            <p class="flex items-center gap-2 font-sans text-[14px] font-semibold text-neutral-light/80">
+              <Icon name="shield-check" class="size-5 shrink-0 text-brand-yellow" />
+              {process.microcopy}
+            </p>
           </div>
         </div>
 
-        {/* Trilha de etapas */}
+        {/* Trilha de etapas: círculo numerado sobre a linha, card com ícone e título lado a lado */}
         <ol
-          class="process-track relative mt-8 grid gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-[repeat(var(--process-steps),minmax(0,1fr))] 2xl:gap-x-5"
+          class="process-track relative mt-10 grid gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-[repeat(var(--process-steps),minmax(0,1fr))]"
           style={`--process-steps: ${steps.length}`}
         >
           <span
             aria-hidden="true"
-            class="process-line pointer-events-none absolute inset-x-0 top-7 hidden h-[2px] lg:block"
+            class="process-line pointer-events-none absolute inset-x-0 top-[21px] hidden h-[2px] lg:block"
           ></span>
           {steps.map((step, i) => (
             <li class="relative flex flex-col items-center">
               {i > 0 && (
                 <span
                   aria-hidden="true"
-                  class="absolute top-[22px] -left-[13px] hidden size-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-brand-yellow lg:block 2xl:-left-[15px]"
+                  class="absolute top-4 -left-[13px] hidden size-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-brand-yellow lg:block"
                 />
               )}
-              <span class="relative z-[2] flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-yellow font-display text-[20px] font-extrabold text-primary-dark-900">
+              <span class="relative z-[2] flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-yellow font-display text-[16px] font-extrabold text-primary-dark-900">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <div class="-mt-4 w-full flex-1 rounded-2xl border border-[#1f5fa8]/80 bg-white/[0.03] px-5 pt-9 pb-6 2xl:px-6">
-                <Icon name={step.icon} class="size-10 text-brand-yellow" />
-                <h3 class="mt-4 font-display text-[18px] leading-snug font-extrabold text-neutral-light 2xl:text-[20px]">
-                  {step.title}
-                </h3>
-                <p class="mt-2 font-sans text-[15px] leading-relaxed text-neutral-light/75">
+              <div class="-mt-[22px] w-full flex-1 rounded-2xl border border-[#1f5fa8]/80 bg-white/[0.03] px-5 pt-9 pb-5">
+                {/* Altura de duas linhas no desktop, para as descrições começarem na mesma altura */}
+                <div class="flex items-center gap-3 lg:min-h-[2.75rem]">
+                  <Icon name={step.icon} class="size-6 shrink-0 text-brand-yellow" />
+                  <h3 class="font-display text-[16px] leading-snug font-extrabold text-neutral-light xl:text-[17px]">
+                    {step.title}
+                  </h3>
+                </div>
+                <p class="mt-2.5 font-sans text-[14px] leading-relaxed text-neutral-light/75">
                   {step.description}
                 </p>
               </div>
