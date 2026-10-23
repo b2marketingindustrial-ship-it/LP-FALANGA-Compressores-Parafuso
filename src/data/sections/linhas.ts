@@ -160,12 +160,13 @@ export const productLines = {
     /** Ao lado do CTA: o texto da antiga faixa "Não sabe qual modelo escolher?". */
     ctaNote: 'Tire dúvidas sobre velocidade fixa ou variável com a nossa equipe.',
     /**
-     * Dois dados do catálogo Schulz em destaque. O "até 50%" já está no título e no gráfico,
-     * então o primeiro card traz a faixa de potência da velocidade variável.
+     * Dois dados do catálogo Schulz em destaque: a faixa de potência da velocidade variável e
+     * a maior redução de consumo (SRP 5000 Flex), que é o benefício a destacar (pedido do
+     * usuário, 23/10/2026) — os 38% da SRP 4000 Flex ficam só no card da linha.
      */
     stats: [
       { prefix: 'de', value: '5 a 250', label: 'hp', line: 'Velocidade variável' },
-      { prefix: 'até', value: '38%', label: 'menos energia', line: 'SRP 4000 Flex' },
+      { prefix: 'até', value: '50%', label: 'menos energia', line: 'SRP 5000 Flex' },
     ],
     saving: { prefix: 'em até', value: 50, label: ['em economia', 'de energia'] },
     legend: { fixed: 'Velocidade constante', variable: 'Velocidade variável' },
