@@ -25,10 +25,10 @@ const lead = cut >= 0 ? hero.title.slice(0, cut).trimEnd() : hero.title
 const highlight = cut >= 0 ? hero.highlight : ''
 ---
 
-{/* Desktop: o hero ocupa 85% da altura da tela (pedido do usuário, 23/10/2026), com piso de
-    600px para o conteúdo não ser cortado em notebooks baixos. */}
+{/* Desktop: sem altura fixa; a altura vem do conteúdo, com 100px acima dos textos e 100px
+    abaixo do botão (pedido do usuário, 26/10/2026). */}
 <section
-  class="hero relative overflow-hidden [container-type:inline-size] lg:flex lg:h-[85svh] lg:min-h-[600px] lg:items-center"
+  class="hero relative overflow-hidden [container-type:inline-size]"
   data-hero
 >
   {/* z0 — malha de blueprint à esquerda, como no mockup */}
@@ -53,7 +53,7 @@ const highlight = cut >= 0 ? hero.highlight : ''
   </div>
 
   {/* z5 — conteúdo */}
-  <div class="page-container relative z-[5] pt-14 pb-[320px] lg:py-12">
+  <div class="page-container relative z-[5] pt-14 pb-[320px] lg:py-[100px]">
     <div class="hero-grid grid items-center gap-y-12 lg:gap-x-6">
       {/* Coluna 1 — textos */}
       <div class="max-w-xl lg:max-w-none">
